@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - PickUp
+  - Instrument
+  - Main
+  - Gercon
+  - UIDraggable
+  - Probe
+  - Provod
+  - Placat
+  - ProvodClamp
+  - Button
+  - Zajim
+  - Krishka
+  - Door
+  - Bolt
+  - ToRun
+  - UI
+  - ship
+  - asteroid
+  - ContextPanel
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - MovableObjectPoint
+  - Water
+  - UI
+  - Item
+  - Cable
+  - Screw
+  - CE602M
+  - CablePoint
+  - Plane
+  - TransformerPlace
+  - Plane2
+  - IKK
+  - MagnitePoint
+  - Door
+  - Screwdriver
+  - Parma
+  - ClampElectric
+  - Binocle
+  - Plakat
+  - CounterLid
+  - Cap
+  - IkKPoint
+  - CounterPoint
+  - Transformator
+  - ThirdStageCablePoint
+  - Marker
+  - Plomb
+  - ParmaComponent
+  - SIMAntenaPoint
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

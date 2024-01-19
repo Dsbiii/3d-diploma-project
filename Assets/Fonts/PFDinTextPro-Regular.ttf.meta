@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 5caaf171e594ee840ba14d9e6c2220d9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 64
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PF DinText Pro
+  fontNames:
+  - PF DinText Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 141bc6a14e5cf1e41a636e33e2050801, type: 3}
+  - {fileID: 12800000, guid: 3c1106e142f006a458dfc40adbd6198f, type: 3}
+  - {fileID: 12800000, guid: 0d499af30c40918478095ea1061e30f6, type: 3}
+  - {fileID: 12800000, guid: 58eede680c342334e8df6cb8b768acbf, type: 3}
+  - {fileID: 12800000, guid: 2b70fe2a800a49b439f10cad24791c7c, type: 3}
+  - {fileID: 12800000, guid: 39c0319cfe1e48646a6763fc350e2f40, type: 3}
+  - {fileID: 12800000, guid: 0915c39f592e88a41b69d58a3481a86c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

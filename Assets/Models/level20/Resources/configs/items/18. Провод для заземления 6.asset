@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466686b9a47bb10f7c1e135b3d789eeb, type: 3}
+  m_Name: "18. \u041F\u0440\u043E\u0432\u043E\u0434 \u0434\u043B\u044F \u0437\u0430\u0437\u0435\u043C\u043B\u0435\u043D\u0438\u044F 6"
+  m_EditorClassIdentifier: 
+  _id: "grounding6"
+  _name: "\u041F\u0440\u043E\u0432\u043E\u0434 \u0434\u043B\u044F \u0437\u0430\u0437\u0435\u043C\u043B\u0435\u043D\u0438\u044F 6"
+  _image: {fileID: 21300000, guid: 85cd120171c5491f83fc63eba5b643e7, type: 3}
+  _prefab: {fileID: 1790748581834423737, guid: cdc96398be434630a2d75f3e6eadcedc, type: 2}
+  _infinity: 1
+  _single_use: 0
+  _checkBeforePickUp: 1
+  _isCheckBeforeUse: 0
+  _animationCheck: 0
+  _animationCheckName: 
+  _inventoryBehaviour: 10
+  firstInInventory: 1
+  _itemType: 10
+  _requirementDressItem: {fileID: 0}

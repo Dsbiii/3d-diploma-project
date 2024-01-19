@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 359 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,483,-361)">
+        <g transform="matrix(1,0,0,1,49.5824,-665.707)">
+            <path d="M-174.459,1031.09C-174.459,1029.12 -176.055,1027.52 -178.022,1027.52L-528.812,1027.52C-530.779,1027.52 -532.376,1029.12 -532.376,1031.09L-532.376,1174.95C-532.376,1176.92 -530.779,1178.51 -528.812,1178.51L-178.022,1178.51C-176.055,1178.51 -174.459,1176.92 -174.459,1174.95L-174.459,1031.09Z" style="fill:white;"/>
+            <clipPath id="_clip1">
+                <path d="M-174.459,1031.09C-174.459,1029.12 -176.055,1027.52 -178.022,1027.52L-528.812,1027.52C-530.779,1027.52 -532.376,1029.12 -532.376,1031.09L-532.376,1174.95C-532.376,1176.92 -530.779,1178.51 -528.812,1178.51L-178.022,1178.51C-176.055,1178.51 -174.459,1176.92 -174.459,1174.95L-174.459,1031.09Z"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1.78383,0,0,0.800532,168.937,211.063)">
+                    <rect x="-396.811" y="1019.9" width="209.834" height="33.488" style="fill:rgb(243,243,243);"/>
+                </g>
+                <g transform="matrix(1.78383,0,0,1.33245,168.937,-220.106)">
+                    <rect x="-396.811" y="1019.9" width="209.834" height="33.488" style="fill:rgb(243,243,243);"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-539.439,1071.05)">
+                    <g transform="matrix(12,0,0,12,123.151,11.4107)">
+                    </g>
+                    <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">Настройки порта.</text>
+                </g>
+                <g transform="matrix(1,0,0,1,-539.439,1088.4)">
+                    <g transform="matrix(12,0,0,12,348.672,11.4107)">
+                    </g>
+                    <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">COM1: 9600, o<tspan x="105.186px 108.819px " y="11.411px 11.411px ">, </tspan>8, 1 - Закрыт, КС, Протокол - Не пакетный</text>
+                </g>
+                <g transform="matrix(1,0,0,1,-539.439,1103.55)">
+                    <g transform="matrix(12,0,0,12,324.526,11.4107)">
+                    </g>
+                    <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">Время ожидания - 250 мс, системный TimeOut - 30 мс</text>
+                </g>
+                <g transform="matrix(1,0,0,1,-547.937,1032.36)">
+                    <g transform="matrix(12,0,0,12,157.112,11.4107)">
+                    </g>
+                    <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">Конфигуратор СЭТ-4TM</text>
+                </g>
+                <g transform="matrix(1,0,0,1,-296.938,79.7087)">
+                    <g transform="matrix(0.707107,0.707107,-0.707107,0.707107,796.343,290.664)">
+                        <path d="M-13.633,953.818L-13.633,970.063" style="fill:none;stroke:black;stroke-width:2px;"/>
+                    </g>
+                    <g transform="matrix(0.707107,-0.707107,0.707107,0.707107,-564.045,271.383)">
+                        <path d="M-13.633,953.818L-13.633,970.063" style="fill:none;stroke:black;stroke-width:2px;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

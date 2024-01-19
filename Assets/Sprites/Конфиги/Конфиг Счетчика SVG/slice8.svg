@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 238 555" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,907,-141)">
+        <g>
+            <g transform="matrix(1,0,0,1,-737.163,479.78)">
+                <g transform="matrix(12,0,0,12,58.6214,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">Нечет</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-737.163,523.115)">
+                <g transform="matrix(12,0,0,12,45.7893,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">Нет</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-737.163,605.488)">
+                <g transform="matrix(12,0,0,12,51.971,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">9600</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-737.163,651.461)">
+                <g transform="matrix(12,0,0,12,51.971,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">1200</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-737.163,667.288)">
+                <g transform="matrix(12,0,0,12,51.971,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">2400</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-737.163,683.492)">
+                <g transform="matrix(12,0,0,12,51.971,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">4800</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-736.023,281.721)">
+                <g transform="matrix(12,0,0,12,57.262,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">COM1</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-725.912,306.359)">
+                <g transform="matrix(12,0,0,12,57.262,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">COM1</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-932.74,138.729)">
+                <g transform="matrix(12,0,0,12,105.608,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">Максимальная</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-932.74,157.942)">
+                <g transform="matrix(12,0,0,12,93.5139,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">Радиомодем</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-932.74,177.155)">
+                <g transform="matrix(12,0,0,12,84.3967,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">PL<tspan x="38.248px 45.18px 49.539px " y="11.411px 11.411px 11.411px ">C-м</tspan>одем</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-932.74,196.369)">
+                <g transform="matrix(12,0,0,12,126.385,11.4107)">
+                </g>
+                <text x="25.768px" y="11.411px" style="font-family:'Tahoma', sans-serif;font-size:12px;">Пользовательская</text>
+            </g>
+        </g>
+    </g>
+</svg>

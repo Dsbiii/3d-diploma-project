@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: 563768f9143cf1c48bc08ec05177a281
+timeCreated: 1497190309
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bandage
+    100002: Bandage001
+    100004: Bandage_003
+    100006: Bandage_006
+    100008: Bandage_008
+    100010: Bandage_009
+    100012: Bandage_Concrete002
+    100014: Bandage_Concrete003
+    100016: Bandage_Concrete004
+    100018: //RootNode
+    100020: Opora_04KW003
+    100022: Opora_wood002
+    100024: Opora_wood005
+    100026: Opora_wood006
+    100028: Pristavka001
+    100030: Pristavka003
+    100032: Zazemlenie_Wood002
+    400000: Bandage
+    400002: Bandage001
+    400004: Bandage_003
+    400006: Bandage_006
+    400008: Bandage_008
+    400010: Bandage_009
+    400012: Bandage_Concrete002
+    400014: Bandage_Concrete003
+    400016: Bandage_Concrete004
+    400018: //RootNode
+    400020: Opora_04KW003
+    400022: Opora_wood002
+    400024: Opora_wood005
+    400026: Opora_wood006
+    400028: Pristavka001
+    400030: Pristavka003
+    400032: Zazemlenie_Wood002
+    2300000: Bandage
+    2300002: Bandage001
+    2300004: Bandage_003
+    2300006: Bandage_006
+    2300008: Bandage_008
+    2300010: Bandage_009
+    2300012: Bandage_Concrete002
+    2300014: Bandage_Concrete003
+    2300016: Bandage_Concrete004
+    2300018: Opora_04KW003
+    2300020: Opora_wood002
+    2300022: Opora_wood005
+    2300024: Opora_wood006
+    2300026: Pristavka001
+    2300028: Pristavka003
+    2300030: Zazemlenie_Wood002
+    3300000: Bandage
+    3300002: Bandage001
+    3300004: Bandage_003
+    3300006: Bandage_006
+    3300008: Bandage_008
+    3300010: Bandage_009
+    3300012: Bandage_Concrete002
+    3300014: Bandage_Concrete003
+    3300016: Bandage_Concrete004
+    3300018: Opora_04KW003
+    3300020: Opora_wood002
+    3300022: Opora_wood005
+    3300024: Opora_wood006
+    3300026: Pristavka001
+    3300028: Pristavka003
+    3300030: Zazemlenie_Wood002
+    4300000: Bandage
+    4300002: Bandage_003
+    4300004: Bandage001
+    4300006: Pristavka001
+    4300008: Opora_wood002
+    4300010: Zazemlenie_Wood002
+    4300012: Bandage_006
+    4300014: Bandage_008
+    4300016: Bandage_009
+    4300018: Opora_wood005
+    4300020: Opora_wood006
+    4300022: Bandage_Concrete002
+    4300024: Pristavka003
+    4300026: Opora_04KW003
+    4300028: Bandage_Concrete003
+    4300030: Bandage_Concrete004
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

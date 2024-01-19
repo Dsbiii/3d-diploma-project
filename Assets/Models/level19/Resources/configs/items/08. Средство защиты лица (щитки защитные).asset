@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466686b9a47bb10f7c1e135b3d789eeb, type: 3}
+  m_Name: "08. \u0421\u0440\u0435\u0434\u0441\u0442\u0432\u043E \u0437\u0430\u0449\u0438\u0442\u044B \u043B\u0438\u0446\u0430 (\u0449\u0438\u0442\u043A\u0438 \u0437\u0430\u0449\u0438\u0442\u043D\u044B\u0435)"
+  m_EditorClassIdentifier: 
+  _id: "Sheilds"
+  _name: "\u0421\u0440\u0435\u0434\u0441\u0442\u0432\u043E \u0437\u0430\u0449\u0438\u0442\u044B \u043B\u0438\u0446\u0430 (\u0449\u0438\u0442\u043A\u0438 \u0437\u0430\u0449\u0438\u0442\u043D\u044B\u0435)"
+  _image: {fileID: 21300000, guid: e52d74fc96d945d0a0c70866d91e1a80, type: 3}
+  _prefab: {fileID: 1790748581834420679, guid: 17bcac4ca3d842069f9c9fdd6db09f26, type: 2}
+  _infinity: 0
+  _single_use: 0
+  _checkBeforePickUp: 0
+  _isCheckBeforeUse: 0
+  _animationCheck: 0
+  _animationCheckName: 
+  _inventoryBehaviour: 0
+  firstInInventory: 0
+  _itemType: 20
+  _requirementDressItem: {fileID: 0}

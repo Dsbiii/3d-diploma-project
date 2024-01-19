@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466686b9a47bb10f7c1e135b3d789eeb, type: 3}
+  m_Name: "09. \u043A\u043E\u043C\u043F\u043B\u0435\u043A\u0442 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0439 \u043E\u0434\u0435\u0436\u0434\u044B \u0434\u043B\u044F \u0437\u0430\u0449\u0438\u0442\u044B \u043E\u0442 \u044D\u043B\u0435\u043A\u0442\u0440\u0438\u044B\u0447\u0435\u0441\u043A\u043E\u0439 \u0434\u0443\u0433\u0438"
+  m_EditorClassIdentifier: 
+  _id: "complect"
+  _name: "\u041A\u043E\u043C\u043F\u043B\u0435\u043A\u0442 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0439 \u043E\u0434\u0435\u0436\u0434\u044B \u0434\u043B\u044F \u0437\u0430\u0449\u0438\u0442\u044B \u043E\u0442 \u044D\u043B\u0435\u043A\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0434\u0443\u0433\u0438"
+  _image: {fileID: 21300000, guid: 04caba79cdac4704907d5df06e92a825, type: 3}
+  _prefab: {fileID: 1790748581834427312, guid: 89829e24340440959f9c79700b1cd79b, type: 2}
+  _infinity: 0
+  _single_use: 0
+  _checkBeforePickUp: 0
+  _isCheckBeforeUse: 0
+  _animationCheck: 0
+  _animationCheckName: 
+  _inventoryBehaviour: 0
+  firstInInventory: 0
+  _itemType: 20
+  _requirementDressItem: {fileID: 0}

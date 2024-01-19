@@ -1,0 +1,43 @@
+﻿using System.Collections;
+using UnityEngine;
+
+public enum ItemTypes
+{
+    Lantern,
+    Dielectric_Gloves,
+    Helmets,
+    Boots,
+    Cotton_Gloves,
+    Loading_Device,
+    Clamp_Meters,
+    First_Aid_Kit,
+    UNN,
+    Stopwatch,
+    Sets_Of_Posters,
+    Journal_Of_Safety_Briefing,
+    Safety_Glasses,
+    Parma_VAF,
+    Set_Of_Seals,
+    Tablet_Notebook_Calculator,
+    Set_Of_Tools,
+    Gas_Cartridge,
+    Magnet,
+    CE602M,
+    Transformator,
+    SelectingTransfromator,
+    Counter,
+    IKK,
+    CablesPack,
+    Binocle,
+    Plakat,
+    Caps,
+    Plombs,
+    USPDBlock,
+    PowerBlock,
+    Antenna,
+    SIM_1,
+    SIM_2,
+    CableForLaptop,
+    CableForCounter,
+    Cables
+}

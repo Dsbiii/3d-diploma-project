@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b71a207bb4796eb4887434e45e7992ed, type: 3}
+  m_Name: Setting
+  m_EditorClassIdentifier: 
+  _TimeRun: 120
+  _SIZError: 0
+  _TreshchinaKorpuseSchetchika: 0
+  _PereobzhataPlomba: 0
+  _PovrezhdenieVtorichnyhIzmeritel: 0
+  _BoltsPodKrysh: 0
+  _PeremichkaSuntirovanay: 0
+  _PodklyuchenieSilovyhCepej: 0
+  _BoltNaBlokeProverk: 0
+  _NeRabotaetZHKDisplej: 0
+  _NalichieMagnita: 0
+  _PlombEnergosnabzhayushchejs: 0
+  _OtsutstviePlomb: 0
+  _TransformatoryToka: 0
+  _Indicator: 0
+  _Pemichka: 0
+  Nesootvetstvie_Toka: 0
+  Vstrechnoe_Vklyuchenie_Transformatorov_Toka: 0
+  Kontakty_Transformatorov: 0
+  Podklyuchenie_Dvuh_Transformatorov_Toka: 0
+  Nalichie_Zakorotok: 0
+  Obryv_Vnutrennih_Cepej_Toka: 0
+  Obryv_Vnutrennih_Cepej_Napryazheniya: 0
+  Obratnoe_Cheredovanie_Faz: 0
+  Gercon: 0
