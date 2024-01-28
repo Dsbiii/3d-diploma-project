@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Scripts.Stages.SixthStage.Directories
@@ -8,6 +9,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
     {
         [SerializeField] private List<ObjectType> _objectTypes;
         [SerializeField] private DirectoriesPanel _directoriesPanel;
+        [SerializeField] private TMP_InputField _search;
         public ObjectType SelectedObjectType { get; private set; }
 
         private void Awake()
@@ -38,6 +40,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
             {
                 type.Unselect();
             }
+            _search.text = "";
         }
     }
 }

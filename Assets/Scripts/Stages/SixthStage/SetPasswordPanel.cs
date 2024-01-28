@@ -45,5 +45,13 @@ namespace Assets.Scripts.Stages.SixthStage
                 }
             }
         }
+        public void Clean()
+        {
+            foreach(var item in _password)
+            {
+                item.text = "";
+            }
+            _isHidePassword.isOn = false;
+        }
     }
 }

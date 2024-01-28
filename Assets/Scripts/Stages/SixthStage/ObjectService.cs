@@ -45,16 +45,25 @@ namespace Assets.Scripts.Stages.SixthStage
                 Spawn();
             else
             {
-                _currentSelectPanel.SetValue(_name.text, _location.options[_location.value].text, _serialNumber.text, 
+                _currentSelectPanel.SetValue(_name.text, _location.options[_location.value].text, _serialNumber.text,
                     _dateRelease.text, _location.value, _dateSetup.text, _dateNextCheck.text, _dateLastCheck.text, _user.text, _password.text,
                     _time.text, _connectNumber.text, _timeZone.value);
                 _proccess = Proccess.Add;
             }
         }
+        public List<string> GetNames()
+        {
+            List<string> names = new List<string>();
+            for (int i = 20; i < _panels.Count; i++)
+            {
+                names.Add(_panels[i].Name);
+            }
+            return names;
+        }
         public void Spawn()
         {
-            Debug.Log("name" +  _name.text);
-            Debug.Log("serialNumder" +  _serialNumber.text);
+            Debug.Log("name" + _name.text);
+            Debug.Log("serialNumder" + _serialNumber.text);
             SelectPanel panel = Instantiate(_prefab, _parent);
             panel.Init(_editBustton, _deleteBustton, _name.text, _location.options[_location.value].text, _serialNumber.text, _dateRelease.text, this, _location.value, _dateSetup.text, _dateNextCheck.text, _dateLastCheck.text, _user.text, _password.text,
                     _time.text, _connectNumber.text, _timeZone.value);
@@ -62,15 +71,15 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void SelectedObject(SelectPanel panel)
         {
-            foreach(var item in _panels)
+            foreach (var item in _panels)
             {
-                if(item != panel)
+                if (item != panel)
                 {
                     item.Unselect();
                 }
             }
         }
-        public void Delete(SelectPanel panel) 
+        public void Delete(SelectPanel panel)
         {
             if (panel._isActive)
             {
@@ -116,7 +125,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void CreateContextMenu()
         {
-            if(_createContextMenu != null)
+            if (_createContextMenu != null)
                 _createContextMenu.CreateContextMenu();
         }
         public void CheckToCorrect()

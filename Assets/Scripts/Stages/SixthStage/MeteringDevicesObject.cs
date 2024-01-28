@@ -30,6 +30,7 @@ namespace Assets.Scripts.Stages.SixthStage
             else
             {
                 Unselect();
+                _service.ClearDeviceName();
             }
         }
         private void Select()
@@ -56,6 +57,11 @@ namespace Assets.Scripts.Stages.SixthStage
             {
                 Unselect();
             }
+        }
+        public void Init(string name, MEteringDevicesService service)
+        {
+            _name.text = name;
+            _service = service;
         }
     }
 }

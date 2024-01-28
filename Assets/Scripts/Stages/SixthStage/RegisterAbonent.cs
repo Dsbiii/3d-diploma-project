@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,23 +13,19 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_InputField _surname;
         [SerializeField] private TMP_InputField _lastName;
         [SerializeField] private TMP_InputField _serialNumber;
-        [SerializeField] private GameObject _abonent;
-        [SerializeField] private TMP_Dropdown _dropdown;
-        [SerializeField] private TMP_Dropdown _dropdown2;
-        [SerializeField] private TMP_Text _abonentPanel;
+        [SerializeField] private List<string> _text;
+        public int TextCount => _text.Count;
+
 
 
         public void Sumbit()
         {
-            _abonent.gameObject.SetActive(true);
-            Debug.Log(_surname.text + " " + _name.text + " " + _lastName.text + ", " + _serialNumber.text);
-            _abonentPanel.text = _surname.text + " " + _name.text + " " + _lastName.text + ", " + _serialNumber.text;
-            _dropdown.AddOptions(new System.Collections.Generic.List<TMP_Dropdown.OptionData>
-            { new TMP_Dropdown.OptionData(_surname.text + " " + _name.text + " " + _lastName.text + ", " + _serialNumber.text) });
-            _dropdown2.AddOptions(new System.Collections.Generic.List<TMP_Dropdown.OptionData>
-            { new TMP_Dropdown.OptionData(_surname.text + " " + _name.text + " " + _lastName.text + ", " + _serialNumber.text) });
+            _text.Add(_surname.text + " " + _name.text + " " + _lastName.text + ", " + _serialNumber.text);
         }
-        
+        public string GetText(int index)
+        {
+            return _text[index];
+        }
         
     }
 }

@@ -84,5 +84,12 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         {
             _deviceName.text = "";
         }
+        public void Deselect()
+        {
+            foreach(var item in _equipmentObjectTypes)
+            {
+                item.Unselect();
+            }
+        }
     }
 }

@@ -47,7 +47,8 @@ namespace Assets.Scripts.Stages.SixthStage
         public void Delete(RouteEquipment equip)
         {
             _equipments.Remove(equip);
-            Destroy(equip.gameObject);
+            if(!equip.IsSelected)
+                Destroy(equip.gameObject);
         }
         public void Clean()
         {

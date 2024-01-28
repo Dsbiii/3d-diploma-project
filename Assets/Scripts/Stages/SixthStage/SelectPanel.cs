@@ -29,12 +29,17 @@ namespace Assets.Scripts.Stages.SixthStage
         private string _connectNumber;
         private int _timeZoneValue;
         private int _locationValue;
+        public string Name { get { return _name.text; } }
+        public string Location { get { return _location.text; } }
+        public string SerialNumber { get { return _serialNumber.text; } }
+        public string Date { get { return _date.text; } }
+
         [SerializeField] private ObjectService _service;
 
         public bool _isActive = false;
         private void Awake()
         {
-            if(_toggle != null)
+            if (_toggle != null)
                 _toggle.onValueChanged.AddListener(CheckToggle);
         }
         public void Init(Button editButton, Button deleteButton, string name, string location, string serialNumber, string date,
@@ -61,7 +66,7 @@ namespace Assets.Scripts.Stages.SixthStage
             _editButton.onClick.AddListener(Edit);
         }
         public void SetValue(string name, string location, string serialNumber, string date, int value, string dateSetup, string dateNextCheck, string dateLastCheck, string user,
-            string password, string time, string connectNumber, int timeZoneValue) 
+            string password, string time, string connectNumber, int timeZoneValue)
         {
             _name.text = name;
             _location.text = location;
@@ -76,6 +81,13 @@ namespace Assets.Scripts.Stages.SixthStage
             _password = password;
             _dateNextCheck = dateNextCheck;
             _dateSetup = dateSetup;
+        }
+        public void SetValue(string name, string location, string serialNumber, string date)
+        {
+            _name.text = name;
+            _location.text = location;
+            _serialNumber.text = serialNumber;
+            _date.text = date;
         }
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -116,7 +128,7 @@ namespace Assets.Scripts.Stages.SixthStage
             if (_toggle != null)
                 _toggle.SetIsOnWithoutNotify(true);
             _image.color = _selectColor;
-            if(_service != null)
+            if (_service != null)
                 _service.SelectedObject(this);
             _isActive = true;
         }
@@ -129,19 +141,19 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         private void CheckToggle(bool toggle)
         {
-            if(toggle)
+            if (toggle)
                 Select();
             else
                 Unselect();
         }
         private void Delete()
         {
-            if(_toggle.isOn)
+            if (_toggle.isOn)
                 _service.Delete(this);
         }
         private void Edit()
         {
-            if(_toggle.isOn)
+            if (_toggle.isOn)
                 _service.Edit(_name.text, _location.text, _serialNumber.text, _date.text, _locationValue, this, _dateSetup, _dateNextCheck, _dateLastCheck, _user, _password,
                     _time, _connectNumber, _timeZoneValue);
         }

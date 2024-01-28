@@ -27,6 +27,11 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             Select();
         }
+        public void Init(string text, SelectAbonentPanel selectObjects)
+        {
+            _text.text = text;
+            _selectObjects = selectObjects;
+        }
 
         public void Select()
         {

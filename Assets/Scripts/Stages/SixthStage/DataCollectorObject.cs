@@ -16,6 +16,10 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Text _setting;
         [SerializeField] private TMP_Text _profileSetting;
         [SerializeField] private Toggle _stateToggle;
+        [SerializeField] private Button _edit;
+        [SerializeField] private Button _delete;
+        [SerializeField] private Button _schedule;
+        [SerializeField] private DataCollectorService _service;
         private string _collectionDepthDay;
         private string _collectionDepthHour;
         private string _collectionDepthMin;
@@ -31,10 +35,6 @@ namespace Assets.Scripts.Stages.SixthStage
         private bool _configToggle;
         private bool _statusIOToggle;
         private bool _startAfterServiceToggle;
-        private Button _edit;
-        private Button _delete;
-        private Button _schedule;
-        private DataCollectorService _service;
         public bool IsSelected { private set; get; } = false;
         public string Name => _name.text;
         public void Init(string name, string setting, string profileSetting, bool state, Button edit, Button delete, Button schedule, DataCollectorService collectorService, 

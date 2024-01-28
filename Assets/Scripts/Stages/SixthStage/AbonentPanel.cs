@@ -19,7 +19,8 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_InputField _surnameValue;
         [SerializeField] private TMP_InputField _lastNameValue;
         [SerializeField] private TMP_Dropdown _typeValue;
-        [SerializeField] private GameObject _panel; 
+        [SerializeField] private GameObject _panel;
+        [SerializeField] private RegisterAbonent _registerAbonent;
         private Proccess _proccess = Proccess.Add;
         private AbonentObject _currentAbonentObject;
         public void ClickOKButton()
@@ -72,6 +73,15 @@ namespace Assets.Scripts.Stages.SixthStage
             _surnameValue.text = surname;
             _typeValue.value = value;
             _currentAbonentObject = abonentObject;
+        }
+        public List<string> GetText()
+        {
+            List<string> text = new List<string>();
+            foreach(AbonentObject abonentObject in _panels)
+            {
+                text.Add(abonentObject.Surname + " " + abonentObject.Name + " " + abonentObject.LastName + " " + abonentObject.SerialNumber);
+            }
+            return text;
         }
     }
 }
