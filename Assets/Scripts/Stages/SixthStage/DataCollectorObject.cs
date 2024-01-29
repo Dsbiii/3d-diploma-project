@@ -37,8 +37,8 @@ namespace Assets.Scripts.Stages.SixthStage
         private bool _startAfterServiceToggle;
         public bool IsSelected { private set; get; } = false;
         public string Name => _name.text;
-        public void Init(string name, string setting, string profileSetting, bool state, Button edit, Button delete, Button schedule, DataCollectorService collectorService, 
-            string CDDay, string CDHour, string CDMin, string CDSec, string SWDay, string SWHour, string SWMin, string SWSec, 
+        public void Init(string name, string setting, string profileSetting, bool state, Button edit, Button delete, Button schedule, DataCollectorService collectorService,
+            string CDDay, string CDHour, string CDMin, string CDSec, string SWDay, string SWHour, string SWMin, string SWSec,
             bool disable, bool checkDB, bool loadStatus, bool tarif, bool config, bool statusIO, bool startAfterService)
         {
             _name.text = name;
@@ -93,7 +93,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void OnPointerClick(PointerEventData eventData)
         {
-            if(!IsSelected) 
+            if (!IsSelected)
                 Select();
             else
             {
@@ -138,21 +138,36 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         private void Edit()
         {
-            if(IsSelected)
-                _service.Edit(_name.text, _setting.text, _profileSetting.text, _stateToggle.isOn, this, 
-                    _collectionDepthDay, _collectionDepthHour, _collectionDepthMin, _collectionDepthSec, _stopWorkDay, _stopWorkHour, 
-                    _stopWorkMin, _stopWorkSec, _disableToggle, _checkDateBaseToggle, _loadStatusToggle, _tarifToggle, _configToggle, 
+            if (IsSelected)
+                _service.Edit(_name.text, _setting.text, _profileSetting.text, _stateToggle.isOn, this,
+                    _collectionDepthDay, _collectionDepthHour, _collectionDepthMin, _collectionDepthSec, _stopWorkDay, _stopWorkHour,
+                    _stopWorkMin, _stopWorkSec, _disableToggle, _checkDateBaseToggle, _loadStatusToggle, _tarifToggle, _configToggle,
                     _statusIOToggle, _startAfterServiceToggle);
         }
         private void Delete()
         {
-            if(IsSelected)
+            if (IsSelected)
                 _service.Delete(this);
         }
         private void Schedule()
         {
-            if(IsSelected)
-               _service.SetTitle(_name.text);
+            if (IsSelected)
+                _service.SetTitle(_name.text);
+        }
+        public int Points()
+        {
+            int Points = 0;
+            if (_name.text != "")
+                Points++;
+            if (_collectionDepthDay != "" || _collectionDepthHour != "" || _collectionDepthMin != "" || _collectionDepthSec != "")
+                Points++;
+            if (_stateToggle.isOn && _checkDateBaseToggle && _startAfterServiceToggle)
+                Points += 2;
+            if (_setting.text == "Фактическая активная мощность за 1 час, кВт")
+                Points++;
+            if (_stopWorkDay != "" || _stopWorkHour != "" || _stopWorkMin != "" || _stopWorkSec != "")
+                Points += 2;
+            return Points;
         }
     }
 }

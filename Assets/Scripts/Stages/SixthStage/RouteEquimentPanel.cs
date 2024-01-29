@@ -1,6 +1,8 @@
-﻿using Assets.Scripts.Stages.SixthStage.Tools;
+﻿using Assets.Scripts.Stages.SixthStage.Directories;
+using Assets.Scripts.Stages.SixthStage.Tools;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,11 +19,12 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private List<RouteEquipment> _equipments;
         [SerializeField] private RouteEquipment _prefab;
         [SerializeField] private Transform _parent;
+        [SerializeField] private DirectoriesPanel _directoriesPanel;
         private RouteEquipment _currentEquiment;
         public void Spawn()
         {
             RouteEquipment equip = Instantiate(_prefab, _parent);
-            equip.Init(_connectionType.GetType(), _connectionType.Priority, _edit, _delete, this);
+            equip.Init(_connectionType.GetType(), _connectionType.Priority, _edit, _delete, this, _directoriesPanel.CurrentSelectedObject);
             _equipments.Add(equip);
         }
         public void Selected(RouteEquipment routeEquipment)
@@ -54,6 +57,10 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             _port.text = "";
             _ipAdress.text = "";
+        }
+        public int GetPoints()
+        {
+            return _equipments.OrderByDescending(obj => obj.SumPoint()).First().SumPoint();
         }
     }
 }

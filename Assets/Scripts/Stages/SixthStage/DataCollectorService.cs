@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
@@ -136,6 +137,10 @@ namespace Assets.Scripts.Stages.SixthStage
             {
                 Debug.Log("Robit");//3-1
             }
+        }
+        public int GetPoints()
+        {
+            return _dataCollectorObjects.OrderByDescending(obj => obj.Points()).First().Points();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,6 +41,9 @@ namespace Assets.Scripts.Stages.SixthStage
             _selectObjects.Remove(abonent);
             Destroy(abonent.gameObject);
         }
-
+        public int GetPoints()
+        {
+            return _selectObjects.OrderByDescending(obj => obj.Points()).First().Points();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,6 +13,10 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private Image _image;
         [SerializeField] private GameObject _editPanel;
         [SerializeField] private GameObject _panel;
+        [SerializeField] private TMP_Text _name;
+        [SerializeField] private TMP_Text _date;
+        [SerializeField] private TMP_Text _period;
+        [SerializeField] private TMP_InputField _start;
         public bool IsSelect;
         private Button _edit;
         private Button _delete;
@@ -32,7 +37,7 @@ namespace Assets.Scripts.Stages.SixthStage
                 }
             }
         }
-        public void Init(Button edit, Button delete, AccountingPointService service) 
+        public void Init(Button edit, Button delete, AccountingPointService service)
         {
             _edit = edit;
             _delete = delete;
@@ -59,13 +64,34 @@ namespace Assets.Scripts.Stages.SixthStage
             {
                 _editPanel.SetActive(true);
                 _panel.SetActive(false);
-            } 
-                
+            }
+
         }
         private void Delete()
         {
-            if(IsSelect)
+            if (IsSelect)
                 _service.Delete(this);
+        }
+        public int Points()
+        {
+            int Points = 0;
+            if (_name.text == "СЭТ-4ТМ 0.3М")
+                Points++;
+            if (_date.text != "")
+                Points++;
+            return Points;
+        }
+        public int SchedulePoint()
+        {
+            int Points = 1;
+            if (_name.text != "")
+                Points++;
+            if (_start.text != "")
+                Points += 2;
+            if (_period)
+                Points += 2;
+            return Points;
+
         }
     }
 }

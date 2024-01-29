@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,12 +52,12 @@ namespace Assets.Scripts.Stages.SixthStage
                 _proccess = Proccess.Add;
             }
         }
-        public List<string> GetNames()
+        public List<SelectPanel> GetPanels()
         {
-            List<string> names = new List<string>();
+            List<SelectPanel> names = new List<SelectPanel>();
             for (int i = 20; i < _panels.Count; i++)
             {
-                names.Add(_panels[i].Name);
+                names.Add(_panels[i]);
             }
             return names;
         }
@@ -136,6 +137,10 @@ namespace Assets.Scripts.Stages.SixthStage
                 Debug.Log("Robit");//2-1
                 IsCorrect = true;
             }
+        }
+        public int GetPoints()
+        {
+            return _panels.OrderByDescending(obj => obj.GetPoint()).First().GetPoint();
         }
     }
 }

@@ -64,6 +64,7 @@ namespace Assets.Scripts.Stages.SixthStage
             _dateSetup = dateSetup;
             _deleteButton.onClick.AddListener(Delete);
             _editButton.onClick.AddListener(Edit);
+            Debug.Log("Point " + GetPoint());
         }
         public void SetValue(string name, string location, string serialNumber, string date, int value, string dateSetup, string dateNextCheck, string dateLastCheck, string user,
             string password, string time, string connectNumber, int timeZoneValue)
@@ -156,6 +157,44 @@ namespace Assets.Scripts.Stages.SixthStage
             if (_toggle.isOn)
                 _service.Edit(_name.text, _location.text, _serialNumber.text, _date.text, _locationValue, this, _dateSetup, _dateNextCheck, _dateLastCheck, _user, _password,
                     _time, _connectNumber, _timeZoneValue);
+        }
+        public int GetPoint()
+        {
+            int Point = 1;
+            Point += CheckConnectNumber() + CheckCounter() + CheckDates() + CheckSerialNumber();
+            Debug.Log(CheckCounter() + " " + CheckSerialNumber() + " " + CheckDates() + " " + CheckConnectNumber());
+            return Point;
+        }
+        private int CheckCounter()
+        {
+            if (_name.text == "СЭТ-4ТМ.03М")
+                return 1;
+            return 0;
+        }
+        private int CheckSerialNumber()
+        {
+            if (_serialNumber.text == "0112055629")
+                return 1;
+            return 0;
+        }
+        private int CheckConnectNumber()
+        {
+            if (_connectNumber == "+79273266002")
+                return 1;
+            return 0;
+        }
+        private int CheckDates()
+        {
+            int Point = 0;
+            if (_date.text != "")
+                Point++;
+            if (_dateLastCheck != "")
+                Point++;
+            if (_dateNextCheck != "")
+                Point++;
+            if (_dateSetup != "")
+                Point++;
+            return Point;
         }
     }
 }

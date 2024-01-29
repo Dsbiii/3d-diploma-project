@@ -64,7 +64,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
             for (int i = 0; i < _directoriesPanel.EquipmentObjectTypes.Count; i++)
             {
                 EquipmentObjectType equipmentObject = Instantiate(_equipmentObjectTypePrefab, _parent2);
-                equipmentObject.Init(_directoriesPanel.EquipmentObjectTypes[i].Name, _directoriesPanel.EquipmentObjectTypes[i].Type, _directoriesPanel.EquipmentObjectTypes[i].SerialNumber, _directoriesPanel.EquipmentObjectTypes[i].PlaceNumber, _user.text, _password.text, _timeZone.text, _timePoint.options[_timePoint.value].text, _placePoint.value, _timePoint.value);
+                equipmentObject.Init(_directoriesPanel.EquipmentObjectTypes[i].Name, _directoriesPanel.EquipmentObjectTypes[i].Type, _directoriesPanel.EquipmentObjectTypes[i].SerialNumber, _directoriesPanel.EquipmentObjectTypes[i].PlaceNumber, _directoriesPanel.EquipmentObjectTypes[i].User, _directoriesPanel.EquipmentObjectTypes[i].Password, _directoriesPanel.EquipmentObjectTypes[i].TimeZone, _directoriesPanel.EquipmentObjectTypes[i].TimePoint, _directoriesPanel.EquipmentObjectTypes[i].ValuePlacePoint, _directoriesPanel.EquipmentObjectTypes[i].ValueTimePoint);
                 _directoriesPanel.AddEquipmentObject(equipmentObject);
             }
         }

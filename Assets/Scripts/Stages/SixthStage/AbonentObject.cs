@@ -101,7 +101,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         private void Edit()
         {
-            if(_toggle.isOn)
+            if (_toggle.isOn)
                 _Service.Edit(_nameValue.text, _serialNumberValue.text, _surnameValue.text, _lastNameValue.text, _typeValue.text, this, _value);
         }
         private void Delete()
@@ -110,6 +110,17 @@ namespace Assets.Scripts.Stages.SixthStage
             {
                 _Service.Delete(this);
             }
+        }
+        public int Points()
+        {
+            int Point = 1;
+            if (_serialNumberValue.text != "")
+                Point++;
+            if (_nameValue.text != "" || _lastNameValue.text != "" || _surnameValue.text != "")
+                Point++;
+            if (_value == 1)
+                Point++;
+            return Point;
         }
     }
 }

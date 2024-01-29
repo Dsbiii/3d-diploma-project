@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Stages.SixthStage.Directories;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,6 +16,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Text _type;
         [SerializeField] private TMP_Text _priority;
         [SerializeField] private TMP_Text _port;
+        private EquipmentObjectType _equipment;
         private string _ipAdress;
         private RouteEquimentPanel _panel;
         private Button _edit;
@@ -25,13 +27,14 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             _toggle.onValueChanged.AddListener(CheckToggle);
         }
-        public void Init(string type, string priority, Button edit, Button delete, RouteEquimentPanel panel)
+        public void Init(string type, string priority, Button edit, Button delete, RouteEquimentPanel panel, EquipmentObjectType equipment)
         {
             _type.text = type;
             _priority.text = priority;
             _edit = edit;
             _delete = delete;
             _panel = panel;
+            _equipment = equipment;
             _edit.onClick.AddListener(Edit);
             _delete.onClick.AddListener(Delete);
         }
@@ -39,6 +42,7 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             _port.text = port;
             _ipAdress = IpAdress;
+            Debug.Log("Points" + SumPoint());
         }
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -88,6 +92,43 @@ namespace Assets.Scripts.Stages.SixthStage
         private void Delete()
         {
             _panel.Delete(this);
+        }
+        public int SumPoint()
+        {
+            if (!_equipment.CheckPlacePoint())
+                return 0;
+            int Point = _equipment.GetPoints();
+            if (CheckType())
+            {
+                Point++;
+            }
+            if (CheckAdress())
+            {
+                Point++;
+            }
+            if (CheckPort())
+            {
+                Point++;
+            }
+            return Point;
+        }
+        private bool CheckType()
+        {
+            if(_type.text == "Исходящее TCР-соединение")
+                return true;
+            return false;
+        }
+        private bool CheckAdress()
+        {
+            if (_ipAdress == "10.169.35.32")
+                return true;
+            return false;
+        }
+        private bool CheckPort()
+        {
+            if (_port.text == "502")
+                return true;
+            return false;
         }
     }
 }

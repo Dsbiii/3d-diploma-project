@@ -111,6 +111,12 @@ namespace Assets.Scripts.Stages.SixthStage
             if (IsSelected)
                 _createPanel.Delete(this);
         }
-
+        public int Points()
+        {
+            int point = 2;
+            if (_login.text != "")
+                point++;
+            return point;
+        }
     }
 }

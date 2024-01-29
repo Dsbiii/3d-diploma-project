@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +34,14 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             Destroy(accountingPointObject.gameObject);
             _accountingPointObjects.Remove(accountingPointObject);
+        }
+        public int GetPoints2()
+        {
+            return _accountingPointObjects.OrderByDescending(obj => obj.Points()).First().Points();
+        }
+        public int GetPoints3()
+        {
+            return _accountingPointObjects.OrderByDescending(obj => obj.SchedulePoint()).First().SchedulePoint();
         }
     }
 }

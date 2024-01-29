@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Stages.SixthStage.Directories
 {
@@ -9,6 +10,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
     {
         [SerializeField] private List<EquipmentObjectType> _equipmentObjectTypes;
         [SerializeField] private List<EquipmentObjectType> _equipmentObjectTypes2;
+        [SerializeField] private Button _addRoute;
         [SerializeField] private ButtonService _buttonService;
         [SerializeField] private TMP_Text _deviceName;
         public List<EquipmentObjectType> EquipmentObjectTypes => _equipmentObjectTypes;
@@ -28,7 +30,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         {
             _equipmentObjectTypes2.Add(equipmentObjectType);
             equipmentObjectType.OnSelected += Select;
-            equipmentObjectType.isSelected += SetButtonState;
+            equipmentObjectType.isSelected += SetAddButtonRoute;
         }
         public void Select(EquipmentObjectType equipmentObjectType)
         {
@@ -90,6 +92,10 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
             {
                 item.Unselect();
             }
+        }
+        private void SetAddButtonRoute(bool state)
+        {
+            _addRoute.interactable = state;
         }
     }
 }

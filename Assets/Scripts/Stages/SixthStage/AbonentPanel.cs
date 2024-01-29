@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,6 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_InputField _lastNameValue;
         [SerializeField] private TMP_Dropdown _typeValue;
         [SerializeField] private GameObject _panel;
-        [SerializeField] private RegisterAbonent _registerAbonent;
         private Proccess _proccess = Proccess.Add;
         private AbonentObject _currentAbonentObject;
         public void ClickOKButton()
@@ -82,6 +82,10 @@ namespace Assets.Scripts.Stages.SixthStage
                 text.Add(abonentObject.Surname + " " + abonentObject.Name + " " + abonentObject.LastName + " " + abonentObject.SerialNumber);
             }
             return text;
+        }
+        public int GetPoints()
+        {
+            return _panels.OrderByDescending(obj => obj.Points()).First().Points();
         }
     }
 }

@@ -1,0 +1,4 @@
+repository "simulatorcounter24@Dastan221B@cloud"
+  path "/"
+    br "/main"
+    co "/main"

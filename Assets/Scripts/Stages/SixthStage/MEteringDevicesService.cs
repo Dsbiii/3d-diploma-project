@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ namespace Assets.Scripts.Stages.SixthStage
         public void Spawn()
         {
             ChanelForming chanelForming = Instantiate(_routePrefab, _parentRoute);
-            chanelForming.Init(_typeConnection.GetType(), _typeConnection.Priority, _edit, _delete, this);
+            chanelForming.Init(_typeConnection.GetType(), _typeConnection.Priority, _edit, _delete, this, _deviceName.text);
             _routes.Add(chanelForming);
 
         }
@@ -63,10 +64,10 @@ namespace Assets.Scripts.Stages.SixthStage
         private void OnEnable()
         {
             _deviceName.text = "";
-            for (int i = 0; i < _service.GetNames().Count; i++)
+            for (int i = 0; i < _service.GetPanels().Count; i++)
             {
                 MeteringDevicesObject meteringDevices = Instantiate(_prefab, _parent);
-                meteringDevices.Init(_service.GetNames()[i], this);
+                meteringDevices.Init(_service.GetPanels()[i].Name, this);
                 _objects.Add(meteringDevices);
             }
         }
@@ -96,6 +97,10 @@ namespace Assets.Scripts.Stages.SixthStage
             _port.text = "Выбрать...";
             _inputField.text = "";
 
+        }
+        public int GetPoints()
+        {
+            return _routes.OrderByDescending(obj => obj.SumPoints()).First().SumPoints();
         }
     }
 }
