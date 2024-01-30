@@ -43,7 +43,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         private void OnDisable()
         {
-            for(int i = 7; i < _selectAbonentObjects.Count; i++)
+            for (int i = _selectAbonentObjects.Count - 1; i >= 6; i--)
             {
                 Destroy(_selectAbonentObjects[i].gameObject);
                 _selectAbonentObjects.RemoveAt(i);

@@ -36,8 +36,14 @@ namespace Assets.Scripts.Stages.SixthStage
         public void Init(string login, string abonent, string profileAbonent, Button edit, Button delete, AbonentCreatePanel createPanel)
         {
             _login.text = login;
-            _abonent.text = abonent;
-            _profileAbonent.text = profileAbonent;
+            if(abonent == "Выбрать...")
+                _abonent.text = "";
+            else
+                _abonent.text = abonent;
+            if(profileAbonent == "Выбрать...")
+                _profileAbonent.text = "";
+            else
+                _profileAbonent.text = profileAbonent;
             _edit = edit;
             _delete = delete;
             _createPanel = createPanel;

@@ -24,6 +24,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private List<ChanelForming> _routes;
         [SerializeField] private Transform _parentRoute;
         [SerializeField] private ObjectService _service;
+        [SerializeField] private TMP_Text _titleEdit;
         private ChanelForming _currentRoute;
 
         public void Spawn()
@@ -78,6 +79,10 @@ namespace Assets.Scripts.Stages.SixthStage
                 Destroy(_objects[i].gameObject);
                 _objects.RemoveAt(i);
             }
+            foreach (var obj in _objects)
+            {
+                obj.Unselect();
+            }
         }
         public void ClearDeviceName()
         {
@@ -86,6 +91,10 @@ namespace Assets.Scripts.Stages.SixthStage
         public void Edit(ChanelForming chanelForming)
         {
             _currentRoute = chanelForming;
+        }
+        public void SetEditTitle(string title)
+        {
+            _titleEdit.text = title + " - Редактирование";
         }
         public void Delete(ChanelForming chanel)
         {

@@ -2732,6 +2732,10 @@ MonoBehaviour:
   _setting: {fileID: 6988346592523318666}
   _profileSetting: {fileID: 6988346591886057963}
   _stateToggle: {fileID: 6988346592670490324}
+  _edit: {fileID: 0}
+  _delete: {fileID: 0}
+  _schedule: {fileID: 0}
+  _service: {fileID: 0}
 --- !u!1 &6988346593034414236
 GameObject:
   m_ObjectHideFlags: 0
