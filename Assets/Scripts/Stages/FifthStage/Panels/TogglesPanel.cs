@@ -45,19 +45,20 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     count++;
                 }
             }
-            if(count + 6 <= 10)
+            Debug.Log(count);
+            if(count + 9 <= 10)
             {
                 IsRight = false;
                 _sMPanel.OpenOffPanels();
                 _infoPanel.color = Color.gray;
             }
-            else if (count + 6 == 24)
+            else if (count + 9 == 24)
             {
                 IsRight = true;
                 _sMPanel.CloseOffPanels();
                 _infoPanel.color = Color.gray;
             }
-            else if(count + 6 > 24)
+            else if(count + 9 > 24)
             {
                 IsRight = false;
                 _sMPanel.OpenOffPanels();
