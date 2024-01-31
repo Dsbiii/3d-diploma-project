@@ -9,6 +9,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 {
     public class PortListPanel : MonoBehaviour
     {
+        [SerializeField] private GameObject[] _dataObjects;
         [SerializeField] private FifthStageModel _fifthStageModel;
         [SerializeField] private GameObject _readDataPanel;
         [SerializeField] private LaptopCablePoint _laptopCablePoint;
@@ -53,6 +54,20 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 _selectedPort.UnSelect();
             }
             _selectedPort = port;
+            if(_selectedPort.IsBase)
+            {
+                foreach(var item in _dataObjects)
+                {
+                    item.SetActive(false);
+                }
+            }
+            else
+            {
+                foreach (var item in _dataObjects)
+                {
+                    item.SetActive(true);
+                }
+            }
         }
 
         public void Write()
@@ -66,8 +81,10 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             if (_selectedPort != null)
             {
                 _selectedPort.SetValue(_namePort.text);
+                //_namePort.text = _selectedPort.NamePortText;
             }
         }
+
 
         public void Open()
         {
@@ -79,6 +96,10 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             {
                 _readDataPanel.SetActive(true);
                 return;
+            }
+            foreach (var item in _dataObjects)
+            {
+                item.SetActive(false);
             }
             _portList.SetActive(true);
             foreach(var panel in _otherPanels)

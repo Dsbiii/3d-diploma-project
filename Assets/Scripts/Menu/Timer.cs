@@ -39,16 +39,9 @@ public class Timer : MonoBehaviour
 
     public void StartTime()
     {
-        if (PlayerPrefs.HasKey("Time"))
-        {
-            _timeLeft = PlayerPrefs.GetInt("Time") * 60;
-            _startTime = PlayerPrefs.GetInt("Time");
-        }
-        else
-        {
-            _timeLeft = _setting._TimeRun * 60;
-            _startTime = _setting._TimeRun;
-        }
+        timerText = _baseTimerText;
+        _timeLeft = _setting._TimeRun * 60;
+        _startTime = _setting._TimeRun;
         _startedTime = true;
         _timer = StartCoroutine(StartTimer());
     }

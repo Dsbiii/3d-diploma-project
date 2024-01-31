@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
 
 [CreateAssetMenu(menuName = "Setting", fileName = "Setting")]
 public class Setting : ScriptableObject
@@ -49,6 +50,13 @@ public class Setting : ScriptableObject
         //{
         //    _TimeRun = 120;
         //}
+    }
+
+    public void SetDirtySave()
+    {
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+#endif
     }
 
     public void Save()

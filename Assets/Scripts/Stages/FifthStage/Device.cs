@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Stages.FifthStage.Panels;
 using System.Collections;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -136,7 +137,7 @@ namespace Assets.Scripts.Stages.FifthStage
             {
                 if (result == 55629 || result == 0112055629)
                 {
-                    _deviceDataPanel.Sumbit(result.ToString(), this);
+                    _deviceDataPanel.Sumbit(text, this);
                 }
             }
         }
@@ -171,14 +172,18 @@ namespace Assets.Scripts.Stages.FifthStage
 
         public void SetStatusText()
         {
-            if (_sATPanel.IsPortRight)
-                _statusText.text = "ОК";
+            //if (_sATPanel.IsPortRight)
+            //    _statusText.text = "ОК";
+            _statusText.text = "ОК";
+
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             Select();
             _deviceDataPanel.SetDevicePanel(this);
+            //if (_baseDevice)
+            //    return;
             _portPanelsButton.OpenDevices();
         }
     }

@@ -15,6 +15,7 @@ namespace Assets.Scripts.Stages.FourthStage
 {
     public class FourthStageController : MonoBehaviour
     {
+        [SerializeField] private Timer _timer;
         [SerializeField] private GameObject _tkView;
         [SerializeField] private GameObject[] _objectsToOff;
         [SerializeField] private GameObject[] _objectsToOn;
@@ -45,6 +46,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             if (PlayerPrefs.HasKey("USDPFifthStage"))
             {
+                _timer.StartTime();
                 _secondStagePanel.EndThirdStageWithOutEnterFourthStage();
                 _secondStagePanel.EndFourthStage();
                 _secondStagePanel.EndFourthStageEnterInFifth();
@@ -53,6 +55,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             if (PlayerPrefs.HasKey("USDPSixStage"))
             {
+                _timer.StartTime();
                 _secondStagePanel.StartFifthStage();
                 _tkView.SetActive(false);
                 PlayerPrefs.DeleteKey("USDPSixStage");

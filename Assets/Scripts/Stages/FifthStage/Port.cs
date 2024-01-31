@@ -9,6 +9,7 @@ namespace Assets.Scripts.Stages.FifthStage
 {
     public class Port : MonoBehaviour , IPointerClickHandler
     {
+        [SerializeField] private bool _isBase;
         [SerializeField] private bool _isNotAddedToPortList;
         [SerializeField] private TMP_Text _namePort;
         [SerializeField] private TMP_Dropdown _portDropdown;
@@ -16,6 +17,7 @@ namespace Assets.Scripts.Stages.FifthStage
         private PortListPanel _portListPanel;
         public string NamePortText => _namePort.text;
         public string PortType => _portDropdown.options[_portDropdown.value].text;
+        public bool IsBase => _isBase;
 
         public void OnPointerClick(PointerEventData eventData)
         {

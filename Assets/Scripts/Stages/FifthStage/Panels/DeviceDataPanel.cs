@@ -129,7 +129,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                         CurrentDevice.KTNValue = "1";
                         CurrentDevice.NetAdressValue = "29";
                         CurrentDevice.PortValue = "Последовательный порт 1";
-                        CurrentDevice.SerialNumberValue = "29";
+                        CurrentDevice.SerialNumberValue = "0112055629";
                     }
                 }
             }
@@ -141,7 +141,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             {
                 if (result == 55629 || result == 0112055629)
                 {
-                    _serialNumber.text = result.ToString();
+                    _serialNumber.text = text;
                     device.SetDeviceValue("29", "1", "1",
                           "Последовательный порт 1", _serialNumber.text);
                 }
@@ -162,10 +162,11 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
             foreach (var device in _devices)
             {
-                if (device.Dropdown.options[device.Dropdown.value].text == "СЭТ-4ТМ.03")
+                if (device.Dropdown.options[device.Dropdown.value].text == "СЭТ-4ТМ.03М")
                 {
                     device.SetDeviceValue("29", "1", "1",
                         "Последовательный порт 1", "0112055629");
+                    _portDropDown.value = 2;
                 }
                 device.UpdateDevice();
             }
@@ -177,6 +178,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             //_devices.Add(device);
             _tempDevices.Add(device);
         }
+
 
         public void SetDevicePanel(Device device)
         {

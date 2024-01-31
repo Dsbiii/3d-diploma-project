@@ -31,6 +31,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         private void OnDisable()
         {
             _infoPanel.gameObject.SetActive(false);
+            _sMPanel.CloseOffPanels();
         }
 
         private void Update()
@@ -44,19 +45,19 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     count++;
                 }
             }
-            if(count + 10 <= 10)
+            if(count + 6 <= 10)
             {
                 IsRight = false;
                 _sMPanel.OpenOffPanels();
                 _infoPanel.color = Color.gray;
             }
-            else if (count + 10 == 24)
+            else if (count + 6 == 24)
             {
                 IsRight = true;
                 _sMPanel.CloseOffPanels();
                 _infoPanel.color = Color.gray;
             }
-            else if(count + 10 > 24)
+            else if(count + 6 > 24)
             {
                 IsRight = false;
                 _sMPanel.OpenOffPanels();

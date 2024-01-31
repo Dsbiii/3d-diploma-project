@@ -128,6 +128,7 @@ using UnityEngine.UI;
 
         // _Setting.Gercon = Gercon.isOn;
          _Setting.Save();
+        _Setting.SetDirtySave();
         //_Setting.SaveTime();
     }
 }
