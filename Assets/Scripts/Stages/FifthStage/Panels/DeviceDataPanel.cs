@@ -124,11 +124,11 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                         _netAdress.text = "29";
                         _ktn.text = "1";
                         _ktt.text = "1";
-                        _port.text = "Последовательный порт 1";
+                        _port.text = "Последовательный порт";
                         CurrentDevice.KTTValue = "1";
                         CurrentDevice.KTNValue = "1";
                         CurrentDevice.NetAdressValue = "29";
-                        CurrentDevice.PortValue = "Последовательный порт 1";
+                        CurrentDevice.PortValue = "Последовательный порт";
                         CurrentDevice.SerialNumberValue = "0112055629";
                     }
                 }
@@ -143,7 +143,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 {
                     _serialNumber.text = text;
                     device.SetDeviceValue("29", "1", "1",
-                          "Последовательный порт 1", _serialNumber.text);
+                          "Последовательный порт", _serialNumber.text);
                 }
             }
         }
@@ -155,8 +155,9 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 if(item.SerialNumber == "0112055629" ||
                     item.SerialNumber == "55629")
                 {
+                    string port = _portDropDown.options[_portDropDown.value].text;
                     item.SetDeviceValue("29", "1", "1",
-                        "Последовательный порт 1", "0112055629");
+                        port, "0112055629");
                 }
             }
 
@@ -164,9 +165,11 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             {
                 if (device.Dropdown.options[device.Dropdown.value].text == "СЭТ-4ТМ.03М")
                 {
+                    string port = _portDropDown.options[_portDropDown.value].text;
+
                     device.SetDeviceValue("29", "1", "1",
-                        "Последовательный порт 1", "0112055629");
-                    _portDropDown.value = 2;
+                        port, "0112055629");
+                    //_portDropDown.value = 2;
                 }
                 device.UpdateDevice();
             }
@@ -195,11 +198,11 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void SetDevicesStatus()
         {
-            //if (!_portListPanel.IsRightCreatedPort)
-            //    return;
+            if (!_portListPanel.IsRightCreatedPort)
+                return;
 
-            //if (!_counterCablePoint.IsIndicated)
-            //    return;
+            if (!_counterCablePoint.IsIndicated)
+                return;
 
             foreach (var item in _devices)
             {

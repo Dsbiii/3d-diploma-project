@@ -29,10 +29,10 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void OpenOffPanels()
         {
-            //foreach(var panel in _offPanels)
-            //{
-            //    panel.SetActive(true);
-            //}
+            foreach (var panel in _offPanels)
+            {
+                panel.SetActive(true);
+            }
         }
 
         public void CloseOffPanels()

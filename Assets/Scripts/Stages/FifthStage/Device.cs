@@ -172,8 +172,8 @@ namespace Assets.Scripts.Stages.FifthStage
 
         public void SetStatusText()
         {
-            //if (_sATPanel.IsPortRight)
-            //    _statusText.text = "ОК";
+            if (_sATPanel.IsPortRight)
+                _statusText.text = "ОК";
             _statusText.text = "ОК";
 
         }

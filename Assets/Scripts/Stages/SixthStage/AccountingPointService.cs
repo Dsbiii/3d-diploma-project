@@ -37,10 +37,14 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoints2()
         {
+            if (_accountingPointObjects.Count == 0)
+                return 0;
             return _accountingPointObjects.OrderByDescending(obj => obj.Points()).First().Points();
         }
         public int GetPoints3()
         {
+            if (_accountingPointObjects.Count == 0)
+                return 0;
             return _accountingPointObjects.OrderByDescending(obj => obj.SchedulePoint()).First().SchedulePoint();
         }
     }

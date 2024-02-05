@@ -26,8 +26,8 @@ namespace Assets.Scripts.Stages.SixthStage
             if (indexToRemove >= 0 && indexToRemove < options.Count)
             {
                 options.RemoveAt(indexToRemove);
-                _abonent.ClearOptions();
-                _abonent.AddOptions(options);
+                dropdown.ClearOptions();
+                dropdown.AddOptions(options);
             }
             else
             {

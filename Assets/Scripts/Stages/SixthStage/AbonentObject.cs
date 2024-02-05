@@ -22,10 +22,10 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Text _typeValue;
         private int _value;
         private AbonentPanel _Service;
-        public string Surname => _surnameValue.text;
-        public string Name => _nameValue.text;
-        public string SerialNumber => _serialNumberValue.text;
-        public string LastName => _lastNameValue.text;
+        public string Surname { get { return _surnameValue.text; } }
+        public string Name {get { return _nameValue.text; } }
+        public string SerialNumber { get { return _serialNumberValue.text; } }
+        public string LastName { get { return _lastNameValue.text; } }
         bool _isActive = false;
         private void Awake()
         {

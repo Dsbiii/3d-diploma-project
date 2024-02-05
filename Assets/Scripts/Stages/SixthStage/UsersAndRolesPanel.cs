@@ -43,6 +43,8 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoints()
         {
+            if (_selectObjects.Count == 0)
+                return 0;
             return _selectObjects.OrderByDescending(obj => obj.Points()).First().Points();
         }
     }

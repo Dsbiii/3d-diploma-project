@@ -11,6 +11,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private SMPanel _sMPanel;
         [SerializeField] private List<Toggle> _toggles;
         [SerializeField] private Image _infoPanel;
+        [SerializeField] private GameObject _panel;
 
         public bool IsRight { get; private set; }
 
@@ -36,6 +37,11 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         private void Update()
         {
+            if (!_panel.activeSelf)
+            {
+                _sMPanel.CloseOffPanels();
+                return;
+            }
             int count = 0;
 
             foreach(var item in _toggles)
@@ -45,11 +51,10 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     count++;
                 }
             }
-            Debug.Log(count);
             if(count + 9 <= 10)
             {
                 IsRight = false;
-                _sMPanel.OpenOffPanels();
+                _sMPanel.CloseOffPanels();
                 _infoPanel.color = Color.gray;
             }
             else if (count + 9 == 24)

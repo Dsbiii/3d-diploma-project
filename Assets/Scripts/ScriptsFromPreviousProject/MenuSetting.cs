@@ -64,7 +64,6 @@ using UnityEngine.UI;
     void Awake()
     {
         _Setting.LoadTime();
-
         _Time.text = _Setting._TimeRun.ToString();
         _TreshchinaKorpuseSchetchika.isOn = _Setting._TreshchinaKorpuseSchetchika;
         _PereobzhataPlomba.isOn = _Setting._PereobzhataPlomba;

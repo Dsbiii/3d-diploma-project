@@ -57,6 +57,7 @@ namespace Assets.Scripts.Stages.SixthStage
             _loginValue.text = "";
             _abonentProfileValue.text = "Выбрать...";
             _abonentValue.text = "Выбрать...";
+            proccess = Proccess.Add;
         }
         public void Delete(SelectObject selectObject)
         {

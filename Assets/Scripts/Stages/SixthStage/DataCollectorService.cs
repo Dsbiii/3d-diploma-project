@@ -86,6 +86,7 @@ namespace Assets.Scripts.Stages.SixthStage
             _configToggle.isOn = false;
             _statusIOToggle.isOn = false;
             _startAfterServiceToggle.isOn = false;
+            _proccess = Proccess.Add;
         }
         public void SelectedObject(DataCollectorObject dataCollectorObject)
         {
@@ -97,7 +98,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void SetTitle(string title)
         {
-            _title.text += " " + title;
+            _title.text = "Показания - Расписание " + title;
         }
         public void Edit(string name, string setting, string profileSetting, bool state, DataCollectorObject dataCollectorObject,
             string CDDay, string CDHour, string CDMin, string CDSec, string SWDay, string SWHour, string SWMin, string SWSec,

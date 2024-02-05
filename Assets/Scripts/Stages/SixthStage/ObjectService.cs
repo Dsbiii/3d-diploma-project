@@ -122,6 +122,7 @@ namespace Assets.Scripts.Stages.SixthStage
             _dateNextCheck.text = "";
             _dateSetup.text = "";
             _timeZone.value = 0;
+            _proccess = Proccess.Add;
             Debug.Log(_name.text + " " + _serialNumber.text);
         }
         public void CreateContextMenu()

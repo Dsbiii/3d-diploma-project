@@ -43,7 +43,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void SetupValues(string port, string inputfield)
         {
-            if(port == "SM160, №011994")
+            if (port == "SM160, №011994")
                 _port.text = "Подключение к SM160, 011994 (включен)";
             else
                 _port.text = port;
@@ -90,9 +90,10 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         private void Edit()
         {
-            _service.SetEditTitle(_type.text);
             if (IsSelected)
-                _service.Edit(this);
+            {
+                _service.Edit(this); _service.SetEditTitle(_type.text);
+            }
         }
         private void Delete()
         {

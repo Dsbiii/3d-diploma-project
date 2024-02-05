@@ -36,11 +36,11 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void Selected(MeteringDevicesObject obj)
         {
-            foreach (MeteringDevicesObject obj2 in _objects)
+            foreach (MeteringDevicesObject item in _objects)
             {
-                if (obj2 != obj)
+                if (item != obj)
                 {
-                    obj2.Unselect();
+                    item.Unselect();
                 }
             }
         }
@@ -109,6 +109,8 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoints()
         {
+            if(_routes.Count == 0)
+                return 0;
             return _routes.OrderByDescending(obj => obj.SumPoints()).First().SumPoints();
         }
     }

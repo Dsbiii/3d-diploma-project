@@ -29,7 +29,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void Selected(RouteEquipment routeEquipment)
         {
-            foreach(var equip in _equipments)
+            foreach (var equip in _equipments)
             {
                 if (equip != routeEquipment)
                 {
@@ -49,9 +49,11 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void Delete(RouteEquipment equip)
         {
-            _equipments.Remove(equip);
-            if(!equip.IsSelected)
+            if (equip.IsSelected)
+            {
                 Destroy(equip.gameObject);
+                _equipments.Remove(equip);
+            }
         }
         public void Clean()
         {
@@ -60,6 +62,8 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoints()
         {
+            if(_equipments.Count == 0 )
+                return 0;
             return _equipments.OrderByDescending(obj => obj.SumPoint()).First().SumPoint();
         }
     }

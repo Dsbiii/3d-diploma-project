@@ -62,6 +62,7 @@ namespace Assets.Scripts.Stages.SixthStage
             _lastNameValue.text = "";
             _surnameValue.text = "";
             _typeValue.value = 0;
+            _proccess = Proccess.Add;
         }
         public void Edit(string name, string serialNumber, string surname, string lastName, string type, AbonentObject abonentObject, int value)
         {
@@ -84,7 +85,8 @@ namespace Assets.Scripts.Stages.SixthStage
             return text;
         }
         public int GetPoints()
-        {
+        {if (_panels.Count == 0)
+                return 0;
             return _panels.OrderByDescending(obj => obj.Points()).First().Points();
         }
     }

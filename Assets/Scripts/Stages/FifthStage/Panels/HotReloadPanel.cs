@@ -14,7 +14,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private GameObject _reloadPanel;
         [SerializeField] private TMP_Text _timerText;
         [SerializeField] private DeviceDataPanel _deviceDataPanel;
-        private float _totalTime = 3.0f; // Время в секундах (5 минут)
+        private float _totalTime = 300.0f; // Время в секундах (5 минут)
         private Coroutine _coroutine;
         [Inject] private FifthStageExam _fifthStageExam;
 

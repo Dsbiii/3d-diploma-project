@@ -19,7 +19,7 @@ namespace Assets.Scripts
         private char ValidateInput(string text, int charIndex, char addedChar)
         {
             // Проверяем, является ли добавленный символ тем, который нужно запретить
-            if (addedChar == '-')
+            if (addedChar == '-' || !char.IsDigit(addedChar))
             {
                 // Если это символ "-", то не разрешаем его ввод
                 return '\0'; // '\0' - это символ, который представляет пустой символ (ничего не добавляем)

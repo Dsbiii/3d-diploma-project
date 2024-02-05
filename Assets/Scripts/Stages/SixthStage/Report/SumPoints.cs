@@ -24,43 +24,78 @@ namespace Assets.Scripts.Stages.SixthStage.Report
         public void SumAllPoints()
         {
             int Points = SumPoint1() + SumPoint2() + SumPoint3() + SumPoint4() + SumPoint5() + SumPoint6();
-            Debug.Log(Points + "All");
         }
         public int SumPoint1()
         {
-            _point1 = _point_1.GetPoints();
-            Debug.Log(_point1);
-            return _point1;
+            try
+            {
+                _point1 = _point_1.GetPoints();
+                return _point1;
+            }
+            catch
+            {
+                return 0;
+            }
         }
         public int SumPoint2()
         {
-            _point2 = _point2_1.GetPoints() + _point2_2.GetPoints() + _point2_3.GetPoints2();
-            Debug.Log(_point2);
-            return _point2;
+            try
+            {
+                _point2 = _point2_1.GetPoints() + _point2_2.GetPoints() + _point2_3.GetPoints2();
+                return _point2;
+            }
+            catch
+            {
+                return 0;
+            }
         }
         public int SumPoint3()
         {
-            _point3 = _point3_1.GetPoints() + _point3_2.GetPoints3();
-            Debug.Log(_point3);
-            return _point3;
+            try
+            {
+                _point3 = _point3_1.GetPoints() + _point3_2.GetPoints3();
+                return _point3;
+            }
+            catch
+            {
+                return 0;
+            }
         }
         public int SumPoint4()
         {
-            _point4 = _point4_1.GetPoints() + _point4_2.Points();
-            Debug.Log(_point4);
-            return _point4;
+            try
+            {
+                _point4 = _point4_1.GetPoints() + _point4_2.Points();
+                return _point4;
+            }
+            catch
+            {
+                return 0;
+            }
         }
         public int SumPoint5()
         {
-            _point5 = _point5_1.GetPoints();
-            Debug.Log(_point5);
-            return _point5;
+            try
+            {
+                _point5 = _point5_1.GetPoints();
+                return _point5;
+            }
+            catch
+            {
+                return 0;
+            }
         }
         public int SumPoint6()
         {
-            _point6 = _point_6.Points();
-            Debug.Log(_point6);
-            return _point6;
+            try
+            {
+                _point6 = _point_6.Points();
+                return _point6;
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }
