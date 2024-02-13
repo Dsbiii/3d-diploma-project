@@ -25,6 +25,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private Transform _parentRoute;
         [SerializeField] private ObjectService _service;
         [SerializeField] private TMP_Text _titleEdit;
+        [SerializeField] private GameObject _noRoutePanel;
         private ChanelForming _currentRoute;
 
         public void Spawn()
@@ -100,6 +101,10 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             Destroy(chanel.gameObject);
             _routes.Remove(chanel);
+            if( _routes.Count == 0 )
+            {
+                _noRoutePanel.gameObject.SetActive(true);
+            }
         }
         public void CleanEditPanel()
         {

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
+﻿using Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector;
+using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -12,6 +13,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private GameObject[] _dataObjects;
         [SerializeField] private FifthStageModel _fifthStageModel;
         [SerializeField] private GameObject _readDataPanel;
+        [SerializeField] private CounterCablePoint _counterCablePoint;
         [SerializeField] private LaptopCablePoint _laptopCablePoint;
         [SerializeField] private TMP_InputField _namePort;
         [SerializeField] private TMP_Dropdown _portDropdown;
@@ -22,6 +24,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         private List<Port> _tempPorts = new List<Port>();
         private Port _selectedPort;
+       
 
         public bool IsRightCreatedPort { get; private set; }
 
@@ -88,7 +91,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void Open()
         {
-            if (_laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer)
+            if ((_counterCablePoint.IsIndicated && _laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer) ||
+                (_laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer))
             {
                 _readDataPanel.SetActive(false);
             }

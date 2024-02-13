@@ -20,6 +20,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Text _profileAbonent;
         [SerializeField] private Button _edit;
         [SerializeField] private Button _delete;
+        [SerializeField] private Button _setPassword;
         [SerializeField] private AbonentCreatePanel _createPanel;
 
         public string Value => _value.text;
@@ -28,24 +29,25 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             if (_toggle != null)
                 _toggle.onValueChanged.AddListener(CheckToggle);
-            if(_edit != null)
+            if (_edit != null)
                 _edit.onClick.AddListener(Edit);
-            if(_delete != null)
+            if (_delete != null)
                 _delete.onClick.AddListener(Delete);
         }
-        public void Init(string login, string abonent, string profileAbonent, Button edit, Button delete, AbonentCreatePanel createPanel)
+        public void Init(string login, string abonent, string profileAbonent, Button edit, Button delete, Button setPassword, AbonentCreatePanel createPanel)
         {
             _login.text = login;
-            if(abonent == "Выбрать...")
+            if (abonent == "Выбрать...")
                 _abonent.text = "";
             else
                 _abonent.text = abonent;
-            if(profileAbonent == "Выбрать...")
+            if (profileAbonent == "Выбрать...")
                 _profileAbonent.text = "";
             else
                 _profileAbonent.text = profileAbonent;
             _edit = edit;
             _delete = delete;
+            _setPassword = setPassword;
             _createPanel = createPanel;
             _edit.onClick.AddListener(Edit);
             _delete.onClick.AddListener(Delete);
@@ -67,6 +69,8 @@ namespace Assets.Scripts.Stages.SixthStage
                     _edit.interactable = false;
                 if (_delete != null)
                     _delete.interactable = false;
+                if (_setPassword != null)
+                    _setPassword.interactable = false;
             }
         }
 
@@ -78,8 +82,10 @@ namespace Assets.Scripts.Stages.SixthStage
                 _edit.interactable = true;
             if (_delete != null)
                 _delete.interactable = true;
+            if (_setPassword != null)
+                _setPassword.interactable = true;
             _image.color = _selectColor;
-            if(_createPanel != null)
+            if (_createPanel != null)
                 _createPanel.Select(this);
             IsSelected = true;
         }
@@ -109,7 +115,7 @@ namespace Assets.Scripts.Stages.SixthStage
         private void Edit()
         {
             Debug.Log("Stid");
-            if(IsSelected)
+            if (IsSelected)
                 _createPanel.Edit(_login.text, _abonent.text, _profileAbonent.text);
         }
         private void Delete()
@@ -119,9 +125,9 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int Points()
         {
-            int point = 2;
+            int point = 0;
             if (_login.text != "")
-                point++;
+                point =+3;
             return point;
         }
     }

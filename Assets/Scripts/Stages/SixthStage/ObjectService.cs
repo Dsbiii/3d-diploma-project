@@ -141,6 +141,8 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoints()
         {
+            if (_panels.Count == 0)
+                return 0;
             return _panels.OrderByDescending(obj => obj.GetPoint()).First().GetPoint();
         }
     }

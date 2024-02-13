@@ -10,7 +10,7 @@ namespace Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector
         [SerializeField] private GameObject _objectPoint;
         [Inject] private FifthStageExam _fifthStageExam;
 
-        public bool IsIndicated { get; private set; } = true;
+        public bool IsIndicated { get; private set; }
 
         public void SetupPoint()
         {

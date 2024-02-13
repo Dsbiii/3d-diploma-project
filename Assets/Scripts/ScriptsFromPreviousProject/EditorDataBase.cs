@@ -40,7 +40,7 @@ public class EditorDataBase : MonoBehaviour
                 database.currentEnemy.Login = _Login.text;
                 database.currentEnemy.Password = _Password.text;
                 database.currentEnemy.RootPrava = true;
-                database.currentEnemy.DateCreate = System.DateTime.Now.ToString();
+                //database.currentEnemy.DateCreate = System.DateTime.Now.ToString();
 
                 _FIO.text = "";
                 _Login.text = "";

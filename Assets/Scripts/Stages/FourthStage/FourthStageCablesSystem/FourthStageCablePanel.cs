@@ -15,7 +15,7 @@ namespace Assets.Scripts.Stages.FourthStage.CablesSystem
 
         [Inject] private FourthStageModel _model;
         [Inject] private FourthStageExamSystem _system;
-
+        public bool IsSetuped { get; private set; }
         private void Awake()
         {
             _setupButton.onClick.AddListener(Setup);
@@ -28,6 +28,7 @@ namespace Assets.Scripts.Stages.FourthStage.CablesSystem
             {
                 _system.SetRightExitFromTP(false);
             }
+            IsSetuped = true;
             _cableConnector.SetupCables();
             Close();
         }

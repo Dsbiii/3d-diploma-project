@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector;
+using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Stages.FifthStage.Panels
@@ -11,20 +13,29 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private GameObject _readerPanel;
         [SerializeField] private DeviceDataPanel _deviceDataPanel;
         [SerializeField] private PortSettingsPanel _portSettingsPanel;
+        [SerializeField] private FifthStageModel _fifthStageModel;
+        [SerializeField] private CounterCablePoint _counterCablePoint;
+        [SerializeField] private LaptopCablePoint _laptopCablePoint;
 
         public bool IsReaded {  get; private set; }
         public bool IsWrited { get; private set; }
 
         public void StartWrite()
         {
-            _writerPanel.SetActive(true);
-            Invoke(nameof(CloseWritePanel),5);
+            if (_counterCablePoint.IsIndicated && _laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer)
+            {
+                _writerPanel.SetActive(true);
+                Invoke(nameof(CloseWritePanel), 5);
+            }
         }
 
         public void StartUpdate()
         {
-            _readerPanel.SetActive(true);
-            Invoke(nameof(CloseReaderPanel), 5);
+            if (_counterCablePoint.IsIndicated && _laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer)
+            {
+                _readerPanel.SetActive(true);
+                Invoke(nameof(CloseReaderPanel), 5);
+            }
         }
 
         public void OpenOffPanels()

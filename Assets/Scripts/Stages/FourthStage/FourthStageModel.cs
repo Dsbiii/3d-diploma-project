@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Assets.Scripts.Stages.FourthStage.CablesSystem;
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,20 @@ namespace Assets.Scripts.Stages.FourthStage
         [SerializeField] private List<Item> _obligatoryItemsForFourth;
         [SerializeField] private List<Item> _obligatoryItemsToRemove;
 
+        [SerializeField] private MovableObject _controller;
+        [SerializeField] private MovableObject _uspd;
+        [SerializeField] private AntenaPoint _antenaPoint;
+        [SerializeField] private FourthStageCablePanel _fourthStageCablePanel;
+        [SerializeField] private FourthStagePlomb _fourthStagePlomb;
+        [SerializeField] private SIMPoint _firstSIMPoint;
+        [SerializeField] private SIMPoint _secondSIMPoint;
+
         public IEnumerable<Item> Items => _obligatoryItemsForFourth;
         public IEnumerable<Item> ItemsToRemove => _obligatoryItemsToRemove;
         public MovableObject SelectedMovableObject { get; private set; }
         private Item _selectedItem;
         [Inject] private Inventory _inventory;
+        [Inject] private FourthStageExamSystem _fourthStageExamSystem;
         public bool IsExitedFromTP { get; private set; }
 
         public bool IsPickedCottonGlovesInspectionStage { get; private set; }
@@ -24,6 +34,14 @@ namespace Assets.Scripts.Stages.FourthStage
 
         public void ExitFromTP()
         {
+            if(_antenaPoint.IsSetupedAntena && _fourthStageCablePanel.IsSetuped
+                && _fourthStagePlomb.IsSetupedPlomb &&
+                _controller.IsPlanted &&
+                _uspd.IsPlanted &&
+                (_firstSIMPoint.IsIndicated && _secondSIMPoint.IsIndicated))
+            {
+                _fourthStageExamSystem.SetRightExitFromTP();
+            }
             IsExitedFromTP = true;
         }
 

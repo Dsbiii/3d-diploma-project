@@ -9,9 +9,12 @@ namespace Assets.Scripts.Stages.FifthStage
     public class FifthStageExam : MonoBehaviour
     {
         [SerializeField] private PortListPanel _portListPanel;
+        [SerializeField] private DeviceDataPanel _deviceDataPanel;
         [SerializeField] private SMPanel _sMPanel;
         [SerializeField] private SATPanel _sATPanel;
         [SerializeField] private SumPoints _sumPoints;
+        [SerializeField] private DateClockPanel _dateClockPanelFirst;
+        [SerializeField] private DateClockPanel _dateClockPanelSecond;
 
         public bool ConnectedUspdToPC { get; set; }
         public bool ConnectedCounterToPC { get; set; }
@@ -20,11 +23,9 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             get
             {
-                foreach(var port in _portListPanel.Ports)
+                foreach(var port in _deviceDataPanel.Devices)
                 {
-                    if(port.NamePortText == "Последовательный порт" &&
-                        port.PortType == "Последовательный порт 1" &&
-                        _sMPanel.IsReaded && _sMPanel.IsWrited)
+                    if(port.Port.Contains("Последовательный порт"))
                     {
                         return true;
                     }
@@ -55,8 +56,8 @@ namespace Assets.Scripts.Stages.FifthStage
             CheckAddedDeviceInConfigure();
             CheckConfigureSettings();
             CheckHotReload();
-            AddFourthStageExam("Настройка даты и времени", "Неправильно", "Получить данные о настройках даты и времени в конфигураторе SM", 0, 0);
-            
+            CheckDateTime();
+
             foreach (var exam in _fourthStageExams)
                 ExamSystem.Instance.AddExam(exam);
 
@@ -183,6 +184,19 @@ namespace Assets.Scripts.Stages.FifthStage
                 AddFourthStageExam("Горячий перезапуск контроллера", "Неправильно", "Выполнить горячий перезапуск контроллера", 0, 0);
             }
         }
+
+        private void CheckDateTime()
+        {
+            if (_dateClockPanelFirst.IsRightDatedTime && _dateClockPanelSecond.IsRightDatedTime)
+            {
+                AddFourthStageExam("Настройка даты и времени", "Правильно", "Получить данные о настройках даты и времени в конфигураторе SM", 1, 0);
+            }
+            else
+            {
+                AddFourthStageExam("Настройка даты и времени", "Неправильно", "Получить данные о настройках даты и времени в конфигураторе SM", 0, 0);
+            }
+        }
+
         private void CreateUSPDPoint()
         {
             if(_sumPoints.SumPoint1() > 0)
@@ -199,7 +213,9 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             if(_sumPoints.SumPoint2() > 0)
             {
-                AddFourthStageExam("Настройка точки учета абонента", "Правильно", "Выбрать счетчик в программе, указать его серийный номер, дату выпуска, установки, последней и следующей поверки, часовой пояс и связной номер. Настроить маршрут. Привязать счетчик к точке учета", _sumPoints.SumPoint2(), 0);
+                AddFourthStageExam("Настройка точки учета абонента", "Правильно", "Выбрать счетчик в программе, указать его серийный номер, дату выпуска, установки, последней и следующей поверки, часовой пояс и связной номер. Настроить маршрут. Привязать счетчик к точке учета", 0, 0);
+
+                //AddFourthStageExam("Настройка точки учета абонента", "Правильно", "Выбрать счетчик в программе, указать его серийный номер, дату выпуска, установки, последней и следующей поверки, часовой пояс и связной номер. Настроить маршрут. Привязать счетчик к точке учета", _sumPoints.SumPoint2(), 0);
             }
             else
             {
@@ -210,7 +226,9 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             if (_sumPoints.SumPoint3() > 0)
             {
-                AddFourthStageExam("Настройка сценария сбора данных", "Правильно", "Создать сценарий сбора данных: указать наименование, глубину сбора, параметры, время принудительного завершения работы, включить проверку наличия данных в БД перед сбором, чтений событий, запуск сценария сразу после старта сервиса.\r\nНастроить расписание для сценария сбора данных: тип, периодичность выполнения, начало работы", _sumPoints.SumPoint3(), 0);
+                AddFourthStageExam("Настройка сценария сбора данных", "Правильно", "Создать сценарий сбора данных: указать наименование, глубину сбора, параметры, время принудительного завершения работы, включить проверку наличия данных в БД перед сбором, чтений событий, запуск сценария сразу после старта сервиса.\r\nНастроить расписание для сценария сбора данных: тип, периодичность выполнения, начало работы", 0, 0);
+
+                //AddFourthStageExam("Настройка сценария сбора данных", "Правильно", "Создать сценарий сбора данных: указать наименование, глубину сбора, параметры, время принудительного завершения работы, включить проверку наличия данных в БД перед сбором, чтений событий, запуск сценария сразу после старта сервиса.\r\nНастроить расписание для сценария сбора данных: тип, периодичность выполнения, начало работы", _sumPoints.SumPoint3(), 0);
             }
             else
             {
@@ -232,7 +250,9 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             if(_sumPoints.SumPoint5() > 0)
             {
-                AddFourthStageExam("Задание данных для входа физлица в личный кабинет «Пирамиды»", "Правильно", "Выбрать абонента, указать тип профиля и аутентификации, задать пароль для пользователя", _sumPoints.SumPoint5(), 0);
+                AddFourthStageExam("Задание данных для входа физлица в личный кабинет «Пирамиды»", "Правильно", "Выбрать абонента, указать тип профиля и аутентификации, задать пароль для пользователя", 0, 0);
+
+                //AddFourthStageExam("Задание данных для входа физлица в личный кабинет «Пирамиды»", "Правильно", "Выбрать абонента, указать тип профиля и аутентификации, задать пароль для пользователя", _sumPoints.SumPoint5(), 0);
             }
             else
             {
@@ -243,7 +263,9 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             if(_sumPoints.SumPoint6() > 0)
             {
-                AddFourthStageExam("Получение показаний со счетчика", "Правильно", "Выбрать счетчик, задать интервал, выбрать параметр измерения", _sumPoints.SumPoint6(), 0);
+                AddFourthStageExam("Получение показаний со счетчика", "Правильно", "Выбрать счетчик, задать интервал, выбрать параметр измерения", 0, 0);
+
+                //AddFourthStageExam("Получение показаний со счетчика", "Правильно", "Выбрать счетчик, задать интервал, выбрать параметр измерения", _sumPoints.SumPoint6(), 0);
             }
             else
             {

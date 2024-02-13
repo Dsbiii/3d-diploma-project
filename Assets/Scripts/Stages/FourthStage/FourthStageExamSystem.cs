@@ -26,13 +26,18 @@ namespace Assets.Scripts.Stages.FourthStage
         private bool _isRightPickedHelmetInspectionStage;
         private bool _isRightPickedGlassesInspectionStage;
 
-        private bool _isRightExitFromTP = true;
+        private bool _isRightExitFromTP;
 
         public void SetRightExitFromTP(bool mode)
         {
-            Debug.Log("Mode " + mode);
-            _isRightExitFromTP = mode;
+            //_isRightExitFromTP = mode;
         }
+
+        public void SetRightExitFromTP()
+        {
+            _isRightExitFromTP = true;
+        }
+
 
         public void AddFourthStageExam(string name, string action, string idealAction, int right, int wrong)
         {
@@ -66,8 +71,8 @@ namespace Assets.Scripts.Stages.FourthStage
             CheckAntenaPoint();
             CheckPlombs();
             ExitFromTP();
-            ReportAKT();
             ReportPlakats();
+            ReportAKT();
             foreach (var exam in _fourthStageExams)
                 ExamSystem.Instance.AddExam(exam);
         }

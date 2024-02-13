@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Zenject;
+using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Stages.FifthStage.Panels
 {
     public class DeviceDataPanel : MonoBehaviour
     {
         [SerializeField] private GameObject _readDataPanel;
+        [SerializeField] private FifthStageModel _fifthStageModel;
         [SerializeField] private LaptopCablePoint _laptopCablePoint;
         [SerializeField] private CounterCablePoint _counterCablePoint;
         [SerializeField] private Device _firstDevice;
@@ -42,6 +44,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         public TMP_Text Port => _port;
         public TMP_Text Mode => _mode;
         public TMP_Text Date => _date;
+        public IEnumerable<Device> Devices => _devices;
+
         private void Start()
         {
             _serialNumber.onSubmit.AddListener(Sumbit);
@@ -99,6 +103,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         {
             _devices.AddRange(_tempDevices);
             _tempDevices.Clear();
+            _fifthStageExam.ConfiguredDevice = true;
 
             foreach (var item in _devices)
             {
@@ -110,6 +115,19 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             //    CurrentDevice.SetDeviceValue(_netAdress.text, _ktt.text, _ktn.text,
             //                    _port.text, "55629");
             //}
+        }
+
+
+        public void SumbitValueEnter(string text)
+        {
+            _serialNumber.text = text;
+            _netAdress.text = "29";
+            _ktn.text = "1";
+            _ktt.text = "1";
+            CurrentDevice.KTTValue = "1";
+            CurrentDevice.KTNValue = "1";
+            CurrentDevice.NetAdressValue = "29";
+            CurrentDevice.SerialNumberValue = text;
         }
 
         public void Sumbit(string text)
@@ -142,8 +160,9 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 if (result == 55629 || result == 0112055629)
                 {
                     _serialNumber.text = text;
+                    string port = _portDropDown.options[_portDropDown.value].text;
                     device.SetDeviceValue("29", "1", "1",
-                          "Последовательный порт", _serialNumber.text);
+                          port, _serialNumber.text);
                 }
             }
         }
@@ -152,32 +171,48 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         {
             foreach(var item in _devices)
             {
-                if(item.SerialNumber == "0112055629" ||
-                    item.SerialNumber == "55629")
+                if((item.SerialNumber == "0112055629" ||
+                    item.SerialNumber == "55629") &&
+                    item.Dropdown.options[item.Dropdown.value].text == "СЭТ-4ТМ.03М")
                 {
                     string port = _portDropDown.options[_portDropDown.value].text;
+                    //_portDropDown.options.Add(new TMP_Dropdown.OptionData(item.Name));
+                    //_portDropDown.value = _portDropDown.options.Count - 1;
                     item.SetDeviceValue("29", "1", "1",
                         port, "0112055629");
+                    item.UpdateDevice();
                 }
             }
 
-            foreach (var device in _devices)
+            if(_serialNumber.text == "0112055629"||
+                _serialNumber.text == "55629")
             {
-                if (device.Dropdown.options[device.Dropdown.value].text == "СЭТ-4ТМ.03М")
+                SumbitValueEnter(_serialNumber.text);
+                if(CurrentDevice != null)
                 {
                     string port = _portDropDown.options[_portDropDown.value].text;
-
-                    device.SetDeviceValue("29", "1", "1",
-                        port, "0112055629");
-                    //_portDropDown.value = 2;
+                    CurrentDevice.SetDeviceValue("29", "1", "1",
+                        port, _serialNumber.text);
+                    CurrentDevice.UpdateDevice();
                 }
-                device.UpdateDevice();
             }
+
+            //foreach (var device in _devices)
+            //{
+            //    if (device.Dropdown.options[device.Dropdown.value].text == "СЭТ-4ТМ.03М")
+            //    {
+            //        string port = _portDropDown.options[_portDropDown.value].text;
+
+            //        device.SetDeviceValue("29", "1", "1",
+            //            port, "0112055629");
+            //        //_portDropDown.value = 2;
+            //    }
+            //    device.UpdateDevice();
+            //}
         }
 
         public void AddDevices(Device device)
         {
-            _fifthStageExam.ConfiguredDevice = true;
             //_devices.Add(device);
             _tempDevices.Add(device);
         }
@@ -202,6 +237,12 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 return;
 
             if (!_counterCablePoint.IsIndicated)
+                return;
+
+            if (!_laptopCablePoint.IsIndicated)
+                return;
+
+            if (!_fifthStageModel.IsRightConnectedComputer)
                 return;
 
             foreach (var item in _devices)

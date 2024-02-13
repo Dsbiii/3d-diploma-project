@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
+﻿using Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector;
+using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
     {
         [SerializeField] private GameObject _readDataPanel;
         [SerializeField] private LaptopCablePoint _laptopCablePoint;
+        [SerializeField] private CounterCablePoint _counterCablePoint;
         [SerializeField] private GameObject _portList;
         [SerializeField] private GameObject[] _otherPanels;
         [SerializeField] private FifthStageModel _fifthStageModel;
@@ -15,7 +17,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void Open()
         {
-            if (_laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer)
+            if ((_counterCablePoint.IsIndicated && _laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer) ||
+                (_laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer))
             {
                 _readDataPanel.SetActive(false);
             }

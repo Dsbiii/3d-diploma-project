@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: {fileID: 2903761949116180490}
-  _baseColor: {r: 1, g: 1, b: 1, a: 1}
+  _baseColor: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   _selectColor: {r: 0.12941177, g: 0.3372549, b: 0.86666673, a: 1}
   _image: {fileID: 2903761949079019836}
   _toggle: {fileID: 2903761948922806117}
@@ -546,6 +546,9 @@ MonoBehaviour:
   _login: {fileID: 2903761950396074114}
   _abonent: {fileID: 2903761949116180490}
   _profileAbonent: {fileID: 2903761950392894411}
+  _edit: {fileID: 0}
+  _delete: {fileID: 0}
+  _createPanel: {fileID: 0}
 --- !u!1 &2903761949390010046
 GameObject:
   m_ObjectHideFlags: 0

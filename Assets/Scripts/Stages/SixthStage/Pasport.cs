@@ -12,12 +12,15 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Dropdown _abonent;
         [SerializeField] private TMP_Dropdown _abonent2;
         [SerializeField] private AbonentPanel _abonentPanel;
+        private int _valueabonent;
         private void OnEnable()
         {
             AddNewOptions(_abonentPanel.GetText(), _abonent);
             AddNewOptions(_abonentPanel.GetText(), _abonent2);
             _abonent.RefreshShownValue();
             _abonent2.RefreshShownValue();
+            _abonent.value = _valueabonent;
+            _abonent2.value = _valueabonent;
         }
         public void RemoveItemByIndex(int indexToRemove, TMP_Dropdown dropdown)
         {
@@ -46,6 +49,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         private void OnDisable()
         {
+            _valueabonent = _abonent.value;
             for(int i = _abonent.options.Count;  i > 2; i--) 
             {
                 RemoveItemByIndex(i, _abonent);

@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
     {
         timerText = _baseTimerText;
         _timeLeft = _setting._TimeRun * 60;
-        _startTime = _setting._TimeRun;
+        _startTime = _setting._TimeRun * 60;
         _startedTime = true;
         _timer = StartCoroutine(StartTimer());
     }
@@ -81,11 +81,32 @@ public class Timer : MonoBehaviour
 
     }
 
+
+
     public void GetOutReminingTime(out float minutes, out float seconds)
+    {
+        float time = (_startTime / 60) - _timeLeft;
+        minutes = Mathf.FloorToInt(time / 60);
+        seconds = Mathf.FloorToInt(time % 60);
+    }
+
+    public void GetOutExitTime(out float minutes, out float seconds)
     {
         float time = _startTime - _timeLeft;
         minutes = Mathf.FloorToInt(time / 60);
         seconds = Mathf.FloorToInt(time % 60);
+    }
+
+    public string GetStringExitTime()
+    {
+        return FormatTime(_startTime - _timeLeft);
+    }
+
+    string FormatTime(float seconds)
+    {
+        int minutes = Mathf.FloorToInt(seconds / 60f);
+        int remainingSeconds = Mathf.FloorToInt(seconds % 60f);
+        return string.Format("{0:00}:{1:00}", minutes, remainingSeconds);
     }
 
     public void StopTimer()

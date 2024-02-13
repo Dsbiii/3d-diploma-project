@@ -7,6 +7,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
     public class PortSettingsPanel : MonoBehaviour
     {
         [SerializeField] private TMP_InputField _countErrorsInputField;
+        [SerializeField] private PortListPanel _portListPanel;
 
         private string _countErrors;
 
@@ -17,7 +18,15 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         private void OnEnable()
         {
-            _countErrorsInputField.text = _countErrors;
+            if(!_portListPanel.IsRightCreatedPort)
+            {
+                _countErrorsInputField.gameObject.SetActive(false);
+            }
+            else
+            {
+                _countErrorsInputField.gameObject.SetActive(true);
+                _countErrorsInputField.text = _countErrors;
+            }
         }
 
     }

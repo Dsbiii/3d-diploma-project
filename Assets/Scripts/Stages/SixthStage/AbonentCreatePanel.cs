@@ -15,6 +15,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private UsersAndRolesPanel _usersAndRolesPanel;
         [SerializeField] private Button _edit;
         [SerializeField] private Button _delete;
+        [SerializeField] private Button _setPassword;
         [SerializeField] private GameObject _panel;
         private Proccess proccess = Proccess.Add;
         private SelectObject _currentAbonent; 
@@ -37,7 +38,7 @@ namespace Assets.Scripts.Stages.SixthStage
         public void Spawn()
         {
             SelectObject selectObject = Instantiate(_prefab, _parent);
-            selectObject.Init(_loginValue.text, _abonentValue.text, _abonentProfileValue.text, _edit, _delete, this);
+            selectObject.Init(_loginValue.text, _abonentValue.text, _abonentProfileValue.text, _edit, _delete, _setPassword, this);
             _usersAndRolesPanel.AddAbonent(selectObject);
         }
         public void Edit(string login, string abonent, string abonentProfile)

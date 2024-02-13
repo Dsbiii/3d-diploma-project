@@ -22,12 +22,16 @@ public class ExamSystem : MonoBehaviour
 
     public void TakeDate()
     {
-        _currentUser.DateCreate = DateTime.Today.ToString();
     }
 
     public void OpenSession()
     {
         IsOpenSession = true;
+    }
+
+    public void RegisterExitDate()
+    {
+
     }
 
 
@@ -41,6 +45,14 @@ public class ExamSystem : MonoBehaviour
 
     public void RegisterResult()
     {
+        Timer timer = FindObjectOfType<Timer>();
+        if (timer != null) 
+        {
+            timer.GetOutExitTime(out float minutes, out float seconds);
+            _currentUser.DateCreate = string.Format("{0:00} : {1:00}", Mathf.Abs(minutes), Mathf.Abs(seconds - 1));
+            Debug.Log("DateCreated " + string.Format("{0:00} : {1:00}", Mathf.Abs(minutes), Mathf.Abs(seconds - 1)));
+        }
+
         _currentUser.DateTrening = FindObjectOfType<Timer>().Time;
         _enemyDatabase.AddEnemyData(_currentUser);
         AddTimeExamenie();

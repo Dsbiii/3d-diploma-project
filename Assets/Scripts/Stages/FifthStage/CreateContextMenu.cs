@@ -95,8 +95,9 @@ namespace Assets.Scripts.Stages.FifthStage
                 }
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && IsPointerOnSpawnPlace())
             {
+                Debug.Log(1);
                 if (_contextPanel1 != null)
                 {
                     Destroy(_contextPanel1.gameObject);
@@ -127,6 +128,30 @@ namespace Assets.Scripts.Stages.FifthStage
                 }
             }
             gameObject = null;
+            return false;
+        }
+
+        private bool IsPointerOnSpawnPlace()
+        {
+            // Создаем объект события указателя
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+
+            // Устанавливаем позицию указателя мыши
+            eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            // Создаем список результатов события
+            System.Collections.Generic.List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
+
+            // Проверяем, есть ли объекты UI под указателем мыши
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+
+
+            foreach (var item in results)
+            {
+                if (item.gameObject.tag == "ContextPanelSpawnPlace")
+                    return true;
+            }
+
             return false;
         }
 

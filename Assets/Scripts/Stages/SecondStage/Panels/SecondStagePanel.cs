@@ -251,11 +251,11 @@ namespace Assets.Scripts.Stages.SecondStage.Panels
             foreach(var item in _cablesFourthStage)
                 item.SetActive(true);
             _transformerPoint.gameObject.SetActive(true);
-            foreach (var item in _fourthStageScriptsPlombs)
-                item.SetupPlomb();
+            //foreach (var item in _fourthStageScriptsPlombs)
+            //    item.SetupPlomb();
             _transformerPoint.SetupCap();
-            _ikkPlombPoint.SetupCap();
-            _counterPlombPoint.SetupCap();
+            //_ikkPlombPoint.SetupCap();
+            //_counterPlombPoint.SetupCap();
         }
 
         public void EnterNextState(bool reposetNextStage = true)
@@ -288,7 +288,9 @@ namespace Assets.Scripts.Stages.SecondStage.Panels
 
         public void EndFourthStageEnterInFifth()
         {
-            if(!_simPoints[0].IsIndicated && !_simPoints[1].IsIndicated)
+            _fourthStageExamSystem.RegisterExamSystem();
+
+            if (!_simPoints[0].IsIndicated && !_simPoints[1].IsIndicated)
             {
                 _simPoints[0].SetupPoint();
                 _simPoints[0].TryDisplayIndicator();
@@ -300,7 +302,6 @@ namespace Assets.Scripts.Stages.SecondStage.Panels
             foreach (var item in _fourthStageScriptsPlombs)
                 item.SetupPlomb();
             _aktReport.RightField();
-            _fourthStageExamSystem.RegisterExamSystem();
             _computerButton.SetActive(true);
             _endFourthStageButton.gameObject.SetActive(false);
             _fourthStageController.ExitFromStage();

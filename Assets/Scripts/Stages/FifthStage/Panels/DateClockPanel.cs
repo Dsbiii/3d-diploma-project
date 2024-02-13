@@ -15,6 +15,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private TMP_Text _timeText;
         [SerializeField] private int _lagSeconds;
 
+        public bool IsRightDatedTime { get; private set; }
 
         private void Update()
         {
@@ -22,6 +23,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 return;
             if (!_stageModel.IsRightConnectedComputer)
                 return;
+            IsRightDatedTime = true;
             UpdateFormattedDateTime();
         }
 

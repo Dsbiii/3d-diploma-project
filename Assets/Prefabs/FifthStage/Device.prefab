@@ -1681,6 +1681,7 @@ MonoBehaviour:
   _backGroundPanel: {fileID: 6114601926330714602}
   _deviceDataPanel: {fileID: 0}
   _dropdown: {fileID: 2165524014042370004}
+  _name: {fileID: 6960577113671458603}
   _netAdress: {fileID: 2299930367658334093}
   _serialNumber: {fileID: 3212047415802036483}
   _ktt: {fileID: 7337498279363048066}

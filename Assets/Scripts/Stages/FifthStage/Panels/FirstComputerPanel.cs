@@ -18,7 +18,7 @@ namespace Assets.Scripts.Stages.FifthStage
 
         private void Awake()
         {
-            _fifthStageModel.SetConnectComputerStatus(true);
+            //_fifthStageModel.SetConnectComputerStatus(true);
         }
 
         public void OpenComputer()

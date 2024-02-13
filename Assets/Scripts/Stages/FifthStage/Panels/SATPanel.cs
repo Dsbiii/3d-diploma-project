@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector;
+using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +10,9 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
     public class SATPanel : MonoBehaviour
     {
         [SerializeField] private GameObject _saveButton;
-
+        [SerializeField] private LaptopCablePoint _laptopCablePoint;
+        [SerializeField] private CounterCablePoint _counterCablePoint;
+        [SerializeField] private FifthStageModel _fifthStageModel;
         [SerializeField] private ButtonsGroup[] _buttonsGroup;
         [SerializeField] private TMP_Dropdown _port;
         [SerializeField] private TMP_Dropdown _mode1;
@@ -55,7 +59,11 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void Change()
         {
-            _saveButton.SetActive(true);
+            if (_fifthStageModel.IsRightConnectedComputer && _laptopCablePoint.IsIndicated &&
+                _counterCablePoint.IsIndicated)
+            {
+                _saveButton.SetActive(true);
+            }
         }
 
         public void CheckRight()

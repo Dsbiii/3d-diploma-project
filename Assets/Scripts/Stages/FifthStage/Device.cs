@@ -17,6 +17,7 @@ namespace Assets.Scripts.Stages.FifthStage
         [SerializeField] private Image _backGroundPanel;
         [SerializeField] private DeviceDataPanel _deviceDataPanel;
         [SerializeField] private TMP_Dropdown _dropdown;
+        [SerializeField] private TMP_InputField _name;
         [SerializeField] private TMP_InputField _netAdress;
         [SerializeField] private TMP_InputField _serialNumber;
         [SerializeField] private TMP_InputField _ktt;
@@ -49,6 +50,7 @@ namespace Assets.Scripts.Stages.FifthStage
         public string KTNValue;
         public string PortValue;
         public string ModeValue;
+        public string Name => _name.text;
 
         public bool BaseDevice => _baseDevice;
 
@@ -138,6 +140,7 @@ namespace Assets.Scripts.Stages.FifthStage
                 if (result == 55629 || result == 0112055629)
                 {
                     _deviceDataPanel.Sumbit(text, this);
+                    _deviceDataPanel.SumbitValueEnter(text);
                 }
             }
         }
