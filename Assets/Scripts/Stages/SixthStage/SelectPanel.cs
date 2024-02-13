@@ -20,6 +20,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Text _location;
         [SerializeField] private TMP_Text _serialNumber;
         [SerializeField] private TMP_Text _date;
+        [SerializeField] private bool _dontCheckThisObject;
         private string _dateSetup;
         private string _dateNextCheck;
         private string _dateLastCheck;
@@ -160,10 +161,12 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoint()
         {
-            int Point = 1;
+            if(_dontCheckThisObject)
+                return 0;
+            int Point = 0;
             Point += CheckConnectNumber() + CheckCounter() + CheckDates() + CheckSerialNumber();
             Debug.Log(CheckCounter() + " " + CheckSerialNumber() + " " + CheckDates() + " " + CheckConnectNumber());
-            return Point;
+            return Point + 1;
         }
         private int CheckCounter()
         {

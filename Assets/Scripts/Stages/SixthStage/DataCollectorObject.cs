@@ -20,6 +20,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private Button _delete;
         [SerializeField] private Button _schedule;
         [SerializeField] private DataCollectorService _service;
+        [SerializeField] private bool _dontCheck;
         private string _collectionDepthDay;
         private string _collectionDepthHour;
         private string _collectionDepthMin;
@@ -156,6 +157,8 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int Points()
         {
+            if(_dontCheck) 
+                return 0;
             int Points = 0;
             if (_name.text != "")
                 Points++;

@@ -8,9 +8,19 @@ namespace Assets.Scripts.Stages.SixthStage
     {
         [SerializeField] private TMP_Text _parametr;
         [SerializeField] private TMP_Text _interval;
+        [SerializeField] private ObjectService _service;
         public int Points()
         {
-            int point = 2;
+            int point = 0;
+            if (_service.SelectedName != null)
+            {
+                Debug.Log("check");
+                if (_service.SelectedName == "СЭТ-4ТМ.03М")
+                {
+                    Debug.Log("check2");
+                    point += 2;
+                }
+            }
             if (_parametr.text == "   А+ профиль 1 час")
                 point += 2;
             if (_interval.text != "")

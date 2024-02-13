@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Stages.SixthStage.Report;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,14 +10,10 @@ namespace Assets.Scripts.Stages.SixthStage
     {
         [SerializeField] private GameObject _setting;
         [SerializeField] private TMP_Text _interval;
-        [SerializeField] private Button _updateButton;
         [SerializeField] private GameObject _panel;
         private bool _settingChoiced;
         private bool _intervalChoiced;
-        private void Awake()
-        {
-            _updateButton.onClick.AddListener(ClickUpdate);
-        }
+        
         private void Update()
         {
             if (_setting.activeSelf)
@@ -36,7 +33,7 @@ namespace Assets.Scripts.Stages.SixthStage
                 _intervalChoiced = false;
             }
         }
-        private void ClickUpdate()
+        public void ClickUpdate()
         {
             if( _settingChoiced && _intervalChoiced)
             {

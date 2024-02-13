@@ -22,6 +22,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private Button _delete;
         [SerializeField] private Button _setPassword;
         [SerializeField] private AbonentCreatePanel _createPanel;
+        [SerializeField] private bool _dontCheck;
 
         public string Value => _value.text;
         public bool IsSelected { get; private set; } = false;
@@ -125,6 +126,8 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int Points()
         {
+            if (_dontCheck)
+                return 0;
             int point = 0;
             if (_login.text != "")
                 point =+3;

@@ -39,6 +39,8 @@ namespace Assets.Scripts.Stages.SixthStage
         public bool IsCorrect;
         private SelectPanel _currentSelectPanel;
         private Proccess _proccess = Proccess.Add;
+        public SelectPanel CurrentSelectPanel { get { return _currentSelectPanel; } }
+        public string SelectedName;
         public void ClickOKButton()
         {
             CheckToCorrect();
@@ -72,6 +74,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public void SelectedObject(SelectPanel panel)
         {
+            SelectedName = panel.Name;
             foreach (var item in _panels)
             {
                 if (item != panel)
