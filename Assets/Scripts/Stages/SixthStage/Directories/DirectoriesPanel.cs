@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -96,6 +97,10 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         private void SetAddButtonRoute(bool state)
         {
             _addRoute.interactable = state;
+        }
+        public int Getpoints()
+        {
+            return _equipmentObjectTypes.OrderByDescending(obj => obj.GetPoints()).First().GetPoints();
         }
     }
 }

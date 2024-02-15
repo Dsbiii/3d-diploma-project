@@ -23,6 +23,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
         private int _point5;
         private int _point6;
         public int Allpoints;
+        public bool CriticalError;
         public void SumAllPoints()
         {
             int Points = SumPoint1() + SumPoint2() + SumPoint3() + SumPoint4() + SumPoint5() + SumPoint6();
@@ -34,11 +35,13 @@ namespace Assets.Scripts.Stages.SixthStage.Report
             try
             {
                 _point1 = _point_1.GetPoints();
-                Debug.Log("Point1 " +  _point1);
+                if(_point1 == 0)
+                    CriticalError = true;
                 return _point1;
             }
             catch
             {
+                CriticalError = true;
                 return 0;
             }
         }

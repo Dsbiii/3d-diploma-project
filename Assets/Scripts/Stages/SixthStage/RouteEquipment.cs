@@ -95,7 +95,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int SumPoint()
         {
-            if (!_equipment.CheckPlacePoint())
+            if (_equipment.DontSM || _equipment.CriticalError)
                 return 0;
             int Point = _equipment.GetPoints();
             if (CheckType())

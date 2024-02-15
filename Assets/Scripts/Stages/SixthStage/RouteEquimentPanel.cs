@@ -62,8 +62,8 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoints()
         {
-            if(_equipments.Count == 0 )
-                return 0;
+            if(_equipments.Count == 0)
+                return _directoriesPanel.Getpoints();
             return _equipments.OrderByDescending(obj => obj.SumPoint()).First().SumPoint();
         }
     }

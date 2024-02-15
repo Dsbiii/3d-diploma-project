@@ -39,6 +39,8 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         public bool IsSelected { get; private set; }
         public event Action<EquipmentObjectType> OnSelected;
         public event Action<bool> isSelected;
+        public bool CriticalError;
+        public bool DontSM;
         private void Awake()
         {
             _toggle.onValueChanged.AddListener(CheckToggle);
@@ -94,24 +96,32 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         public int GetPoints()
         {
             int Point = 1;
-            if (CheckSerialNumber())
+            if (_name.text == "SM160")
             {
-                Point++;
-            }
-            if (CheckUser())
-            {
-                Point++;
-            }
-            if (CheckTimeZone())
-            {
-                Point++;
-            }
-            if (CheckPlacePoint())
-            {
-                Point++;
+                if (CheckSerialNumber())
+                {
+                    Point++;
+                }
+                if (CheckUser())
+                {
+                    Point++;
+                }
+                if (CheckTimeZone())
+                {
+                    Point++;
+                }
+                if (CheckPlacePoint())
+                {
+                    Point++;
+                }
+                else
+                {
+                    Point = 0;
+                }
             }
             else
             {
+                DontSM = false;
                 Point = 0;
             }
             return Point;
@@ -140,6 +150,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
             {
                 return true;
             }
+            CriticalError = true;
             return false;
         }
     }
