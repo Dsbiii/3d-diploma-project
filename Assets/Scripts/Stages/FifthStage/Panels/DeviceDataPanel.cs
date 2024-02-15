@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Zenject;
-using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Stages.FifthStage.Panels
 {
