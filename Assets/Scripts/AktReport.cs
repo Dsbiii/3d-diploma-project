@@ -90,7 +90,9 @@ public class AktReport : MonoBehaviour
 
     public bool CheckForRightFillAkt()
     {
-        if(_inputFields.Where(item => item.text.Length > 0).ToArray().Length  - 76 >= _inputFields.Count)
+        Debug.Log("_inputFields.Where(item => item.text.Length > 0).ToArray().Length " + _inputFields.Where(item => item.text.Length > 0).ToArray().Length);
+        Debug.Log("_inputFields.Count " + _inputFields.Count);
+        if(_inputFields.Where(item => item.text.Length > 0).ToArray().Length >= _inputFields.Count - 80)
         {
             return true;
         }

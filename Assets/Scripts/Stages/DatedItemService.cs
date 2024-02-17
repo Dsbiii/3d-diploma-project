@@ -23,7 +23,7 @@ namespace Assets.Scripts.Stages
 
         public string Date { get; private set; }
 
-        public bool IsOverdue { get; private set; }
+        [field: SerializeField] public bool IsOverdue { get; private set; }
 
         //private void OnEnable()
         //{

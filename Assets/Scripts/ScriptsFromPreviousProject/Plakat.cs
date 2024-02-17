@@ -120,6 +120,7 @@ public class Plakat : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
                         plakat.AddPlakat(plakatToActive, this, IsCountMoreThanOne);
                     plakat.OpenPlakat();
                 }
+                _plakatService.SetupedPlakat();
                 //hit.transform.GetComponent<Collider>().enabled = false;
                 _countPlakats--;
                 if (_countPlakats <= 0)

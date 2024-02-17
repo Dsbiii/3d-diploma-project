@@ -9,6 +9,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 {
     public class SATPanel : MonoBehaviour
     {
+        [SerializeField] private DeviceDataPanel _deviceDataPanel;
         [SerializeField] private GameObject _saveButton;
         [SerializeField] private LaptopCablePoint _laptopCablePoint;
         [SerializeField] private CounterCablePoint _counterCablePoint;
@@ -28,6 +29,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         private string _passwordFieldValue;
         private bool _isSave;
         private int _selectedButton;
+
+        public string Port {get;private set;}
 
         public bool IsPortRight
         {
@@ -104,6 +107,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             _mode1Value = _mode1.value;
             _mode2Value = _mode2.value;
             _portValue = _port.value;
+            Port = _port.options[_port.value].text;
             _passwordFieldValue = _passwordField.text;
             int id = 0;
             foreach(var item in _buttonsGroup)
@@ -114,6 +118,21 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 }
                 id++;
             }
+            foreach(var item in _deviceDataPanel.Devices)
+            {
+                item.SetPortName(Port);
+            }
+            _deviceDataPanel.EditPort(Port);
+        }
+
+        public bool CheckRightSelect()
+        {
+            if (_mode1.options[_mode1.value].text == "Нечет" &&
+                _mode2.options[_mode2.value].text == "Нечет")
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool IsRight()

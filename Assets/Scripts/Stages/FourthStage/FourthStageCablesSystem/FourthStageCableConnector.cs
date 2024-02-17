@@ -36,7 +36,7 @@ namespace Assets.Scripts.Stages.FourthStage.CablesSystem
         {
             List<FourthStageCablePair> pairs = _powerAutomatBlockCablePairs.Union(_powerBlockUSPDcablePairs).ToList();
             if (pairs.Where(item => item.CheckToConnect()).ToArray().Length >= pairs.Count / 2
-                && _counterUSPDcablePairs.Where(item => item.CheckToConnect()).ToArray().Length >= _counterUSPDcablePairs.Count / 2)
+                && _counterUSPDcablePairs.Where(item => item.CheckToConnect()).ToArray().Length  + 2 >= _counterUSPDcablePairs.Count / 2)
             {
                 return true;
             }

@@ -27,6 +27,9 @@ namespace Assets.Scripts.Stages.FourthStage
         private bool _isRightPickedGlassesInspectionStage;
 
         private bool _isRightExitFromTP;
+        private bool _haveCriticalError;
+
+        private bool _isReported;
 
         public void SetRightExitFromTP(bool mode)
         {
@@ -62,6 +65,8 @@ namespace Assets.Scripts.Stages.FourthStage
 
         public void RegisterExamSystem()
         {
+            if (_isReported)
+                return;
             ExamSystem.Instance.AddExam(new Exam("Этап 1. Монтаж"));
             CheckSIZ();
             InstallUSPDPowerBlock();
@@ -73,8 +78,17 @@ namespace Assets.Scripts.Stages.FourthStage
             ExitFromTP();
             ReportPlakats();
             ReportAKT();
+            if(_haveCriticalError)
+            {
+                foreach(var item in _fourthStageExams)
+                {
+                    item.Scores = 0;
+                }
+            }
             foreach (var exam in _fourthStageExams)
                 ExamSystem.Instance.AddExam(exam);
+
+            _isReported = true;
         }
 
         private void ReportPlakats()
@@ -127,6 +141,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam("Опломбировка", "Неправильно", "Установить пломбы на клеммную крышку счетчика, ИКК, трансформаторы тока", count, 0);
             }
         }
@@ -140,6 +155,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam("Подключение антенны к УСПД", "Неправильно", "Подключить антенну к УСПД", 0, 0);
             }
         }
@@ -159,6 +175,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam("Установка SIM-карты", "Неправильно", "Вставить SIM-карту в слот SIM1 или SIM2", 0, 0);
             }
         }
@@ -171,6 +188,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam("Выполнение подключений", "Неправильно", "Блок питания – автомат\r\nБлок питания – УСПД\r\nСчетчик – УСПД", 0, 0);
             }
         }
@@ -183,6 +201,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam($"Выбор провода для подключения", "Неправильно", "Блок питания – автомат: ПуВ 1 × 0,75 мм\u00B2\r\nБлок питания – УСПД: ПуВ 1 × 0,75 мм\u00B2)\r\nСчетчик – УСПД: UTP 0,5 мм\u00B2 Cu", 0, 0);
             }
         }
@@ -204,6 +223,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam("Установка УСПД и блока питания на DIN-рейке", "Неправильно", "Установить УСПД на DIN-рейке. Установить блок питания на DIN-рейке", rightCount, 0);
             }
         }

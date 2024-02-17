@@ -15,6 +15,7 @@ namespace Assets.Scripts.Stages.FifthStage
         [SerializeField] private SumPoints _sumPoints;
         [SerializeField] private DateClockPanel _dateClockPanelFirst;
         [SerializeField] private DateClockPanel _dateClockPanelSecond;
+        [SerializeField] private PortSettingsPanel _portSettingsPanel;
 
         public bool ConnectedUspdToPC { get; set; }
         public bool ConnectedCounterToPC { get; set; }
@@ -23,9 +24,10 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             get
             {
-                foreach(var port in _deviceDataPanel.Devices)
+                foreach(var port in _portListPanel.Ports)
                 {
-                    if(port.Port.Contains("Последовательный порт"))
+                    Debug.Log("port.NamePortText " + port.NamePortText);
+                    if(port.NamePortText.Contains("Последовательный порт"))
                     {
                         return true;
                     }
@@ -39,6 +41,7 @@ namespace Assets.Scripts.Stages.FifthStage
 
         private List<Exam> _fourthStageExams = new List<Exam>();
 
+        private bool _isReported;
 
         public void AddFourthStageExam(string name, string action, string idealAction, int right, int wrong)
         {
@@ -47,6 +50,8 @@ namespace Assets.Scripts.Stages.FifthStage
 
         public void RegisterFifthStageExam()
         {
+            if (_isReported)
+                return;
             ExamSystem.Instance.AddExam(new Exam("Этап 2. Подключение и настройка"));
 
             CheckUSPDConnection();
@@ -84,6 +89,7 @@ namespace Assets.Scripts.Stages.FifthStage
 
             foreach (var exam in _fourthStageExams)
                 ExamSystem.Instance.AddExam(exam);
+            _isReported = true;
         }
         private void SixStageExam()
         {
@@ -139,9 +145,9 @@ namespace Assets.Scripts.Stages.FifthStage
 
         private void CheckPortSettings()
         {
-            if (ConfiguredPort)
+            if (ConfiguredPort && _portSettingsPanel.WritedCountErrors)
             {
-                AddFourthStageExam("Настройка порта", "Правильно", "Ввести имя порта в настройках конфигуратора, задать тип порта", 2, 0);
+                AddFourthStageExam("Настройка порта", "Правильно", "Ввести имя порта в настройках конфигуратора, задать тип порта", 3, 0);
             }
             else
             {
@@ -153,7 +159,7 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             if (ConfiguredDevice)
             {
-                AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 4, 0);
+                AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 5, 0);
             }
             else
             {

@@ -10,10 +10,12 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private PortListPanel _portListPanel;
 
         private string _countErrors;
+        public bool WritedCountErrors { private set; get; }
 
         public void Write()
         {
             _countErrors = _countErrorsInputField.text;
+            WritedCountErrors = true;
         }
 
         private void OnEnable()

@@ -84,20 +84,20 @@ namespace Assets.Scripts.Stages.SecondStage.Panels
             }
 
             if (_firstStageItemPreview.SelectedItem.ItemType == ItemTypes.Helmets &&
-                !_firstStageItemPreview.SelectedItem.IsDeffected)
+                !_firstStageItemPreview.SelectedItem.IsDeffected && !_firstStageItemPreview.SelectedItem.IsOverdue)
             {
                     _fourthStageExamSystem.TakedRightPickedHelmetInspectionStage();
                 _fourthStageModel.TakedPickedHelmetInspectionStage();
             }
 
             if (_firstStageItemPreview.SelectedItem.ItemType == ItemTypes.Cotton_Gloves &&
-                !_firstStageItemPreview.SelectedItem.IsDeffected)
+                !_firstStageItemPreview.SelectedItem.IsDeffected && !_firstStageItemPreview.SelectedItem.IsOverdue)
             {
                     _fourthStageExamSystem.TakedRightPickedCottonGlovesInspectionStage();
                 _fourthStageModel.TakedPickedCottonGlovesInspectionStage();
             }
             if (_firstStageItemPreview.SelectedItem.ItemType == ItemTypes.Safety_Glasses &&
-                !_firstStageItemPreview.SelectedItem.IsDeffected)
+                !_firstStageItemPreview.SelectedItem.IsDeffected && !_firstStageItemPreview.SelectedItem.IsOverdue)
             {
                 _fourthStageExamSystem.TakedRightPickedGlassesInspectionStage();
                 _fourthStageModel.TakedPickedGlassesInspectionStage();

@@ -34,14 +34,20 @@ namespace Assets.Scripts.Stages.FourthStage
 
         public void ExitFromTP()
         {
-            if(_antenaPoint.IsSetupedAntena && _fourthStageCablePanel.IsSetuped
-                && _fourthStagePlomb.IsSetupedPlomb &&
-                _controller.IsPlanted &&
-                _uspd.IsPlanted &&
-                (_firstSIMPoint.IsIndicated && _secondSIMPoint.IsIndicated))
+            if(_controller.IsPlanted &&
+                _uspd.IsPlanted)
             {
                 _fourthStageExamSystem.SetRightExitFromTP();
             }
+
+    //        if (_antenaPoint.IsSetupedAntena && _fourthStageCablePanel.IsSetuped
+    //&& _fourthStagePlomb.IsSetupedPlomb &&
+    //_controller.IsPlanted &&
+    //_uspd.IsPlanted &&
+    //(_firstSIMPoint.IsIndicated && _secondSIMPoint.IsIndicated))
+    //        {
+    //            _fourthStageExamSystem.SetRightExitFromTP();
+    //        }
             IsExitedFromTP = true;
         }
 

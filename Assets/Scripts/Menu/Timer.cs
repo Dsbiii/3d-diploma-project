@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Assets.Scripts.Stages.FirstStage;
+using Assets.Scripts.Stages.SecondStage;
+using Assets.Scripts.Stages.FifthStage;
+using Assets.Scripts.Stages.FourthStage;
 
 public class Timer : MonoBehaviour
 {
@@ -21,6 +24,7 @@ public class Timer : MonoBehaviour
     private TMP_Text timerText;
     public float _timeLeft = 0f;
     private float _startTime;
+    private float _baseTime;
     private Coroutine _timer;
     private bool _isEndTime;
     private bool _startedTime;
@@ -42,6 +46,7 @@ public class Timer : MonoBehaviour
         timerText = _baseTimerText;
         _timeLeft = _setting._TimeRun * 60;
         _startTime = _setting._TimeRun * 60;
+        _baseTime = _setting._TimeRun;
         _startedTime = true;
         _timer = StartCoroutine(StartTimer());
     }
@@ -70,6 +75,8 @@ public class Timer : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "FirstStage")
                 FindObjectOfType<FirstStageController>().AddScores();
 
+            FindObjectOfType<FourthStageExamSystem>().RegisterExamSystem();
+            FindObjectOfType<FifthStageExam>().RegisterFifthStageExam();
             ExamSystem.Instance.RegisterResult();
 
             GetOutReminingTime(out float minutes, out float seconds);
@@ -85,7 +92,7 @@ public class Timer : MonoBehaviour
 
     public void GetOutReminingTime(out float minutes, out float seconds)
     {
-        float time = (_startTime / 60) - _timeLeft;
+        float time = _baseTime - _timeLeft;
         minutes = Mathf.FloorToInt(time / 60);
         seconds = Mathf.FloorToInt(time % 60);
     }

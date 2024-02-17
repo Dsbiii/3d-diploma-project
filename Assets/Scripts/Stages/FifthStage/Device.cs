@@ -50,6 +50,7 @@ namespace Assets.Scripts.Stages.FifthStage
         public string KTNValue;
         public string PortValue;
         public string ModeValue;
+        public string Password;
         public string Name => _name.text;
 
         public bool BaseDevice => _baseDevice;
@@ -116,6 +117,11 @@ namespace Assets.Scripts.Stages.FifthStage
 
         }
 
+        public void SetPortName(string name)
+        {
+            _port.text = name;
+        }
+
         public void UpdateDevice()
         {
             _dropdown.value = DropDownValue;
@@ -145,7 +151,7 @@ namespace Assets.Scripts.Stages.FifthStage
             }
         }
 
-        public void SetDeviceValue(string netAdress, string ktt, string ktn , string port , string serialNumber)
+        public void SetDeviceValue(string netAdress, string ktt, string ktn , string port , string serialNumber, string password)
         {
             _dropdown.value = 0;
             _netAdress.text = netAdress;
@@ -160,6 +166,8 @@ namespace Assets.Scripts.Stages.FifthStage
             PortValue = _port.text;
             KTNValue = _ktn.text;
             SerialNumberValue = _serialNumber.text;
+            Password = password;
+            Debug.Log("password " + password);
         }
 
 
@@ -177,8 +185,6 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             if (_sATPanel.IsPortRight)
                 _statusText.text = "ОК";
-            _statusText.text = "ОК";
-
         }
 
         public void OnPointerClick(PointerEventData eventData)

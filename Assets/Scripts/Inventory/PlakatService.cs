@@ -1,16 +1,20 @@
 ﻿using Assets.Scripts.Instruments;
+using Assets.Scripts.Stages.FourthStage;
 using Assets.Scripts.Stages.SecondStage;
 using System.Linq;
 using UnityEngine;
+using Zenject;
+
 public class PlakatService : MonoBehaviour
 {
+    [SerializeField] private FourthStagePlomb[] _fourthStagePlombs;
     [SerializeField] private Plakat[] _plakatsItems;
     [SerializeField] private LayerMask _plakatLayerMask;
     [SerializeField] private SecondStageController _secondStageController;
     [SerializeField] private GameObject[] _plakatsList;
     [SerializeField] private GameObject _plakats;
     [SerializeField] private GameObject[] _panelsExeptions;
-
+    [Inject] private FourthStageModel _fourthStageModel;
     private ParmaService _parmaService;
     private CE602MService _cE602MService;
 
@@ -18,6 +22,7 @@ public class PlakatService : MonoBehaviour
     private bool _isSetupPlakatsBeforeUseInstruments = true;
 
     private bool _isOpen;
+    private bool _isRightSetupedPlakat;
 
     public void InitFromController(ParmaService parmaService, CE602MService cE602MService)
     {
@@ -81,6 +86,13 @@ public class PlakatService : MonoBehaviour
         }
     }
 
+    public void SetupedPlakat()
+    {
+        if(_fourthStageModel.IsExitedFromTP && _fourthStagePlombs.Where(x => x.IsSetupedPlomb).ToList().Count == 0)
+            _isRightSetupedPlakat = true;
+
+    }
+
     public void SetSetupPlakatsBeforeScrewDriver()
     {
         if (_secondStageController.IsFirstPickedScrewDriver)
@@ -104,7 +116,7 @@ public class PlakatService : MonoBehaviour
     {
         //_secondStageController.AddSecondStageExam("Установка плакатов", "Правильно", "Открыть двери ТП и правильно обозначить плакатами зоны работ и Высокого напряжения. Не используемые плакаты убираются в сумку", 1, 0);
 
-        if (!_isOpen && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
+        if (_isRightSetupedPlakat && !_isOpen && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
         {
             _secondStageController.AddSecondStageExam("Установка плакатов", "Правильно", "Открыть двери ТП и правильно обозначить плакатами зоны работ и Высокого напряжения. Не используемые плакаты убираются в сумку", 1, 0);
         }
@@ -116,7 +128,7 @@ public class PlakatService : MonoBehaviour
 
     public bool CheckForRightFieldPlakats()
     {
-        if (_plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
+        if (_isRightSetupedPlakat && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
         {
             return true;
         }

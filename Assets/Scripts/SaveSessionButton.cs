@@ -1,4 +1,6 @@
+using Assets.Scripts.Stages.FifthStage;
 using Assets.Scripts.Stages.FirstStage;
+using Assets.Scripts.Stages.FourthStage;
 using Assets.Scripts.Stages.SecondStage;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +19,8 @@ public class SaveSessionButton : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "SecondStage")
         {
-            FindObjectOfType<SecondStageController>().TryReportAllStages();
+            FindObjectOfType<FourthStageExamSystem>().RegisterExamSystem();
+            FindObjectOfType<FifthStageExam>().RegisterFifthStageExam();
             ExamSystem.Instance.RegisterResult();
         }
 

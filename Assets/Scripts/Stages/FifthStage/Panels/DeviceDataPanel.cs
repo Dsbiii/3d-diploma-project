@@ -11,6 +11,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 {
     public class DeviceDataPanel : MonoBehaviour
     {
+        [SerializeField] private SATPanel _satPanel;
         [SerializeField] private GameObject _readDataPanel;
         [SerializeField] private FifthStageModel _fifthStageModel;
         [SerializeField] private LaptopCablePoint _laptopCablePoint;
@@ -116,6 +117,10 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             //}
         }
 
+        public void EditPort(string value)
+        {
+            _portDropDown.options[2].text = value;
+        }
 
         public void SumbitValueEnter(string text)
         {
@@ -131,22 +136,34 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void Sumbit(string text)
         {
-            if (CurrentDevice != null)
+            if (int.TryParse(text, out int result))
             {
-                if (int.TryParse(text, out int result))
+                if (result == 55629 || result == 0112055629)
                 {
-                    if (result == 55629 || result == 0112055629)
+                    string port = _portDropDown.options[_portDropDown.value].text;
+
+                    _serialNumber.text = "0112055629";
+                    _netAdress.text = "29";
+                    _ktn.text = "1";
+                    _ktt.text = "1";
+                    string portName = "Последовательный порт";
+                    if (_satPanel.Port != "")
+                        portName = _satPanel.Port;
+
+                    _port.text = portName;
+                    _portDropDown.value = 2;
+                    //if(CurrentDevice != null)
+                    //{
+                    //    CurrentDevice.KTTValue = "1";
+                    //    CurrentDevice.KTNValue = "1";
+                    //    CurrentDevice.NetAdressValue = "29";
+                    //    CurrentDevice.PortValue = "Последовательный порт";
+                    //    CurrentDevice.SerialNumberValue = "0112055629";
+                    //}
+                    if (CurrentDevice != null)
                     {
-                        _serialNumber.text = "0112055629";
-                        _netAdress.text = "29";
-                        _ktn.text = "1";
-                        _ktt.text = "1";
-                        _port.text = "Последовательный порт";
-                        CurrentDevice.KTTValue = "1";
-                        CurrentDevice.KTNValue = "1";
-                        CurrentDevice.NetAdressValue = "29";
-                        CurrentDevice.PortValue = "Последовательный порт";
-                        CurrentDevice.SerialNumberValue = "0112055629";
+
+                        CurrentDevice.SetDeviceValue(_netAdress.text, _ktt.text, _ktn.text, _port.text, _serialNumber.text, _password.text);
                     }
                 }
             }
@@ -161,7 +178,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     _serialNumber.text = text;
                     string port = _portDropDown.options[_portDropDown.value].text;
                     device.SetDeviceValue("29", "1", "1",
-                          port, _serialNumber.text);
+                          port, _serialNumber.text, _password.text);
                 }
             }
         }
@@ -178,7 +195,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     //_portDropDown.options.Add(new TMP_Dropdown.OptionData(item.Name));
                     //_portDropDown.value = _portDropDown.options.Count - 1;
                     item.SetDeviceValue("29", "1", "1",
-                        port, "0112055629");
+                        port, "0112055629", _password.text);
                     item.UpdateDevice();
                 }
             }
@@ -191,7 +208,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 {
                     string port = _portDropDown.options[_portDropDown.value].text;
                     CurrentDevice.SetDeviceValue("29", "1", "1",
-                        port, _serialNumber.text);
+                        port, _serialNumber.text, _password.text);
                     CurrentDevice.UpdateDevice();
                 }
             }
@@ -223,6 +240,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             {
                 CurrentDevice.Unselect();
             }
+            _password.text = device.Password;
             CurrentDevice = device;
             _ktn.text = CurrentDevice.KTTValue;
             _ktt.text = CurrentDevice.KTTValue;
@@ -270,6 +288,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             {
                 Destroy(_tempDevices[i].gameObject);
             }
+            if(CurrentDevice != null)
+                CurrentDevice.Unselect();
             _password.text = "";
             _portDropDown.value = 0;
             _tempDevices.Clear();
