@@ -13,6 +13,8 @@ namespace Assets.Scripts.Stages.SixthStage
     {
         [SerializeField] private DataCollectorObject _prefab;
         [SerializeField] private List<DataCollectorObject> _dataCollectorObjects;
+        [SerializeField] private SelectAbonentPanel _profileSettingPanel;
+        [SerializeField] private SelectAbonentPanel _setitngPanel;
         [SerializeField] private Transform _parent;
         [SerializeField] private TMP_InputField _name;
         [SerializeField] private InputField _collectionDepthDay;
@@ -142,6 +144,20 @@ namespace Assets.Scripts.Stages.SixthStage
         public int GetPoints()
         {
             return _dataCollectorObjects.OrderByDescending(obj => obj.Points()).First().Points();
+        }
+        public void OnProfileSetting()
+        {
+            if(_profileSetting.text != "" )
+            {
+                _profileSettingPanel.OnObject(_profileSetting.text);
+            }
+        }
+        public void OnSetting()
+        {
+            if (_setting.text != "")
+            {
+                _setitngPanel.OnObject(_setting.text);
+            }
         }
     }
 }

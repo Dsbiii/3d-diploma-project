@@ -27,6 +27,12 @@ namespace Assets.Scripts.Stages.SixthStage
                 }
             }
         }
+        public void OnObject(string text)
+        {
+            foreach (var item in _selectAbonentObjects)
+                if (item.Value == text)
+                    item.Select();
+        }
         public void Clean()
         {
             foreach (var item in _selectAbonentObjects)
@@ -34,11 +40,14 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         private void OnEnable()
         {
-            foreach(var item in _panel.GetText())
+            if (_prefab != null)
             {
-                SelectAbonentObject selectAbonent = Instantiate(_prefab, _parent);
-                selectAbonent.Init(item, this);
-                _selectAbonentObjects.Add(selectAbonent);
+                foreach (var item in _panel.GetText())
+                {
+                    SelectAbonentObject selectAbonent = Instantiate(_prefab, _parent);
+                    selectAbonent.Init(item, this);
+                    _selectAbonentObjects.Add(selectAbonent);
+                }
             }
         }
         private void OnDisable()
