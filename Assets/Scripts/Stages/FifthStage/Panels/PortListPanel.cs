@@ -10,6 +10,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 {
     public class PortListPanel : MonoBehaviour
     {
+        [SerializeField] private DeviceDataPanel _deviceDataPanel;
         [SerializeField] private GameObject[] _dataObjects;
         [SerializeField] private FifthStageModel _fifthStageModel;
         [SerializeField] private GameObject _readDataPanel;
@@ -25,6 +26,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         private List<Port> _tempPorts = new List<Port>();
         private Port _selectedPort;
        
+        public string PortName { get; private set; }
 
         public bool IsRightCreatedPort { get; private set; }
 
@@ -84,6 +86,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             if (_selectedPort != null)
             {
                 _selectedPort.SetValue(_namePort.text);
+                _deviceDataPanel.EditPort(_namePort.text);
+                PortName = _namePort.text;
                 //_namePort.text = _selectedPort.NamePortText;
             }
         }

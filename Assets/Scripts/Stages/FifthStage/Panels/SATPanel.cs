@@ -122,7 +122,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             {
                 item.SetPortName(Port);
             }
-            _deviceDataPanel.EditPort(Port);
+           // _deviceDataPanel.EditPort(Port);
         }
 
         public bool CheckRightSelect()

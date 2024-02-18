@@ -4,7 +4,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Assets.Scripts.Stages.FifthStage.Panels
@@ -119,7 +121,18 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void EditPort(string value)
         {
-            _portDropDown.options[2].text = value;
+            _portDropDown.ClearOptions();
+
+            // Создаем новый список опций
+            TMP_Dropdown.OptionData option1 = new TMP_Dropdown.OptionData("TCP/IP сервер");
+            TMP_Dropdown.OptionData option2 = new TMP_Dropdown.OptionData("TCP/IP клиент");
+            TMP_Dropdown.OptionData option3 = new TMP_Dropdown.OptionData(value);
+
+            // Добавляем опции в dropdown
+            _portDropDown.options.Add(option1);
+            _portDropDown.options.Add(option2);
+            _portDropDown.options.Add(option3);
+            //_portDropDown.options[2].text = value;
         }
 
         public void SumbitValueEnter(string text)
@@ -147,8 +160,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     _ktn.text = "1";
                     _ktt.text = "1";
                     string portName = "Последовательный порт";
-                    if (_satPanel.Port != "")
-                        portName = _satPanel.Port;
+                    if (_portListPanel.PortName != "")
+                        portName = _portListPanel.PortName;
 
                     _port.text = portName;
                     _portDropDown.value = 2;
@@ -162,8 +175,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     //}
                     if (CurrentDevice != null)
                     {
-
-                        CurrentDevice.SetDeviceValue(_netAdress.text, _ktt.text, _ktn.text, _port.text, _serialNumber.text, _password.text);
+                        CurrentDevice.SetDeviceValue(_netAdress.text, _ktt.text, _ktn.text, _port.text, _serialNumber.text, _password.text, _portDropDown.value);
                     }
                 }
             }
@@ -178,7 +190,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     _serialNumber.text = text;
                     string port = _portDropDown.options[_portDropDown.value].text;
                     device.SetDeviceValue("29", "1", "1",
-                          port, _serialNumber.text, _password.text);
+                          port, _serialNumber.text, _password.text, _portDropDown.value);
                 }
             }
         }
@@ -195,7 +207,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     //_portDropDown.options.Add(new TMP_Dropdown.OptionData(item.Name));
                     //_portDropDown.value = _portDropDown.options.Count - 1;
                     item.SetDeviceValue("29", "1", "1",
-                        port, "0112055629", _password.text);
+                        port, "0112055629", _password.text , _portDropDown.value);
                     item.UpdateDevice();
                 }
             }
@@ -204,11 +216,14 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 _serialNumber.text == "55629")
             {
                 SumbitValueEnter(_serialNumber.text);
-                if(CurrentDevice != null)
+                _portDropDown.value = 2;
+                if (CurrentDevice != null)
                 {
                     string port = _portDropDown.options[_portDropDown.value].text;
+                    Debug.Log(port);
+
                     CurrentDevice.SetDeviceValue("29", "1", "1",
-                        port, _serialNumber.text, _password.text);
+                        port, _serialNumber.text, _password.text, _portDropDown.value);
                     CurrentDevice.UpdateDevice();
                 }
             }
@@ -241,6 +256,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 CurrentDevice.Unselect();
             }
             _password.text = device.Password;
+            _portDropDown.value = device.PortDropDownValue;
             CurrentDevice = device;
             _ktn.text = CurrentDevice.KTTValue;
             _ktt.text = CurrentDevice.KTTValue;

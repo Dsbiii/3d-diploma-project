@@ -51,6 +51,7 @@ namespace Assets.Scripts.Stages.FifthStage
         public string PortValue;
         public string ModeValue;
         public string Password;
+        public int PortDropDownValue;
         public string Name => _name.text;
 
         public bool BaseDevice => _baseDevice;
@@ -151,7 +152,7 @@ namespace Assets.Scripts.Stages.FifthStage
             }
         }
 
-        public void SetDeviceValue(string netAdress, string ktt, string ktn , string port , string serialNumber, string password)
+        public void SetDeviceValue(string netAdress, string ktt, string ktn , string port , string serialNumber, string password , int portDropDownValue)
         {
             _dropdown.value = 0;
             _netAdress.text = netAdress;
@@ -167,7 +168,7 @@ namespace Assets.Scripts.Stages.FifthStage
             KTNValue = _ktn.text;
             SerialNumberValue = _serialNumber.text;
             Password = password;
-            Debug.Log("password " + password);
+            PortDropDownValue = portDropDownValue;
         }
 
 
