@@ -36,6 +36,8 @@ public class TableReportExime : MonoBehaviour
                     score += database[Ind].Exams[k].ScoreForExam;
 
                 }
+                if (database[Ind].Exams[i].ExamHaveCriticalError)
+                    score = 0;
                 var item = Instantiate(dividingSlot, Parret);
                 item.SetText(database[Ind].Exams[i].ExamType, score);
                 _items.Add(item.gameObject);

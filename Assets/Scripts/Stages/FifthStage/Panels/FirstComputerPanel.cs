@@ -15,7 +15,7 @@ namespace Assets.Scripts.Stages.FifthStage
         [SerializeField] private GameObject _backToTPButton;
         [SerializeField] private FifthStageModel _fifthStageModel;
         [Inject] private FifthStageExam _fifthStageExam;
-
+        private bool _isEnteredWrongPort;
         private void Awake()
         {
             //_fifthStageModel.SetConnectComputerStatus(true);
@@ -37,22 +37,35 @@ namespace Assets.Scripts.Stages.FifthStage
 
             if (int.TryParse(nums[nums.Length - 1], out int result))
             {
-                if(result == 153)
+                if (result == 153)
                 {
+                    _isEnteredWrongPort = true;
                     _fifthStageModel.SetConnectComputerStatus(false);
                 }
                 else
                 {
-                    _fifthStageExam.EnteredIP = true;
-                    if(nums.Length == 4 &&
+                    if (nums.Length == 4 &&
                         nums[0] == "169" &&
                         nums[1] == "254" &&
                         nums[2] == "1")
                     {
+                        if(!_isEnteredWrongPort)
+                            _fifthStageExam.EnteredIP = true;
+
                         _fifthStageModel.SetConnectComputerStatus(true);
+                    }
+                    else
+                    {
+                        _isEnteredWrongPort = true;
+                        _fifthStageModel.SetConnectComputerStatus(false);
                     }
                 }
                 //_computerPanel.Open();
+            }
+            else
+            {
+                _isEnteredWrongPort = true;
+                _fifthStageModel.SetConnectComputerStatus(false);
             }
             Close();
             OpenComputer();

@@ -4,7 +4,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -266,17 +265,22 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void SetDevicesStatus()
         {
+            Debug.Log(1);
             if (!_portListPanel.IsRightCreatedPort)
                 return;
+            Debug.Log(2);
 
             if (!_counterCablePoint.IsIndicated)
                 return;
+            Debug.Log(3);
 
             if (!_laptopCablePoint.IsIndicated)
                 return;
+            Debug.Log(4);
 
             if (!_fifthStageModel.IsRightConnectedComputer)
                 return;
+            Debug.Log(5);
 
             foreach (var item in _devices)
             {

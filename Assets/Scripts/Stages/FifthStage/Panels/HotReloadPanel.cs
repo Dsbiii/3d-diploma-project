@@ -43,7 +43,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             if (_totalTime <= 0)
             {
                 _reloadPanel.SetActive(false);
-                if((_passwordDevice.text == "0000" || _passwordDevice.text == "000000") && _port.options[_port.value].text == "Последовательный порт")
+                if((_passwordDevice.text == "0000" || _passwordDevice.text == "000000"))
                 {
                     _deviceDataPanel.SetDevicesStatus();
                 }

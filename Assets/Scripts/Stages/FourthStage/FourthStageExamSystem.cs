@@ -67,7 +67,8 @@ namespace Assets.Scripts.Stages.FourthStage
         {
             if (_isReported)
                 return;
-            ExamSystem.Instance.AddExam(new Exam("Этап 1. Монтаж"));
+            Exam examNameSlot = new Exam("Этап 1. Монтаж");
+            ExamSystem.Instance.AddExam(examNameSlot);
             CheckSIZ();
             InstallUSPDPowerBlock();
             CheckSelectCables();
@@ -80,10 +81,11 @@ namespace Assets.Scripts.Stages.FourthStage
             ReportAKT();
             if(_haveCriticalError)
             {
-                foreach(var item in _fourthStageExams)
-                {
-                    item.Scores = 0;
-                }
+                examNameSlot.ExamHaveCriticalError = true;
+                //foreach(var item in _fourthStageExams)
+                //{
+                //    item.Scores = 0;
+                //}
             }
             foreach (var exam in _fourthStageExams)
                 ExamSystem.Instance.AddExam(exam);

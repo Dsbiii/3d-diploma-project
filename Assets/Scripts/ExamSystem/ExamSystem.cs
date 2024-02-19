@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UI.Dates;
 using UnityEngine;
 
 public class ExamSystem : MonoBehaviour
@@ -103,6 +104,7 @@ public class Exam
     public string ExamType;
     public int ScoreForExam;
     public int Scores;
+    public bool ExamHaveCriticalError;
     public Exam(string examType)
     {
         ExamType = examType;

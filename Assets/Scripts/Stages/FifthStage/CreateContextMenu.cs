@@ -105,7 +105,7 @@ namespace Assets.Scripts.Stages.FifthStage
                 }
 
                 Vector2 spawnPossition = new Vector2(Input.mousePosition.x + 100, Input.mousePosition.y - 65);
-                _contextPanel1 = Instantiate(_contextMenu, spawnPossition, Quaternion.identity, _parentContextMenu.transform);
+                _contextPanel1 = Instantiate(_contextMenu, spawnPossition, Quaternion.identity, _parentContextMenu.transform.parent);
                 _contextPanel1.SetCreateContextMenu(this);
             }
         }
