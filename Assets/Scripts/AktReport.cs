@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Zenject;
+using Assets.Scripts.Stages.FourthStage;
 
 public class AktReport : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class AktReport : MonoBehaviour
     [SerializeField] private List<TextFieldSum> _textFieldSums;
     [SerializeField] private List<InputField> _inputFields;
     [SerializeField] private TMP_Text _textError;
-
+    [Inject] private FourthStageExamSystem _fourthStageExamSystem;
     public string TextError => _textError.text;
     public IReadOnlyList<GameObject> AktPage => _aktPage;
     public IReadOnlyList<SelfFilledIField> SelfFilledIFields => _selfFilledIFields;
@@ -30,6 +32,10 @@ public class AktReport : MonoBehaviour
 
     private void OnEnable()
     {
+        if (!FindObjectOfType<PlakatService>().IsSetupedPlakat)
+        {
+            _fourthStageExamSystem.SetCriticalError();
+        }
         //_selfFilledIFields = GetComponentsInChildren<SelfFilledIField>().ToList();
         //_selectDrops = GetComponentsInChildren<SelectDrop>().ToList();
         //_aktFieldFilleds = GetComponentsInChildren<AktFieldFilled>().ToList();

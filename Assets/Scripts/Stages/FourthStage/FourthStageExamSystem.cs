@@ -63,6 +63,11 @@ namespace Assets.Scripts.Stages.FourthStage
             _isRightPickedHelmetInspectionStage = true;
         }
 
+        public void SetCriticalError()
+        {
+            _haveCriticalError = true;
+        }
+
         public void RegisterExamSystem()
         {
             if (_isReported)
@@ -82,10 +87,8 @@ namespace Assets.Scripts.Stages.FourthStage
             if(_haveCriticalError)
             {
                 examNameSlot.ExamHaveCriticalError = true;
-                //foreach(var item in _fourthStageExams)
-                //{
-                //    item.Scores = 0;
-                //}
+                foreach (var exam in _fourthStageExams)
+                    exam.ScoreForExamWithCriticalError = 0;
             }
             foreach (var exam in _fourthStageExams)
                 ExamSystem.Instance.AddExam(exam);
@@ -101,6 +104,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam("Вывешивание плакатов", "Неправильно", "«Работать здесь» – над счетчиком и под автоматом, «Стой! Напряжение» – на рубильник", 0, 0);
             }
         }
@@ -113,6 +117,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam("Заполнение акта", "Неправильно", "Заполнить акт, указать сведения о пломбах и поставить подписи", 0, 0);
             }
         }
@@ -125,6 +130,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
+                _haveCriticalError = true;
                 AddFourthStageExam("Вывод ТП из ремонта", "Неправильно", "Вывести ТП из ремонта после всех требуемых действий", 0, 0);
             }
         }

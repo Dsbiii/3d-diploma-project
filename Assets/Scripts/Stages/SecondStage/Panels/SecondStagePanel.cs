@@ -403,7 +403,7 @@ namespace Assets.Scripts.Stages.SecondStage.Panels
             _timer.StopTimer();
             _timeRemining.text = "ВРЕМЯ ОСТАЛОСЬ: " + string.Format("{0:00} : {1:00}",Mathf.Abs(minutes), Mathf.Abs(seconds));
             _resultPanel.SetActive(true);
-            _score.text = "БАЛЛЫ: " + ExamSystem.Instance.Score;
+            _score.text = "БАЛЛЫ: " + ExamSystem.Instance.ScoreWithCrititalErrors;
         }
 
         private void OpenInventory()

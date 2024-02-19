@@ -86,7 +86,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             if (_selectedPort != null)
             {
                 _selectedPort.SetValue(_namePort.text);
-                _deviceDataPanel.EditPort(_namePort.text);
+                if(_portList.activeSelf)
+                    _deviceDataPanel.EditPort(_namePort.text);
                 PortName = _namePort.text;
                 //_namePort.text = _selectedPort.NamePortText;
             }

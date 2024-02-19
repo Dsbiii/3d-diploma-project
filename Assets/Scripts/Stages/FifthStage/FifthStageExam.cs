@@ -20,6 +20,7 @@ namespace Assets.Scripts.Stages.FifthStage
         public bool ConnectedUspdToPC { get; set; }
         public bool ConnectedCounterToPC { get; set; }
         public bool EnteredIP { get; set; }
+        public bool IsScrolledDataPanel { get; set; }
         public bool ConfiguredPort
         {
             get
@@ -159,7 +160,14 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             if (ConfiguredDevice)
             {
-                AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 5, 0);
+                if(IsScrolledDataPanel)
+                {
+                    AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 5, 0);
+                }
+                else
+                {
+                    AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 4, 0);
+                }
             }
             else
             {

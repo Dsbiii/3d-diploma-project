@@ -70,9 +70,9 @@ public class AllUsersTableReport : MonoBehaviour
         List<UserItem> userItems = _content.GetComponentsInChildren<UserItem>().ToList();
         List<UserItem> userItems2 = _content.GetComponentsInChildren<UserItem>().ToList();
 
+        int tryCount = 0;
         while (userItems.Count > 0)
         {
-            Debug.Log(userItems.Count);
             RenderTexture rt1 = new RenderTexture(Screen.width, Screen.height, 24);
             Camera.targetTexture = rt1;
             Texture2D screenShot1 = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
@@ -92,13 +92,17 @@ public class AllUsersTableReport : MonoBehaviour
             for (int k = 0; k < 7; k++)
             {
                 if (k > userItems.Count)
-                    return;
+                    break;
 
                 userItems[k].gameObject.SetActive(false);
                 userItems.RemoveAt(k);
             }
+            tryCount++;
+            if (tryCount >= 100)
+            {
+                break;
+            }
         }
-
         foreach (var item in userItems2)
             item.gameObject.SetActive(true);
 

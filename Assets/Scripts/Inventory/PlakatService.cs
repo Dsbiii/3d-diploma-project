@@ -22,6 +22,7 @@ public class PlakatService : MonoBehaviour
     private bool _isSetupPlakatsBeforeUseInstruments = true;
 
     private bool _isOpen;
+    public bool IsSetupedPlakat { get; private set; }   
     private bool _isRightSetupedPlakat;
 
     public void InitFromController(ParmaService parmaService, CE602MService cE602MService)
@@ -88,7 +89,8 @@ public class PlakatService : MonoBehaviour
 
     public void SetupedPlakat()
     {
-        if(_fourthStageModel.IsExitedFromTP && _fourthStagePlombs.Where(x => x.IsSetupedPlomb).ToList().Count == 0)
+        IsSetupedPlakat = true;
+        if (_fourthStageModel.IsExitedFromTP && _fourthStagePlombs.Where(x => x.IsSetupedPlomb).ToList().Count == 0)
             _isRightSetupedPlakat = true;
 
     }
@@ -130,7 +132,7 @@ public class PlakatService : MonoBehaviour
     {
         //if (_isRightSetupedPlakat && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
 
-        if (_plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
+        if (_isRightSetupedPlakat && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
         {
             return true;
         }

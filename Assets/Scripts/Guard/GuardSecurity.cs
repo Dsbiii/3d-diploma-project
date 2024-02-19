@@ -68,14 +68,14 @@ public class GuardSecurity : MonoBehaviour
 
     private void Awake()
     {
-        //Screen.SetResolution(650, 650, false);
-        //_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        //        $"SC{_simulatorCode}Keyv2.json");
-        //_lastLaunch = DateTime.Now;
-        //Debug.Log("_path " + _path);
-        //CheckDate();
+        Screen.SetResolution(650, 650, false);
+        _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                $"SC{_simulatorCode}Keyv2.json");
+        _lastLaunch = DateTime.Now;
+        Debug.Log("_path " + _path);
+        CheckDate();
 
-        LaunchProgram();
+        //LaunchProgram();
     }
 
     private DateTime GetDate(string requestChar)

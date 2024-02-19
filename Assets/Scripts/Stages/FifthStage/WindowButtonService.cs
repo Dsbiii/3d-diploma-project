@@ -18,7 +18,7 @@ namespace Assets.Scripts.Stages.FifthStage
             _closeButton.onClick.AddListener(Close);
             _minimizeButton.onClick.AddListener(Minimize);
         }
-        private void Close()
+        public void Close()
         {
             _appPanel.SetActive(false);
             _downPanel.SetActive(false);

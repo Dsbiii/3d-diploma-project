@@ -11,6 +11,7 @@ public class ExamSystem : MonoBehaviour
     private EnemyData _currentUser;
     private List<Exam> _exams = new List<Exam>();
     public int Score { get; private set; }
+    public int ScoreWithCrititalErrors { get; private set; }
     public static ExamSystem Instance { get; private set; }
     public bool IsOpenSession { get; private set; }
     public IEnumerable<Exam> Exams => _exams;
@@ -61,6 +62,7 @@ public class ExamSystem : MonoBehaviour
             _enemyDatabase.currentEnemy.AddExam(item);
         _enemyDatabase.Save();
         Score = _exams.Sum(item => item.Scores);
+        ScoreWithCrititalErrors = _currentUser.PointsWithCriticalErros;
         IsOpenSession = false;
     }
 
@@ -103,6 +105,7 @@ public class Exam
     public string Result = null;
     public string ExamType;
     public int ScoreForExam;
+    public int ScoreForExamWithCriticalError;
     public int Scores;
     public bool ExamHaveCriticalError;
     public Exam(string examType)
@@ -118,6 +121,7 @@ public class Exam
         ExamName = examName;
         Scores = Right - Wrong;
         ScoreForExam = Scores;
+        ScoreForExamWithCriticalError = ScoreForExam;
     }
 
     public Exam(string result, string idealAction, string userAction, string examName)
@@ -127,5 +131,6 @@ public class Exam
         UserAction = userAction;
         ExamName = examName;
         Scores = Right - Wrong;
+        ScoreForExamWithCriticalError = ScoreForExam;
     }
 }

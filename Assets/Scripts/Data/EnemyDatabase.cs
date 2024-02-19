@@ -25,6 +25,7 @@ public class EnemyDatabase : ScriptableObject
     
     public void Load()
     {
+        Debug.Log("Application.dataPath " + Application.dataPath);
         if (File.Exists(string.Concat(Application.dataPath,"BD.Save")))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -144,7 +145,10 @@ public class EnemyData
     {
         _exams.Add(exam);
         pointExime += exam.ScoreForExam;
+        PointsWithCriticalErros += exam.ScoreForExamWithCriticalError;
     }
+
+    public int PointsWithCriticalErros { get; set; }
 
     public IReadOnlyList<Exam> Exams => _exams;
 

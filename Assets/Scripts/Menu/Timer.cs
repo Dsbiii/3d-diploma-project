@@ -83,7 +83,7 @@ public class Timer : MonoBehaviour
             StopTimer();
             _timeRemining.text = "¬–≈Ãﬂ Œ—“¿ÀŒ—‹: " + string.Format("{0:00} : {1:00}", Mathf.Abs(minutes), Mathf.Abs(seconds - 1));
             _resultPanel.SetActive(true);
-            _score.text = "¡¿ÀÀ€: " + ExamSystem.Instance.Score;
+            _score.text = "¡¿ÀÀ€: " + ExamSystem.Instance.ScoreWithCrititalErrors;
         }
 
     }

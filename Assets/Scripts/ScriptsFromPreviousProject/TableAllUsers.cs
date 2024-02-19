@@ -24,11 +24,11 @@ public class TableAllUsers : MonoBehaviour
             var userItem = Instantiate(_userItem, TableContent.transform);
             if (database[i].RootPrava == true)
             {
-                userItem.SetText(database[i],database[i].LastFirstname, database[i].Login, database[i].Password, database[i].WorkName, database[i].DateCreate, database[i].DateExime, database[i].PointExime.ToString(), true);
+                userItem.SetText(database[i],database[i].LastFirstname, database[i].Login, database[i].Password, database[i].WorkName, database[i].DateCreate, database[i].DateExime, database[i].PointsWithCriticalErros.ToString(), true);
             }
             else
             {
-                userItem.SetText(database[i], database[i].LastFirstname, database[i].Login, database[i].Password, database[i].WorkName, database[i].DateCreate, database[i].DateExime, database[i].PointExime.ToString(), false);
+                userItem.SetText(database[i], database[i].LastFirstname, database[i].Login, database[i].Password, database[i].WorkName, database[i].DateCreate, database[i].DateExime, database[i].PointsWithCriticalErros.ToString(), false);
             }
             userItem.GetComponentInChildren<OpenReport>().Index = i;
             _userItems.Add(userItem);

@@ -31,7 +31,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private TMP_Text _date;
         [SerializeField] private TogglesPanel _togglesPanel;
         [Inject] private FifthStageExam _fifthStageExam;
-
+        private int _valuePort;
         public Device CurrentDevice { get; private set; }
         
         [SerializeField] private List<Device> _devices = new List<Device>();
@@ -98,6 +98,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             string formattedDateTime = currentDateTime.ToString("HH:mm dd.MM.yyyy");
 
             _date.text = formattedDateTime;
+            Debug.Log("_portDropDown.value " + _portDropDown.value);
         }
 
         public void Write()
@@ -131,6 +132,9 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             _portDropDown.options.Add(option1);
             _portDropDown.options.Add(option2);
             _portDropDown.options.Add(option3);
+            _portDropDown.value = 0;
+            Debug.Log("Changed port " + _portDropDown.value);
+
             //_portDropDown.options[2].text = value;
         }
 
@@ -164,6 +168,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
                     _port.text = portName;
                     _portDropDown.value = 2;
+                    Debug.Log("Changed port " + _portDropDown.value);
                     //if(CurrentDevice != null)
                     //{
                     //    CurrentDevice.KTTValue = "1";
@@ -196,28 +201,28 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void UpdateDevices()
         {
-            foreach(var item in _devices)
-            {
-                if((item.SerialNumber == "0112055629" ||
-                    item.SerialNumber == "55629") &&
-                    item.Dropdown.options[item.Dropdown.value].text == "СЭТ-4ТМ.03М")
-                {
-                    string port = _portDropDown.options[_portDropDown.value].text;
-                    //_portDropDown.options.Add(new TMP_Dropdown.OptionData(item.Name));
-                    //_portDropDown.value = _portDropDown.options.Count - 1;
-                    item.SetDeviceValue("29", "1", "1",
-                        port, "0112055629", _password.text , _portDropDown.value);
-                    item.UpdateDevice();
-                }
-            }
+            //foreach(var item in _devices)
+            //{
+            //    if((item.SerialNumber == "0112055629" ||
+            //        item.SerialNumber == "55629") &&
+            //        item.Dropdown.options[item.Dropdown.value].text == "СЭТ-4ТМ.03М")
+            //    {
+            //        string port = _portDropDown.options[_portDropDown.value].text;
+            //        //_portDropDown.options.Add(new TMP_Dropdown.OptionData(item.Name));
+            //        //_portDropDown.value = _portDropDown.options.Count - 1;
+            //        item.SetDeviceValue("29", "1", "1",
+            //            port, "0112055629", _password.text , _portDropDown.value);
+            //        item.UpdateDevice();
+            //    }
+            //}
 
             if(_serialNumber.text == "0112055629"||
                 _serialNumber.text == "55629")
             {
                 SumbitValueEnter(_serialNumber.text);
-                _portDropDown.value = 2;
                 if (CurrentDevice != null)
                 {
+                    Debug.Log("_portDropDown.value " + _portDropDown.value);
                     string port = _portDropDown.options[_portDropDown.value].text;
                     Debug.Log(port);
 
@@ -256,6 +261,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             }
             _password.text = device.Password;
             _portDropDown.value = device.PortDropDownValue;
+            Debug.Log("Changed port " + _portDropDown.value);
             CurrentDevice = device;
             _ktn.text = CurrentDevice.KTTValue;
             _ktt.text = CurrentDevice.KTTValue;
@@ -265,22 +271,17 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void SetDevicesStatus()
         {
-            Debug.Log(1);
             if (!_portListPanel.IsRightCreatedPort)
                 return;
-            Debug.Log(2);
 
             if (!_counterCablePoint.IsIndicated)
                 return;
-            Debug.Log(3);
 
             if (!_laptopCablePoint.IsIndicated)
                 return;
-            Debug.Log(4);
 
             if (!_fifthStageModel.IsRightConnectedComputer)
                 return;
-            Debug.Log(5);
 
             foreach (var item in _devices)
             {
@@ -312,6 +313,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 CurrentDevice.Unselect();
             _password.text = "";
             _portDropDown.value = 0;
+            Debug.Log("Changed port " + _portDropDown.value);
             _tempDevices.Clear();
             _panel.SetActive(false);
         }
