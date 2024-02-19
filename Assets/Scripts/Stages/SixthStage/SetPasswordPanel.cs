@@ -11,6 +11,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_InputField[] _password;
         [SerializeField] private TMP_Text _value;
         [SerializeField] private UsersAndRolesPanel _usersAndRolesPanel;
+        [SerializeField] private Button _okkButton;
 
         private void Awake()
         {
@@ -25,7 +26,17 @@ namespace Assets.Scripts.Stages.SixthStage
                 gameObject.SetActive(true);
             }
         }
-
+        public void CheckPassword()
+        {
+            if (_password[0].text == _password[1].text && _password[0].text != "" && _password[1].text != "")
+            {
+                _okkButton.interactable = true;
+            }
+            else
+            {
+                _okkButton.interactable = false;
+            }
+        }
         private void SetupHidePasswords(bool value)
         {
             if (!value)
@@ -44,6 +55,11 @@ namespace Assets.Scripts.Stages.SixthStage
                     item.ForceLabelUpdate();
                 }
             }
+        }
+        private void OnEnable()
+        {
+            _okkButton.interactable = false;
+            CheckPassword();
         }
         public void Clean()
         {
