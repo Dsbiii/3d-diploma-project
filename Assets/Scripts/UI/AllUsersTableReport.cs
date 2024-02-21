@@ -89,13 +89,20 @@ public class AllUsersTableReport : MonoBehaviour
 
             Debug.Log(string.Format("Took screenshot to: {0}", filename1));
 
-            for (int k = 0; k < 7; k++)
+            try
             {
-                if (k > userItems.Count)
-                    break;
+                for (int k = 0; k < 7; k++)
+                {
+                    if (k > userItems.Count)
+                        break;
 
-                userItems[k].gameObject.SetActive(false);
-                userItems.RemoveAt(k);
+                    userItems[k].gameObject.SetActive(false);
+                    userItems.RemoveAt(k);
+                }
+            }
+            catch
+            {
+                break;
             }
             tryCount++;
             if (tryCount >= 100)

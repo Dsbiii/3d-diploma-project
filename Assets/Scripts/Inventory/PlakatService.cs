@@ -132,7 +132,7 @@ public class PlakatService : MonoBehaviour
     {
         //if (_isRightSetupedPlakat && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
 
-        if (_isRightSetupedPlakat && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
+        if (_plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
         {
             return true;
         }

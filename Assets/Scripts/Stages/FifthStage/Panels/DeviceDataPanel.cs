@@ -105,10 +105,12 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         {
             _devices.AddRange(_tempDevices);
             _tempDevices.Clear();
-            _fifthStageExam.ConfiguredDevice = true;
-
             foreach (var item in _devices)
             {
+                if(item.Port == "Последовательный порт")
+                {
+                    _fifthStageExam.ConfiguredDevice = true;
+                }
                 item.Write();
             }
 
