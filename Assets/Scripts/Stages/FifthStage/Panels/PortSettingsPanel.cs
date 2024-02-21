@@ -20,15 +20,18 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         private void OnEnable()
         {
-            if(!_portListPanel.IsRightCreatedPort)
-            {
-                _countErrorsInputField.gameObject.SetActive(false);
-            }
-            else
-            {
-                _countErrorsInputField.gameObject.SetActive(true);
-                _countErrorsInputField.text = _countErrors;
-            }
+            _countErrorsInputField.gameObject.SetActive(true);
+            _countErrorsInputField.text = _countErrors;
+
+            //if (!_portListPanel.IsRightCreatedPort)
+            //{
+            //    _countErrorsInputField.gameObject.SetActive(false);
+            //}
+            //else
+            //{
+            //    _countErrorsInputField.gameObject.SetActive(true);
+            //    _countErrorsInputField.text = _countErrors;
+            //}
         }
 
     }
