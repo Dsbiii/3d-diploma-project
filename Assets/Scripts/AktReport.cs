@@ -29,9 +29,11 @@ public class AktReport : MonoBehaviour
     public IReadOnlyList<TextFieldSum> TextFieldSums => _textFieldSums;
     public IReadOnlyList<InputField> InputFields => _inputFields;
 
+    public bool IsOpened { get; private set; }
 
     private void OnEnable()
     {
+        IsOpened = true;
         if (!FindObjectOfType<PlakatService>().IsSetupedPlakat)
         {
             _fourthStageExamSystem.SetCriticalError();

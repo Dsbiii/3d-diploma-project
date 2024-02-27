@@ -15,7 +15,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         public void Write()
         {
             _countErrors = _countErrorsInputField.text;
-            WritedCountErrors = true;
+            if(gameObject.activeSelf)
+                WritedCountErrors = true;
         }
 
         private void OnEnable()

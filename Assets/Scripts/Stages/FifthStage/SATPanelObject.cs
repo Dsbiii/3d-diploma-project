@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector;
+﻿using Assets.Scripts.Stages.FifthStage.Panels;
+using Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector;
 using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
 using System.Collections;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace Assets.Scripts.Stages.FifthStage
 {
     public class SATPanelObject : MonoBehaviour
     {
+        [SerializeField] private SATPanel _sATPanel;
         [SerializeField] private LaptopCablePoint _laptopCablePoint;
         [SerializeField] private CounterCablePoint _counterCablePoint;
         [SerializeField] private FifthStageModel _fifthStageModel;
@@ -15,7 +17,11 @@ namespace Assets.Scripts.Stages.FifthStage
 
         private void OnEnable()
         {
-            if(_fifthStageModel.IsRightConnectedComputer && _laptopCablePoint.IsIndicated &&
+            if (_sATPanel != null)
+            {
+                _sATPanel.CheckRight();
+            }
+            if (_fifthStageModel.IsRightConnectedComputer && _laptopCablePoint.IsIndicated &&
                 _counterCablePoint.IsIndicated)
             {
                 foreach(var item in _gameObjects)

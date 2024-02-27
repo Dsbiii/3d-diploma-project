@@ -84,7 +84,7 @@ namespace Assets.Scripts.Stages.FourthStage
             ExitFromTP();
             ReportPlakats();
             ReportAKT();
-            if(_haveCriticalError)
+            if (_haveCriticalError)
             {
                 examNameSlot.ExamHaveCriticalError = true;
                 foreach (var exam in _fourthStageExams)
@@ -104,7 +104,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
-                _haveCriticalError = true;
+                //_haveCriticalError = true;
                 AddFourthStageExam("Вывешивание плакатов", "Неправильно", "«Работать здесь» – над счетчиком и под автоматом, «Стой! Напряжение» – на рубильник", 0, 0);
             }
         }
@@ -149,7 +149,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
-                _haveCriticalError = true;
+                //_haveCriticalError = true;
                 AddFourthStageExam("Опломбировка", "Неправильно", "Установить пломбы на клеммную крышку счетчика, ИКК, трансформаторы тока", count, 0);
             }
         }
@@ -203,15 +203,35 @@ namespace Assets.Scripts.Stages.FourthStage
 
         private void CheckSelectCables()
         {
-            if (_fourthStageCablesSelectingPanel.CheckRightConnection)
-            {
-                AddFourthStageExam($"Выбор провода для подключения", "Правильно", "Блок питания – автомат: ПуВ 1 × 0,75 мм\u00B2\r\nБлок питания – УСПД: ПуВ 1 × 0,75 мм\u00B2)\r\nСчетчик – УСПД: UTP 0,5 мм\u00B2 Cu", 6, 0);
-            }
-            else
+            int count = _fourthStageCablesSelectingPanel.CheckRightConnection;
+
+            if(count == 0)
             {
                 _haveCriticalError = true;
                 AddFourthStageExam($"Выбор провода для подключения", "Неправильно", "Блок питания – автомат: ПуВ 1 × 0,75 мм\u00B2\r\nБлок питания – УСПД: ПуВ 1 × 0,75 мм\u00B2)\r\nСчетчик – УСПД: UTP 0,5 мм\u00B2 Cu", 0, 0);
             }
+            else if (count == 1)
+            {
+                AddFourthStageExam($"Выбор провода для подключения", "Неправильно", "Блок питания – автомат: ПуВ 1 × 0,75 мм\u00B2\r\nБлок питания – УСПД: ПуВ 1 × 0,75 мм\u00B2)\r\nСчетчик – УСПД: UTP 0,5 мм\u00B2 Cu", 2, 0);
+            }
+            else if (count == 2)
+            {
+                AddFourthStageExam($"Выбор провода для подключения", "Неправильно", "Блок питания – автомат: ПуВ 1 × 0,75 мм\u00B2\r\nБлок питания – УСПД: ПуВ 1 × 0,75 мм\u00B2)\r\nСчетчик – УСПД: UTP 0,5 мм\u00B2 Cu", 4, 0);
+            }
+            else if (count == 3)
+            {
+                AddFourthStageExam($"Выбор провода для подключения", "Правильно", "Блок питания – автомат: ПуВ 1 × 0,75 мм\u00B2\r\nБлок питания – УСПД: ПуВ 1 × 0,75 мм\u00B2)\r\nСчетчик – УСПД: UTP 0,5 мм\u00B2 Cu", 6, 0);
+            }
+
+            //if (_fourthStageCablesSelectingPanel.CheckRightConnection)
+            //{
+            //    AddFourthStageExam($"Выбор провода для подключения", "Правильно", "Блок питания – автомат: ПуВ 1 × 0,75 мм\u00B2\r\nБлок питания – УСПД: ПуВ 1 × 0,75 мм\u00B2)\r\nСчетчик – УСПД: UTP 0,5 мм\u00B2 Cu", 6, 0);
+            //}
+            //else
+            //{
+            //    _haveCriticalError = true;
+            //    AddFourthStageExam($"Выбор провода для подключения", "Неправильно", "Блок питания – автомат: ПуВ 1 × 0,75 мм\u00B2\r\nБлок питания – УСПД: ПуВ 1 × 0,75 мм\u00B2)\r\nСчетчик – УСПД: UTP 0,5 мм\u00B2 Cu", 0, 0);
+            //}
         }
 
         private void InstallUSPDPowerBlock()

@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -9,12 +10,14 @@ namespace Assets.Scripts.Stages.FourthStage
 {
     public class FourthStageModel : MonoBehaviour
     {
+        [SerializeField] private FourthStagePlomb _transformatorFourthStagePlombs;
+        [SerializeField] private FourthStagePlomb[] _ikkCounterFourthStagePlombs;
+
         [SerializeField] private List<Item> _obligatoryItemsForFourth;
         [SerializeField] private List<Item> _obligatoryItemsToRemove;
-
+        [SerializeField] private AntenaPoint _antenaPoint;
         [SerializeField] private MovableObject _controller;
         [SerializeField] private MovableObject _uspd;
-        [SerializeField] private AntenaPoint _antenaPoint;
         [SerializeField] private FourthStageCablePanel _fourthStageCablePanel;
         [SerializeField] private FourthStagePlomb _fourthStagePlomb;
         [SerializeField] private SIMPoint _firstSIMPoint;
@@ -34,8 +37,19 @@ namespace Assets.Scripts.Stages.FourthStage
 
         public void ExitFromTP()
         {
+            Debug.Log("_controller.IsPlanted " + _controller.IsPlanted);
+            Debug.Log("_uspd.IsPlanted " + _uspd.IsPlanted);
+            Debug.Log("Plombs " + (_transformatorFourthStagePlombs.IsSetupedPlomb ||
+                _ikkCounterFourthStagePlombs.Where(item => item.IsSetupedPlomb).ToArray().Length == _ikkCounterFourthStagePlombs.Length));
+            Debug.Log("Sims " + (_firstSIMPoint.IsIndicated || _secondSIMPoint.IsIndicated));
+            Debug.Log("_antenaPoint.IsSetupedAntena " + _antenaPoint.IsSetupedAntena);
+
             if(_controller.IsPlanted &&
-                _uspd.IsPlanted)
+                _uspd.IsPlanted &&
+                (_transformatorFourthStagePlombs.IsSetupedPlomb ||
+                _ikkCounterFourthStagePlombs.Where(item => item.IsSetupedPlomb).ToArray().Length == _ikkCounterFourthStagePlombs.Length)
+                && (_firstSIMPoint.IsIndicated || _secondSIMPoint.IsIndicated) &&
+                _antenaPoint.IsSetupedAntena)
             {
                 _fourthStageExamSystem.SetRightExitFromTP();
             }

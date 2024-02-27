@@ -25,7 +25,7 @@ public class EnemyDatabase : ScriptableObject
     
     public void Load()
     {
-        Debug.Log("Application.dataPath " + Application.dataPath);
+        Debug.Log("Application.dataPath " + string.Concat(Application.dataPath, "BD.Save"));
         if (File.Exists(string.Concat(Application.dataPath,"BD.Save")))
         {
             BinaryFormatter bf = new BinaryFormatter();

@@ -8,13 +8,16 @@ namespace Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector
     public class LaptopCablePoint : MonoBehaviour
     {
         [SerializeField] private GameObject _objectPoint;
+        [SerializeField] private FirstComputerPanel _firstComputerPanel;
         [Inject] private FifthStageExam _fifthStageExam;
 
         public bool IsIndicated { get; private set; }
 
         public void SetupPoint()
         {
-            _fifthStageExam.ConnectedUspdToPC = true;
+            if (!_firstComputerPanel.IsEnteredInCoumputer)
+                _fifthStageExam.ConnectedUspdToPC = true;
+
             IsIndicated = true;
             _objectPoint.SetActive(true);
             //gameObject.SetActive(false);

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Stages.FifthStage;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
 using Zenject;
@@ -17,9 +18,13 @@ namespace Assets.Scripts.Stages.FourthStage
         {
             if (_model.IsExitedFromTP)
             {
+                _system.SetCriticalError();
                 _system.SetRightExitFromTP(false);
             }
-            IsSetupedAntena = true;
+            else
+            {
+                IsSetupedAntena = true;
+            }
             _objectAntena.SetActive(true);
             gameObject.SetActive(false);
         }

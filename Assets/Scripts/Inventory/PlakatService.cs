@@ -7,6 +7,7 @@ using Zenject;
 
 public class PlakatService : MonoBehaviour
 {
+    [SerializeField] private AktReport _aktReport;
     [SerializeField] private FourthStagePlomb[] _fourthStagePlombs;
     [SerializeField] private Plakat[] _plakatsItems;
     [SerializeField] private LayerMask _plakatLayerMask;
@@ -90,9 +91,11 @@ public class PlakatService : MonoBehaviour
     public void SetupedPlakat()
     {
         IsSetupedPlakat = true;
-        if (_fourthStageModel.IsExitedFromTP && _fourthStagePlombs.Where(x => x.IsSetupedPlomb).ToList().Count == 0)
+        if (_fourthStageModel.IsExitedFromTP && _fourthStagePlombs.Where(x => x.IsSetupedPlomb).ToList().Count == 0
+            && !_aktReport.IsOpened)
+        {
             _isRightSetupedPlakat = true;
-
+        }
     }
 
     public void SetSetupPlakatsBeforeScrewDriver()
@@ -132,7 +135,7 @@ public class PlakatService : MonoBehaviour
     {
         //if (_isRightSetupedPlakat && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
 
-        if (_plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
+        if (_isRightSetupedPlakat && _plakatsList[0].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[1].transform.GetChild(2).gameObject.activeSelf == true && _plakatsList[2].transform.GetChild(3).gameObject.activeSelf == true)
         {
             return true;
         }

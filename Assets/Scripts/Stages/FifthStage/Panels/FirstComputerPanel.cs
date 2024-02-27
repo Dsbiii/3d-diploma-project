@@ -16,6 +16,9 @@ namespace Assets.Scripts.Stages.FifthStage
         [SerializeField] private FifthStageModel _fifthStageModel;
         [Inject] private FifthStageExam _fifthStageExam;
         private bool _isEnteredWrongPort;
+
+        public bool IsEnteredInCoumputer { get; private set; }
+
         private void Awake()
         {
             //_fifthStageModel.SetConnectComputerStatus(true);
@@ -23,6 +26,7 @@ namespace Assets.Scripts.Stages.FifthStage
 
         public void OpenComputer()
         {
+            IsEnteredInCoumputer = true;
             _computerPanel.SetActive(true);
         }
 

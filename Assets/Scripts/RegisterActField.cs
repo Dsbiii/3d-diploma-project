@@ -116,12 +116,12 @@ public class RegisterActField : MonoBehaviour , IPointerClickHandler
         }
         else if (_type == Type.Date_Time)
         {
-            Debug.Log(_act.Date);
+            Debug.Log("Date_Time " + _act.Date);
 
             if (DateTime.TryParse(_act.Date, out DateTime dateTime))
             {
                 Debug.Log("Is work");
-                _text.text = dateTime.ToString("HH:mm");
+                _text.text = DateTime.Now.ToString("HH:mm");
             }
         }
         else if (_type == Type.Date_Year)

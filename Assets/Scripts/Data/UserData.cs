@@ -30,7 +30,7 @@ using UnityEditor;
             FactoryName = factoryName;
             Status = status;
             Date = date;
-        Debug.Log(Date);
+            Debug.Log("Date " + Date);
 #if UNITY_EDITOR
         EditorUtility.SetDirty(this);
 #endif

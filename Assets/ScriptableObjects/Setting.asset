@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71a207bb4796eb4887434e45e7992ed, type: 3}
   m_Name: Setting
   m_EditorClassIdentifier: 
-  _TimeRun: 40
+  _TimeRun: 20
   _SIZError: 0
   _TreshchinaKorpuseSchetchika: 0
   _PereobzhataPlomba: 0

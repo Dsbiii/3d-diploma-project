@@ -7,7 +7,7 @@ using UnityEditor;
 [CreateAssetMenu(menuName = "Setting", fileName = "Setting")]
 public class Setting : ScriptableObject
 {
-    public int _TimeRun = 60;
+    public int _TimeRun = 30;
     public bool _SIZError;
     public bool _TreshchinaKorpuseSchetchika;
     public bool _PereobzhataPlomba;

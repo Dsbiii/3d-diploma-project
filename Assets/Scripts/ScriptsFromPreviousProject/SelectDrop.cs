@@ -342,7 +342,6 @@ public class SelectDrop : MonoBehaviour
         string selectedText = GetComponent<Dropdown>().options[GetComponent<Dropdown>().value].text;
 
         // Выводим информацию о выбранной опции (можете изменить логику в соответствии с вашими нуждами)
-        Debug.Log("Выбрано: " + selectedText);
     }
 
 }

@@ -21,10 +21,6 @@ namespace Assets.Scripts.Stages.FifthStage
                 lastClickTime = 0f;
                 _appPanel.SetActive(true);
                 _downIcon.SetActive(true);
-                if(_sATPanel != null)
-                {
-                    _sATPanel.CheckRight();
-                }
             }
             else
             {

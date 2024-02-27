@@ -8,6 +8,7 @@ namespace Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector
     public class CounterCablePoint : MonoBehaviour
     {
         [SerializeField] private GameObject _objectPoint;
+        [SerializeField] private FirstComputerPanel _firstComputerPanel;
 
         [Inject] private FifthStageExam _fifthStageExam;
 
@@ -16,7 +17,9 @@ namespace Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector
 
         public void SetupPoint()
         {
-            _fifthStageExam.ConnectedCounterToPC = true;
+            if(!_firstComputerPanel.IsEnteredInCoumputer)
+                _fifthStageExam.ConnectedCounterToPC = true;
+
             IsIndicated = true;
             _objectPoint.SetActive(true);
             //gameObject.SetActive(false);

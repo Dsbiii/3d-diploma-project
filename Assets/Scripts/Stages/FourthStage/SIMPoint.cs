@@ -24,9 +24,13 @@ namespace Assets.Scripts.Stages.FourthStage
         {
             if (_model.IsExitedFromTP)
             {
+                _system.SetCriticalError();
                 _system.SetRightExitFromTP(false);
             }
-            IsIndicated = true;
+            else
+            {
+                IsIndicated = true;
+            }
             _objectAntena.SetActive(true);
             gameObject.SetActive(false);
         }

@@ -27,8 +27,7 @@ namespace Assets.Scripts.Stages.FifthStage
             {
                 foreach(var port in _portListPanel.Ports)
                 {
-                    Debug.Log("port.NamePortText " + port.NamePortText);
-                    if(port.NamePortText.Contains("Последовательный порт"))
+                    if(port.NamePortText.Contains("Последовательный порт 1"))
                     {
                         return true;
                     }
@@ -146,9 +145,10 @@ namespace Assets.Scripts.Stages.FifthStage
 
         private void CheckPortSettings()
         {
+            //if (ConfiguredPort && _portSettingsPanel.WritedCountErrors)
             if (ConfiguredPort && _portSettingsPanel.WritedCountErrors)
             {
-                AddFourthStageExam("Настройка порта", "Правильно", "Ввести имя порта в настройках конфигуратора, задать тип порта", 3, 0);
+                    AddFourthStageExam("Настройка порта", "Правильно", "Ввести имя порта в настройках конфигуратора, задать тип порта", 3, 0);
             }
             else
             {

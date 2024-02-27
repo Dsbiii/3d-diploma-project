@@ -39,7 +39,7 @@ namespace Assets.Scripts.Stages.FourthStage.SelectingCablesPanel
 
         private int _currentPanelId = 0;
 
-        public bool CheckRightConnection
+        public int CheckRightConnection
         {
             get
             {
@@ -51,9 +51,7 @@ namespace Assets.Scripts.Stages.FourthStage.SelectingCablesPanel
                         count++;
                     }
                 }
-                if (count >= _cablePanelSettings.Length)
-                    return true;
-                return false;
+                return count;
             }
         }
 

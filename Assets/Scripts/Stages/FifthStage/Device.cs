@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Security.Cryptography;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ namespace Assets.Scripts.Stages.FifthStage
         [SerializeField] private Image _backGroundPanel;
         [SerializeField] private DeviceDataPanel _deviceDataPanel;
         [SerializeField] private TMP_Dropdown _dropdown;
+        [SerializeField] private TMP_Dropdown _portDropdown;
         [SerializeField] private TMP_InputField _name;
         [SerializeField] private TMP_InputField _netAdress;
         [SerializeField] private TMP_InputField _serialNumber;
@@ -42,6 +44,7 @@ namespace Assets.Scripts.Stages.FifthStage
         public TMP_InputField PortInputField => _port;
         public TMP_InputField ModeInputField => _mode;
         public TMP_Dropdown Dropdown => _dropdown;
+        public TMP_Dropdown PortDropdown => _portDropdown;
 
         public int DropDownValue;
         public string NetAdressValue;
@@ -61,7 +64,7 @@ namespace Assets.Scripts.Stages.FifthStage
             _deviceDataPanel = FindObjectOfType<DeviceDataPanel>();
             _sATPanel = FindObjectOfType<SATPanel>();
             _portPanelsButton = FindObjectOfType<PortPanelsButton>();
-
+            //EditPort(_deviceDataPanel.NewPortName);
             _netAdress.onValueChanged.AddListener((value) =>
             {
                 NetAdressValue = value;
@@ -140,6 +143,25 @@ namespace Assets.Scripts.Stages.FifthStage
             }
         }
 
+        public void EditPort(string value)
+        {
+            Debug.Log("EditPort");
+            _portDropdown.ClearOptions();
+
+            // Создаем новый список опций
+            TMP_Dropdown.OptionData option1 = new TMP_Dropdown.OptionData("TCP/IP сервер");
+            TMP_Dropdown.OptionData option2 = new TMP_Dropdown.OptionData("TCP/IP клиент");
+            TMP_Dropdown.OptionData option3 = new TMP_Dropdown.OptionData(value);
+
+            // Добавляем опции в dropdown
+            _portDropdown.options.Add(option1);
+            _portDropdown.options.Add(option2);
+            _portDropdown.options.Add(option3);
+            _portDropdown.value = 0;
+
+            //_portDropDown.options[2].text = value;
+        }
+
         public void Sumbit(string text)
         {
             if (int.TryParse(text, out int result))
@@ -147,7 +169,7 @@ namespace Assets.Scripts.Stages.FifthStage
                 if (result == 55629 || result == 0112055629)
                 {
                     _deviceDataPanel.Sumbit(text, this);
-                    _deviceDataPanel.SumbitValueEnter(text);
+                    // _deviceDataPanel.SumbitValueEnter(text);
                 }
             }
         }
@@ -157,11 +179,12 @@ namespace Assets.Scripts.Stages.FifthStage
             _dropdown.value = 0;
             _netAdress.text = netAdress;
             _ktt.text = ktt;
-            _port.text = port;
+            //_port.text = port;
             _ktn.text = ktn;
             _serialNumber.text = serialNumber;
-
             DropDownValue = _dropdown.value;
+            Debug.Log("EditPort");
+            _portDropdown.value = portDropDownValue;
             NetAdressValue = _netAdress.text;
             KTTValue = _ktt.text;
             PortValue = _port.text;
@@ -184,7 +207,6 @@ namespace Assets.Scripts.Stages.FifthStage
 
         public void SetStatusText()
         {
-            Debug.Log("_sATPanel.IsPortRight");
             if (_sATPanel.IsPortRight)
                 _statusText.text = "ОК";
         }
