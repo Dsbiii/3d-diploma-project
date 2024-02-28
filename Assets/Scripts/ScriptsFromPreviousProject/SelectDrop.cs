@@ -114,9 +114,16 @@ public class SelectDrop : MonoBehaviour
         {
             if (_Type == Type.LeadPlomb)
             {
-                GetComponent<Dropdown>().options[1].text = "Бумажная";
-                GetComponent<Dropdown>().options[2].text = "Свинцовая";
-                GetComponent<Dropdown>().options[3].text = "Пластиковая";
+                Dropdown dropdown = GetComponent<Dropdown>();
+                dropdown.ClearOptions();
+                var options = new List<Dropdown.OptionData>
+                {
+                    new Dropdown.OptionData(""),
+                    new Dropdown.OptionData("Бумажная"),
+                    new Dropdown.OptionData("Свинцовая"),
+                    new Dropdown.OptionData("Пластиковая"),
+                };
+                dropdown.AddOptions(options);
                 //GetComponent<Dropdown>().options[4].text = "Пластиковая";
                 //GetComponent<Dropdown>().options[5].text = "Пластиковая";
 
@@ -124,9 +131,19 @@ public class SelectDrop : MonoBehaviour
             if (_Type == Type.PlombNumber)
             {
                 _any = true;
-                GetComponent<Dropdown>().options[1].text = "JQ62841";
-                GetComponent<Dropdown>().options[2].text = "JQ62823";
-                GetComponent<Dropdown>().options[3].text = "JQ62845";
+                Dropdown dropdown = GetComponent<Dropdown>();
+                dropdown.ClearOptions();
+                var options = new List<Dropdown.OptionData>
+                {
+                    new Dropdown.OptionData(""),
+                    new Dropdown.OptionData("JQ62841"),
+                    new Dropdown.OptionData("JQ62823"),
+                    new Dropdown.OptionData("JQ62845"),
+                };
+                dropdown.AddOptions(options);
+                //GetComponent<Dropdown>().options[1].text = "JQ62841";
+                //GetComponent<Dropdown>().options[2].text = "JQ62823";
+                //GetComponent<Dropdown>().options[3].text = "JQ62845";
 
             }
             if (_Type == Type.FactPower)

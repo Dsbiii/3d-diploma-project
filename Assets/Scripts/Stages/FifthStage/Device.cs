@@ -64,7 +64,8 @@ namespace Assets.Scripts.Stages.FifthStage
             _deviceDataPanel = FindObjectOfType<DeviceDataPanel>();
             _sATPanel = FindObjectOfType<SATPanel>();
             _portPanelsButton = FindObjectOfType<PortPanelsButton>();
-            //EditPort(_deviceDataPanel.NewPortName);
+            if(_deviceDataPanel.NewPortName.Length != 0)
+                EditPort(_deviceDataPanel.NewPortName);
             _netAdress.onValueChanged.AddListener((value) =>
             {
                 NetAdressValue = value;

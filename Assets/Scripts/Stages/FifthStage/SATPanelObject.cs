@@ -21,21 +21,21 @@ namespace Assets.Scripts.Stages.FifthStage
             {
                 _sATPanel.CheckRight();
             }
-            if (_fifthStageModel.IsRightConnectedComputer && _laptopCablePoint.IsIndicated &&
-                _counterCablePoint.IsIndicated)
-            {
-                foreach(var item in _gameObjects)
-                {
-                    item.SetActive(true);
-                }
-            }
-            else
-            {
-                foreach(var item in _gameObjects)
-                {
-                    item.SetActive(false);
-                }
-            }
+            //if (_fifthStageModel.IsRightConnectedComputer && _laptopCablePoint.IsIndicated &&
+            //    _counterCablePoint.IsIndicated)
+            //{
+            //    foreach(var item in _gameObjects)
+            //    {
+            //        item.SetActive(true);
+            //    }
+            //}
+            //else
+            //{
+            //    foreach(var item in _gameObjects)
+            //    {
+            //        item.SetActive(false);
+            //    }
+            //}
         }
     }
 }

@@ -19,6 +19,7 @@ public class AktReport : MonoBehaviour
     [SerializeField] private List<InputField> _inputFields;
     [SerializeField] private TMP_Text _textError;
     [Inject] private FourthStageExamSystem _fourthStageExamSystem;
+    [Inject] private FourthStageModel _fourthStageModel;
     public string TextError => _textError.text;
     public IReadOnlyList<GameObject> AktPage => _aktPage;
     public IReadOnlyList<SelfFilledIField> SelfFilledIFields => _selfFilledIFields;
@@ -30,10 +31,15 @@ public class AktReport : MonoBehaviour
     public IReadOnlyList<InputField> InputFields => _inputFields;
 
     public bool IsOpened { get; private set; }
+    public bool IsOpenedBeforeExitFromTP { get; private set; }
 
     private void OnEnable()
     {
         IsOpened = true;
+        if(_fourthStageModel.IsExitedFromTP)
+        {
+            IsOpenedBeforeExitFromTP = true;
+        }
         if (!FindObjectOfType<PlakatService>().IsSetupedPlakat)
         {
             _fourthStageExamSystem.SetCriticalError();

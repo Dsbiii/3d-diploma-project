@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Instruments;
 using Assets.Scripts.Stages.FourthStage;
 using Assets.Scripts.Stages.SecondStage;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
@@ -8,7 +9,7 @@ using Zenject;
 public class PlakatService : MonoBehaviour
 {
     [SerializeField] private AktReport _aktReport;
-    [SerializeField] private FourthStagePlomb[] _fourthStagePlombs;
+    [SerializeField] private List<FourthStagePlomb> _fourthStagePlombs;
     [SerializeField] private Plakat[] _plakatsItems;
     [SerializeField] private LayerMask _plakatLayerMask;
     [SerializeField] private SecondStageController _secondStageController;
@@ -32,6 +33,10 @@ public class PlakatService : MonoBehaviour
         _cE602MService = cE602MService;
     }
 
+    public void PreparePlakatsBeforeExitFromTP()
+    {
+        _fourthStagePlombs = _fourthStagePlombs.Where(item => !item.IsSetupedPlomb).ToList();
+    }
 
     private void Update()
     {
@@ -92,7 +97,7 @@ public class PlakatService : MonoBehaviour
     {
         IsSetupedPlakat = true;
         if (_fourthStageModel.IsExitedFromTP && _fourthStagePlombs.Where(x => x.IsSetupedPlomb).ToList().Count == 0
-            && !_aktReport.IsOpened)
+            && !_aktReport.IsOpenedBeforeExitFromTP)
         {
             _isRightSetupedPlakat = true;
         }

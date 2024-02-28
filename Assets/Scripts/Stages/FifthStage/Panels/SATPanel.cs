@@ -85,23 +85,33 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             }
             else
             {
-                if (!IsPortRight)
-                {
-                    _mode1.value = 1;
-                    _mode2.value = 1;
-                    _port.value = 5;
-                    _passwordField.text = "";
+                _mode1.value = 1;
+                _mode2.value = 1;
+                _port.value = 5;
+                _passwordField.text = "";
 
-                    foreach (var item in _buttonsGroup)
-                    {
-                        item.UnselectColor();
-                    }
+                foreach (var item in _buttonsGroup)
+                {
+                    item.UnselectColor();
                 }
+                //if (!IsPortRight)
+                //{
+                //    _mode1.value = 1;
+                //    _mode2.value = 1;
+                //    _port.value = 5;
+                //    _passwordField.text = "";
+
+                //    foreach (var item in _buttonsGroup)
+                //    {
+                //        item.UnselectColor();
+                //    }
+                //}
             }
         }
 
         public void Save()
         {
+            Debug.Log("Save");
             _saveButton.gameObject.SetActive(false);
             _isSave = true;
             _mode1Value = _mode1.value;
@@ -144,8 +154,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
             if (_mode1.options[_mode1Value].text == "Нечет" &&
                 _mode2.options[_mode2Value].text == "Нечет" &&
-                _isSelectedPort &&
-                _passwordFieldValue == "000000")
+                _isSelectedPort)
             {
                 return true;
             }

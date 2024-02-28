@@ -27,7 +27,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
         public void SumAllPoints()
         {
             int Points = SumPoint1() + SumPoint2() + SumPoint3() + SumPoint4() + SumPoint5() + SumPoint6();
-            if(Points > 30)
+            if(Points > 40)
                 _checkNetworkHierarchy.ClickUpdate();
         }
         public int SumPoint1()

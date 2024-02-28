@@ -254,6 +254,7 @@ namespace Assets.Scripts.Stages.SecondStage.Panels
             //foreach (var item in _fourthStageScriptsPlombs)
             //    item.SetupPlomb();
             _transformerPoint.SetupCap();
+            _plakatService.PreparePlakatsBeforeExitFromTP();
             //_ikkPlombPoint.SetupCap();
             //_counterPlombPoint.SetupCap();
         }

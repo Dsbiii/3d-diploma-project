@@ -32,7 +32,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private TogglesPanel _togglesPanel;
         [Inject] private FifthStageExam _fifthStageExam;
         private int _valuePort;
-        public string NewPortName { get; private set; } 
+        public string NewPortName { get; private set; } = "";
         public Device CurrentDevice { get; private set; }
         
         [SerializeField] private List<Device> _devices = new List<Device>();
@@ -308,6 +308,9 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 return;
 
             if (!_fifthStageModel.IsRightConnectedComputer)
+                return;
+
+            if (!_satPanel.IsRight())
                 return;
 
             foreach (var item in _devices)
