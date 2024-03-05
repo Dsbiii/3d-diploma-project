@@ -46,6 +46,11 @@ public class TableReportExime : MonoBehaviour
             {
                 slotCount++;
                 var item = Instantiate(ExamenieUserItem, Parret);
+                Debug.Log("database[Ind].Exams[i].IsAdditionExam " + database[Ind].Exams[i].IsAdditionExam);
+                if (database[Ind].Exams[i].IsAdditionExam)
+                {
+                    item.GetComponent<Image>().color = new Color(0.79f, 0.79f, 0.79f);
+                }
                 if (database[Ind].Exams[i].Result != null && database[Ind].Exams[i].Result.Length > 0)
                 {
                     item.SetExamenieItems(slotCount.ToString(), database[Ind].Exams[i].ExamName, database[Ind].Exams[i].UserAction, database[Ind].Exams[i].IdealAction, database[Ind].Exams[i].Result);

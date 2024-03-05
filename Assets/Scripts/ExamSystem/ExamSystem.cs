@@ -108,12 +108,26 @@ public class Exam
     public int ScoreForExamWithCriticalError;
     public int Scores;
     public bool ExamHaveCriticalError;
+    public bool IsAdditionExam = false;
     public Exam(string examType)
     {
         ExamType = examType;
     }
     public Exam(int wrong, int right, string idealAction, string userAction, string examName)
     {
+        IsAdditionExam = false;
+        Wrong = wrong;
+        Right = right;
+        IdealAction = idealAction;
+        UserAction = userAction;
+        ExamName = examName;
+        Scores = Right - Wrong;
+        ScoreForExam = Scores;
+        ScoreForExamWithCriticalError = ScoreForExam;
+    }
+    public Exam(int wrong, int right, string idealAction, string userAction, string examName , bool isAddtion)
+    {
+        IsAdditionExam = isAddtion;
         Wrong = wrong;
         Right = right;
         IdealAction = idealAction;
@@ -126,6 +140,8 @@ public class Exam
 
     public Exam(string result, string idealAction, string userAction, string examName)
     {
+        IsAdditionExam = false;
+
         Result = result;
         IdealAction = idealAction;
         UserAction = userAction;
