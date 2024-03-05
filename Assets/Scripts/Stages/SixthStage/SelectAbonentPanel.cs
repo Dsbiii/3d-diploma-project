@@ -14,6 +14,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private SelectAbonentObject _prefab;
         [SerializeField] private Transform _parent;
         [SerializeField] private AbonentPanel _panel;
+        public int ItemIndex;
 
         public IEnumerable<SelectAbonentObject> SelectAbonentObjects { get { return _selectAbonentObjects;} }
 
@@ -23,6 +24,7 @@ namespace Assets.Scripts.Stages.SixthStage
             {
                 if (item.IsSelected)
                 {
+                    ItemIndex = _selectAbonentObjects.IndexOf(item);
                     _value.text = item.Value;
                 }
             }

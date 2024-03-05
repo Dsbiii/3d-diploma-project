@@ -41,6 +41,7 @@ namespace Assets.Scripts.Stages.SixthStage
         private Proccess _proccess = Proccess.Add;
         public SelectPanel CurrentSelectPanel { get { return _currentSelectPanel; } }
         public string SelectedName;
+        public int[] Report = new int[8] {0,0,0,0,0,0,0,0};
         public void ClickOKButton()
         {
             CheckToCorrect();

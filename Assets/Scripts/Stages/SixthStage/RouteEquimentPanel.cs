@@ -21,6 +21,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private Transform _parent;
         [SerializeField] private DirectoriesPanel _directoriesPanel;
         private RouteEquipment _currentEquiment;
+        public int[] ReportInfo = new int[8] {0,0,0,0,0,0,0,0};
         public void Spawn()
         {
             RouteEquipment equip = Instantiate(_prefab, _parent);
@@ -62,6 +63,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoints()
         {
+            Debug.Log(string.Join("", ReportInfo));
             if(_equipments.Count == 0)
                 return _directoriesPanel.Getpoints();
             return _equipments.OrderByDescending(obj => obj.SumPoint()).First().SumPoint();

@@ -76,20 +76,36 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             int Points = 0;
             if (_name.text == "СЭТ-4ТМ 0.3М")
+            {
+                _service.Report[0] = 1;
                 Points++;
+            }
             if (_date.text != "")
+            {
+                _service.Report[1] = 1;
                 Points++;
+            }
             return Points;
         }
         public int SchedulePoint()
         {
             int Points = 1;
+            _service.ReportSchedule[0] = 1;
             if (_name.text != "")
+            {
+                _service.ReportSchedule[1] = 1;
                 Points++;
+            }
             if (_start.text != "")
+            {
+                _service.ReportSchedule[2] = 1;
                 Points += 2;
+            }
             if (_period)
+            {
+                _service.ReportSchedule[3] = 1;
                 Points += 2;
+            }
             return Points;
 
         }

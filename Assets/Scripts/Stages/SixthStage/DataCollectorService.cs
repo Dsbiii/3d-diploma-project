@@ -42,6 +42,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Text _title;
         private Proccess _proccess = Proccess.Add;
         private DataCollectorObject _currentDataCollerctor;
+        public int[] Report = new int[5] {0,0,0,0,0};
         public void OkButtonClick()
         {
             Check();

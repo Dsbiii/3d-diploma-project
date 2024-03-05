@@ -9,6 +9,8 @@ namespace Assets.Scripts.Stages.SixthStage
     public class UsersAndRolesPanel : MonoBehaviour
     {
         [SerializeField] private List<SelectObject> _selectObjects;
+        public int[] Report = new int[3];
+        private bool _passwordIsSetted;
         public bool GetUser(out string value)
         {
             foreach (var item in _selectObjects)
@@ -41,10 +43,17 @@ namespace Assets.Scripts.Stages.SixthStage
             _selectObjects.Remove(abonent);
             Destroy(abonent.gameObject);
         }
+        public void PasswordSet()
+        {
+            _passwordIsSetted = true;
+            Report[2] = 1;
+        }
         public int GetPoints()
         {
             if (_selectObjects.Count == 0)
                 return 0;
+            if(_passwordIsSetted)
+                return _selectObjects.OrderByDescending(obj => obj.Points()).First().Points() + 1;
             return _selectObjects.OrderByDescending(obj => obj.Points()).First().Points();
         }
     }

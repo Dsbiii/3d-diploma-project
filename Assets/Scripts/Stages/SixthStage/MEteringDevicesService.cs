@@ -27,7 +27,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Text _titleEdit;
         [SerializeField] private GameObject _noRoutePanel;
         private ChanelForming _currentRoute;
-
+        public int[] Report = new int[2] {0,0};
         public void Spawn()
         {
             ChanelForming chanelForming = Instantiate(_routePrefab, _parentRoute);

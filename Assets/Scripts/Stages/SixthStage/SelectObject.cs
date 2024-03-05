@@ -23,6 +23,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private Button _setPassword;
         [SerializeField] private AbonentCreatePanel _createPanel;
         [SerializeField] private bool _dontCheck;
+        private int _abonentIndex;
 
         public string Value => _value.text;
         public bool IsSelected { get; private set; } = false;
@@ -35,7 +36,7 @@ namespace Assets.Scripts.Stages.SixthStage
             if (_delete != null)
                 _delete.onClick.AddListener(Delete);
         }
-        public void Init(string login, string abonent, string profileAbonent, Button edit, Button delete, Button setPassword, AbonentCreatePanel createPanel)
+        public void Init(string login, string abonent, string profileAbonent, Button edit, Button delete, Button setPassword, int index, AbonentCreatePanel createPanel)
         {
             _login.text = login;
             if (abonent == "Выбрать...")
@@ -49,6 +50,7 @@ namespace Assets.Scripts.Stages.SixthStage
             _edit = edit;
             _delete = delete;
             _setPassword = setPassword;
+            _abonentIndex = index;
             _createPanel = createPanel;
             _edit.onClick.AddListener(Edit);
             _delete.onClick.AddListener(Delete);
@@ -126,11 +128,20 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int Points()
         {
+            int[] Report = new int[3] {0,0,0};
             if (_dontCheck)
                 return 0;
             int point = 0;
             if (_login.text != "")
-                point =+3;
+            {
+                Report[0] = 1;
+                point = +1;
+            }
+            if (_abonentIndex > 5)
+            {
+                Report[1] = 1;
+                point = +1;
+            }
             return point;
         }
     }

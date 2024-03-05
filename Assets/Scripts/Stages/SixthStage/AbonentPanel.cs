@@ -23,6 +23,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private GameObject _panel;
         private Proccess _proccess = Proccess.Add;
         private AbonentObject _currentAbonentObject;
+        public int[] Report = new int[4] {0,0,0,0};
         public void ClickOKButton()
         {
             if (_proccess == Proccess.Add)

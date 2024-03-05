@@ -97,17 +97,30 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             if (_equipment.DontSM || _equipment.CriticalError)
                 return 0;
-            int Point = _equipment.GetPoints();
+            int Point = 0;
+            if (_equipment == null)
+                Point = 0;
+            else
+            {
+                Point = _equipment.GetPoints();
+                for(int i = 0; i < _equipment.Report.Length; i++)
+                {
+                    _panel.ReportInfo[i] = _equipment.Report[i];
+                }
+            }
             if (CheckType())
             {
+                _panel.ReportInfo[5] = 1;
                 Point++;
             }
             if (CheckAdress())
             {
+                _panel.ReportInfo[6] = 1;
                 Point++;
             }
             if (CheckPort())
             {
+                _panel.ReportInfo[7] = 1;
                 Point++;
             }
             return Point;

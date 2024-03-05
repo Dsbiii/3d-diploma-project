@@ -109,13 +109,19 @@ namespace Assets.Scripts.Stages.SixthStage
         private int CheckType()
         {
             if (_type.text == "Маршрут через SM160")
+            {
+                _service.Report[0] = 1;
                 return 1;
+            }
             return 0;
         }
         private int CheckPort()
         {
-            if (_port.text == "Подключение к SM160, №01994 (включен)")
+            if (_port.text == "Подключение к SM160, 011994 (включен)")
+            {
+                _service.Report[1] = 1;
                 return 1;
+            }
             return 0;
         }
     }

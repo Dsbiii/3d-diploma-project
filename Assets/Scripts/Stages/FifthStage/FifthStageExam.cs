@@ -222,6 +222,15 @@ namespace Assets.Scripts.Stages.FifthStage
                 AddFourthStageExam("Заведение точки УСПД в «Пирамиде»", "Неправильно", "Ввести серийный номер УСПД, данные в полях «Пользователь» и «Пароль», выбрать часовой пояс, указать место установки. Настроить маршрут, ввести адрес и порт", 0, 0);
 
             }
+            CreateUSPDPointAddition();
+        }
+        private void CreateUSPDPointAddition()
+        {
+            string[] Action = new string[8] { "Добавить каналообразующее оборудование", "Указать серийный номер оборудования", "Заполнить поля «Пользователь» и «Пароль»", "Выставить часовой пояс", "Указать место установки", "Указать тип соединения", "Указать IP-адрес", "Указать порт"};
+            for(int i = 0; i < Action.Length; i++)
+            {
+                AddFourthStageExam(Action[i], _sumPoints.ReportPoint1[i], "", 0, 0);
+            }
         }
         private void SettingPointAbonent()
         {
@@ -234,6 +243,23 @@ namespace Assets.Scripts.Stages.FifthStage
             else
             {
                 AddFourthStageExam("Настройка точки учета абонента", "Неправильно", "Выбрать счетчик в программе, указать его серийный номер, дату выпуска, установки, последней и следующей поверки, часовой пояс и связной номер. Настроить маршрут. Привязать счетчик к точке учета", 0, 0);
+            }
+            SettingPointAbonentAddition();
+        }
+        private void SettingPointAbonentAddition()
+        {
+            string[] Action = new string[12] { "Добавить счетчик",
+                "Указать модель счетчика",
+                "Указать серийный номер", "Выставить дату выпуска",
+                "Выставить дату установки",
+                "Выставить дату последней поверки",
+                "Выставить дату следующей поверки", "Указать связной номер",
+                "Настроить каналообразующее оборудование",
+                "Выбрать каналообразующее оборудование", 
+                "Указать счетчик в истории замен", "Выбрать дату установки в истории замен"};
+            for (int i = 0; i < Action.Length; i++)
+            {
+                AddFourthStageExam(Action[i], _sumPoints.ReportPoint2[i], "", 0, 0);
             }
         }
         private void SettingDataCollection()
@@ -249,6 +275,23 @@ namespace Assets.Scripts.Stages.FifthStage
                 AddFourthStageExam("Настройка сценария сбора данных", "Неправильно", "Создать сценарий сбора данных: указать наименование, глубину сбора, параметры, время принудительного завершения работы, включить проверку наличия данных в БД перед сбором, чтений событий, запуск сценария сразу после старта сервиса.\r\nНастроить расписание для сценария сбора данных: тип, периодичность выполнения, начало работы", 0, 0);
             }
         }
+        private void SettingDataCollectionAddition() 
+        {
+            string[] Action = new string[9] {
+                "Указать название сценария сбора данных",
+                "Указать глубину сбора",
+                "Указать параметры",
+                "Поставить галочки в настройках сценария сбора данных",
+                "Указать время принудительного завершения работы",
+                "Создать расписание",
+                "Указать тип расписания",
+                "Указать периодичность выполнения расписания",
+                "Указать дату начала работы расписания",};
+            for (int i = 0; i < Action.Length; i++)
+            {
+                AddFourthStageExam(Action[i], _sumPoints.ReportPoint3[i], "", 0, 0);
+            }
+        }
         private void CreateAbonent()
         {
             if (_sumPoints.SumPoint4() > 0)
@@ -258,6 +301,21 @@ namespace Assets.Scripts.Stages.FifthStage
             else
             {
                 AddFourthStageExam("Создание абонента в базе", "Неправильно", "Ввести данные абонента, выбрать тип абонента, указать счетчик", 0, 0);
+            }
+            CreateAbonentAddition();
+        }
+        private void CreateAbonentAddition()
+        {
+            string[] Action = new string[6] {
+                "Создать абонента",
+                "Указать номер лицевого счета",
+                "Указать Ф.И.О. абонента",
+                "Указать тип абонента",
+                "Во вкладке «Паспорт» выбрать созданного ранее абонента",
+                "Указать тип абонента во вкладке «Паспорт»"};
+            for (int i = 0; i < Action.Length; i++)
+            {
+                AddFourthStageExam(Action[i], _sumPoints.ReportPoint4[i], "", 0, 0);
             }
         }
         private void DataForSingIn()
@@ -273,6 +331,17 @@ namespace Assets.Scripts.Stages.FifthStage
                 AddFourthStageExam("Задание данных для входа физлица в личный кабинет «Пирамиды»", "Неправильно", "Выбрать абонента, указать тип профиля и аутентификации, задать пароль для пользователя", 0, 0);
             }
         }
+        private void DataForSingInAddition()
+        {
+            string[] Action = new string[3] {
+                "Создать абонента и указать его логин",
+                "Выбрать из списка созданного ранее абонента, указать профиль абонента и тип аутентификации",
+                "Установить пароль"};
+            for (int i = 0; i < Action.Length; i++)
+            {
+                AddFourthStageExam(Action[i], _sumPoints.ReportPoint5[i], "", 0, 0);
+            }
+        }
         private void GetInfoCounter()
         {
             if(_sumPoints.SumPoint6() > 0)
@@ -284,6 +353,17 @@ namespace Assets.Scripts.Stages.FifthStage
             else
             {
                 AddFourthStageExam("Получение показаний со счетчика", "Неправильно", "Выбрать счетчик, задать интервал, выбрать параметр измерения", 0, 0); ;
+            }
+        }
+        private void GetInfoCounterAddition()
+        {
+            string[] Action = new string[3] {
+                "Выбрать счетчик из списка",
+                "Указать интервал показаний",
+                "Указать собираемые показания"};
+            for (int i = 0; i < Action.Length; i++)
+            {
+                AddFourthStageExam(Action[i], _sumPoints.ReportPoint6[i], "", 0, 0);
             }
         }
     }

@@ -114,12 +114,22 @@ namespace Assets.Scripts.Stages.SixthStage
         public int Points()
         {
             int Point = 1;
+            _Service.Report[0] = 1;
             if (_serialNumberValue.text != "")
+            {
+                _Service.Report[1] = 1;
                 Point++;
+            }
             if (_nameValue.text != "" || _lastNameValue.text != "" || _surnameValue.text != "")
+            {
+                _Service.Report[2] = 1;
                 Point++;
+            }
             if (_value == 1)
+            {
+                _Service.Report[3] = 1;
                 Point++;
+            }
             return Point;
         }
     }

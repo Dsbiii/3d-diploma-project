@@ -14,6 +14,8 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private Button _delete;
         [SerializeField] private AccountingPointObject _prefab;
         [SerializeField] private Transform _parent;
+        public int[] Report = new int[2] {0,0};
+        public int[] ReportSchedule = new int[4] {0,0,0,0};
         public void Spawn()
         {
             AccountingPointObject accountingPointObject = Instantiate(_prefab, _parent);

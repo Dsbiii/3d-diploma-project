@@ -13,6 +13,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private TMP_Dropdown _abonent2;
         [SerializeField] private AbonentPanel _abonentPanel;
         private int _valueabonent;
+        public int[] Report = new int[2] {0,0};
         private void OnEnable()
         {
             AddNewOptions(_abonentPanel.GetText(), _abonent);
@@ -60,9 +61,15 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             int Point = 0;
             if (_type.value == 2)
+            {
+                Report[1] = 1;
                 Point++;
+            }
             if (_abonent.value > 2)
+            {
+                Report[0] = 1;
                 Point++;
+            }
             return Point;
         }
     }

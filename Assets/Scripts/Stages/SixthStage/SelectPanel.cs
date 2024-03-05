@@ -161,8 +161,10 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoint()
         {
-            if(_dontCheckThisObject)
+            if (_dontCheckThisObject)
                 return 0;
+            else
+                _service.Report[0] = 1;
             int Point = 0;
             Point += CheckConnectNumber() + CheckCounter() + CheckDates() + CheckSerialNumber();
             Debug.Log(CheckCounter() + " " + CheckSerialNumber() + " " + CheckDates() + " " + CheckConnectNumber());
@@ -171,32 +173,53 @@ namespace Assets.Scripts.Stages.SixthStage
         private int CheckCounter()
         {
             if (_name.text == "СЭТ-4ТМ.03М")
+            {
+                _service.Report[1] = 1;
                 return 1;
+            }
             return 0;
         }
         private int CheckSerialNumber()
         {
             if (_serialNumber.text == "0112055629")
+            {
+                _service.Report[2] = 1;
                 return 1;
+            }
             return 0;
         }
         private int CheckConnectNumber()
         {
-            if (_connectNumber == "+79273266002")
+            if (_connectNumber.Length <= 10 && _connectNumber.Contains("9"))
+            {
+                _service.Report[7] = 1;
                 return 1;
+            }
             return 0;
         }
         private int CheckDates()
         {
             int Point = 0;
             if (_date.text != "")
+            {
+                _service.Report[3] = 1;
                 Point++;
+            }
             if (_dateLastCheck != "")
+            {
+                _service.Report[5] = 1;
                 Point++;
+            }
             if (_dateNextCheck != "")
+            {
+                _service.Report[6] = 1;
                 Point++;
+            }
             if (_dateSetup != "")
+            {
+                _service.Report[4] = 1;
                 Point++;
+            }
             return Point;
         }
     }

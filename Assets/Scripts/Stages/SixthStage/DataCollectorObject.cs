@@ -161,15 +161,30 @@ namespace Assets.Scripts.Stages.SixthStage
                 return 0;
             int Points = 0;
             if (_name.text != "")
+            {
+                _service.Report[0] = 1;
                 Points++;
+            }
             if (_collectionDepthDay != "" || _collectionDepthHour != "" || _collectionDepthMin != "" || _collectionDepthSec != "")
+            {
+                _service.Report[1] = 1;
                 Points++;
+            }
             if (_stateToggle.isOn && _checkDateBaseToggle && _startAfterServiceToggle)
+            {
+                _service.Report[3] = 1;
                 Points += 2;
+            }
             if (_setting.text == "Фактическая активная мощность за 1 час, кВт")
+            {
+                _service.Report[2] = 1;
                 Points++;
+            }
             if (_stopWorkDay != "" || _stopWorkHour != "" || _stopWorkMin != "" || _stopWorkSec != "")
+            {
+                _service.Report[4] = 1;
                 Points += 2;
+            }
             return Points;
         }
     }

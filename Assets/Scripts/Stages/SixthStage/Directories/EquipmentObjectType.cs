@@ -25,6 +25,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         private string _timePoint;
         private int _valuePlacePoint;
         private int _valueTimePoint;
+        public int[] Report = new int[5] {1,0,0,0,0};
         public string User { get { return _user; } }
         public string Password { get { return _password; } }
         public string TimeZone { get { return _timeZone; } }
@@ -96,22 +97,27 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         public int GetPoints()
         {
             int Point = 1;
+            Report[0] = 1;
             if (_name.text == "SM160")
             {
                 if (CheckSerialNumber())
                 {
+                    Report[1] = 1;
                     Point++;
                 }
                 if (CheckUser())
                 {
+                    Report[2] = 1;
                     Point++;
                 }
                 if (CheckTimeZone())
                 {
+                    Report[3] = 1;
                     Point++;
                 }
                 if (CheckPlacePoint())
                 {
+                    Report[4] = 1;
                     Point++;
                 }
                 else
