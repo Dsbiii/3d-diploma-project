@@ -12,6 +12,8 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private Image _image;
         [SerializeField] private Toggle _toggle;
         [SerializeField] private GameObject _panel;
+        [SerializeField] private GameObject _panelData;
+        private bool _isData;
         private bool _isSelect;
         private void Awake()
         {
@@ -33,18 +35,34 @@ namespace Assets.Scripts.Stages.SixthStage
             _toggle.SetIsOnWithoutNotify(true);
             _isSelect = true;
             _image.color = _selectColor;
-            _panel.SetActive(true);
+            if(! _isData )
+                _panel.SetActive(true);
+            else
+                _panelData.SetActive(true);
         }
         private void Unselect()
         {
             _toggle.SetIsOnWithoutNotify(false);
             _isSelect = false;
             _image.color = _baseColor;
-            _panel.SetActive(false);
+            if (!_isData)
+                _panel.SetActive(false);
+            else 
+                _panelData.SetActive(false);
         }
         private void OnEnable()
         {
+            if (_panelData.activeSelf)
+            {
+                _isData = true;
+                Select();
+                return;
+            }
             Unselect();
+        }
+        private void OnDisable()
+        {
+            _isData = false;
         }
 
         public void OnPointerClick(PointerEventData eventData)

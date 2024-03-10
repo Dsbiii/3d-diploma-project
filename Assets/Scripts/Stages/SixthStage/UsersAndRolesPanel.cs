@@ -9,7 +9,7 @@ namespace Assets.Scripts.Stages.SixthStage
     public class UsersAndRolesPanel : MonoBehaviour
     {
         [SerializeField] private List<SelectObject> _selectObjects;
-        public int[] Report = new int[3];
+        public int[] Report = new int[3] {0,0,0};
         private bool _passwordIsSetted;
         public bool GetUser(out string value)
         {
@@ -52,7 +52,9 @@ namespace Assets.Scripts.Stages.SixthStage
         {
             if (_selectObjects.Count == 0)
                 return 0;
-            if(_passwordIsSetted)
+            Report[0] = _selectObjects.OrderByDescending(obj => obj.Points()).First().Report[0];
+            Report[1] = _selectObjects.OrderByDescending(obj => obj.Points()).First().Report[1];
+            if (_passwordIsSetted)
                 return _selectObjects.OrderByDescending(obj => obj.Points()).First().Points() + 1;
             return _selectObjects.OrderByDescending(obj => obj.Points()).First().Points();
         }

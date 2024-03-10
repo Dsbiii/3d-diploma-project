@@ -36,7 +36,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
         public void SumAllPoints()
         {
             int Points = SumPoint1() + SumPoint2() + SumPoint3() + SumPoint4() + SumPoint5() + SumPoint6();
-            if (Points > 40)
+            if (Points > 35)
                 _checkNetworkHierarchy.ClickUpdate();
         }
         public int SumPoint1()
@@ -119,13 +119,14 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                     else
                         ReportPoint3.Add("Неправильно");
                 }
-                for (int i = 0; i < _point3_2.Report.Length; i++)
+                for (int i = 0; i < _point3_2.ReportSchedule.Length; i++)
                 {
-                    if (_point3_2.Report[i] == 1)
+                    if (_point3_2.ReportSchedule[i] == 1)
                         ReportPoint3.Add("Правильно");
                     else
                         ReportPoint3.Add("Неправильно");
                 }
+                Debug.Log(string.Join(",", ReportPoint3));
                 return _point3;
             }
             catch
@@ -153,6 +154,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                     else
                         ReportPoint4.Add("Неправильно");
                 }
+                Debug.Log(string.Join(",", ReportPoint4));
                 return _point4;
             }
             catch

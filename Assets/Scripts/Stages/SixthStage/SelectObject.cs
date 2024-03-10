@@ -24,7 +24,7 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private AbonentCreatePanel _createPanel;
         [SerializeField] private bool _dontCheck;
         private int _abonentIndex;
-
+        public int[] Report = new int[2] {0,0};
         public string Value => _value.text;
         public bool IsSelected { get; private set; } = false;
         private void Awake()
@@ -128,7 +128,6 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int Points()
         {
-            int[] Report = new int[3] {0,0,0};
             if (_dontCheck)
                 return 0;
             int point = 0;
