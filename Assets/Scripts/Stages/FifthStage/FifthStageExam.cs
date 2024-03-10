@@ -225,7 +225,6 @@ namespace Assets.Scripts.Stages.FifthStage
             else
             {
                 AddFourthStageExam("Заведение точки УСПД в «Пирамиде»", "Неправильно", "Ввести серийный номер УСПД, данные в полях «Пользователь» и «Пароль», выбрать часовой пояс, указать место установки. Настроить маршрут, ввести адрес и порт", _sumPoints.SumPoint1(), 0);
-
             }
             CreateUSPDPointAddition();
         }

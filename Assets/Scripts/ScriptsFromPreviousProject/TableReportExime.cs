@@ -44,7 +44,8 @@ public class TableReportExime : MonoBehaviour
             }
             else
             {
-                slotCount++;
+                if(!database[Ind].Exams[i].IsAdditionExam)
+                    slotCount++;
                 var item = Instantiate(ExamenieUserItem, Parret);
                 Debug.Log("database[Ind].Exams[i].IsAdditionExam " + database[Ind].Exams[i].IsAdditionExam);
                 if (database[Ind].Exams[i].IsAdditionExam)
@@ -54,6 +55,10 @@ public class TableReportExime : MonoBehaviour
                 if (database[Ind].Exams[i].Result != null && database[Ind].Exams[i].Result.Length > 0)
                 {
                     item.SetExamenieItems(slotCount.ToString(), database[Ind].Exams[i].ExamName, database[Ind].Exams[i].UserAction, database[Ind].Exams[i].IdealAction, database[Ind].Exams[i].Result);
+                }
+                else if (database[Ind].Exams[i].IsAdditionExam)
+                {
+                    item.SetExamenieItems("", database[Ind].Exams[i].ExamName, database[Ind].Exams[i].UserAction, database[Ind].Exams[i].IdealAction, "");
                 }
                 else
                 {
