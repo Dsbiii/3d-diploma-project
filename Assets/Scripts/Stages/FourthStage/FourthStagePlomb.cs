@@ -13,6 +13,7 @@ namespace Assets.Scripts.Stages.FourthStage
         [Inject] private FourthStageExamSystem _system;
 
         public bool IsSetupedPlomb { get; private set; }
+        public bool IsWrongSetuped { get; private set; }    
 
         public void SetupPlomb()
         {
@@ -20,6 +21,10 @@ namespace Assets.Scripts.Stages.FourthStage
             {
                 _system.SetRightExitFromTP(false);
             }
+
+            if(!FindObjectOfType<PlakatService>().IsSetupedPlakat)
+                IsWrongSetuped = true;
+
             IsSetupedPlomb = true;
             foreach (var gameObject in _lidGameObjects)
             {

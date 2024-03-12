@@ -8,6 +8,7 @@ namespace Assets.Scripts.Stages.FifthStage
 {
     public class FirstComputerPanel : MonoBehaviour
     {
+        
         [SerializeField] private GameObject _panel;
         [SerializeField] private GameObject _computerPanel;
         [SerializeField] private TMP_InputField _inputField;
@@ -16,7 +17,7 @@ namespace Assets.Scripts.Stages.FifthStage
         [SerializeField] private FifthStageModel _fifthStageModel;
         [Inject] private FifthStageExam _fifthStageExam;
         private bool _isEnteredWrongPort;
-
+        public bool IsRightEnterIP { get; set; } = true;
         public bool IsEnteredInCoumputer { get; private set; }
 
         private void Awake()
@@ -53,7 +54,7 @@ namespace Assets.Scripts.Stages.FifthStage
                         nums[1] == "254" &&
                         nums[2] == "1")
                     {
-                        if(!_isEnteredWrongPort)
+                        if(!_isEnteredWrongPort && IsRightEnterIP)
                             _fifthStageExam.EnteredIP = true;
 
                         _fifthStageModel.SetConnectComputerStatus(true);

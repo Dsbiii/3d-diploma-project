@@ -40,10 +40,10 @@ public class AktReport : MonoBehaviour
         {
             IsOpenedBeforeExitFromTP = true;
         }
-        if (!FindObjectOfType<PlakatService>().IsSetupedPlakat)
-        {
-            _fourthStageExamSystem.SetCriticalError();
-        }
+        //if (!FindObjectOfType<PlakatService>().IsSetupedPlakat)
+        //{
+        //    _fourthStageExamSystem.SetCriticalError();
+        //}
         //_selfFilledIFields = GetComponentsInChildren<SelfFilledIField>().ToList();
         //_selectDrops = GetComponentsInChildren<SelectDrop>().ToList();
         //_aktFieldFilleds = GetComponentsInChildren<AktFieldFilled>().ToList();

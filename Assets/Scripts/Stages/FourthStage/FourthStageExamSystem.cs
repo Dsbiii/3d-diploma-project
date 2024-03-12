@@ -104,7 +104,6 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
-                //_haveCriticalError = true;
                 AddFourthStageExam("Вывешивание плакатов", "Неправильно", "«Работать здесь» – над счетчиком и под автоматом, «Стой! Напряжение» – на рубильник", 0, 0);
             }
         }
@@ -138,18 +137,22 @@ namespace Assets.Scripts.Stages.FourthStage
         private void CheckPlombs()
         {
             int count = 0;
+            bool isError = false;
             foreach (var item in _plombs)
             {
                 if (item.IsSetupedPlomb)
                     count++;
+                if(item.IsWrongSetuped)
+                    isError = true;
             }
+            if(isError)
+                count = 0;
             if (count == 3)
             {
                 AddFourthStageExam("Опломбировка", "Правильно", "Установить пломбы на клеммную крышку счетчика, ИКК, трансформаторы тока", count, 0);
             }
             else
             {
-                //_haveCriticalError = true;
                 AddFourthStageExam("Опломбировка", "Неправильно", "Установить пломбы на клеммную крышку счетчика, ИКК, трансформаторы тока", count, 0);
             }
         }

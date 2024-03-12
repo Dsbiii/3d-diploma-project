@@ -253,11 +253,21 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     (item.SerialNumber == "0112055629" ||
                     item.SerialNumber == "55629") &&
                     (_password.text == "0000"
-                    || _password.text == "000000")
-                    && _portDropDown.options[_portDropDown.value].text.Contains("Последовательный порт"))
+                    || _password.text == "000000"))
                 {
                     _fifthStageExam.ConfiguredDevice = true;
                 }
+                //if (item.NetAdress == "29" &&
+                //    item.KTN == "1" &&
+                //    item.KTT == "1" &&
+                //    (item.SerialNumber == "0112055629" ||
+                //    item.SerialNumber == "55629") &&
+                //    (_password.text == "0000"
+                //    || _password.text == "000000")
+                //    && _portDropDown.options[_portDropDown.value].text.Contains("Последовательный порт"))
+                //{
+                //    _fifthStageExam.ConfiguredDevice = true;
+                //}
             }
 
             //foreach (var device in _devices)

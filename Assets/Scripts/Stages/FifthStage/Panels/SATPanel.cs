@@ -19,7 +19,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private TMP_Dropdown _mode1;
         [SerializeField] private TMP_Dropdown _mode2;
         [SerializeField] private Button[] _portButtons;
-        [SerializeField] private TMP_InputField _passwordField;
+        //[SerializeField] private TMP_InputField _passwordField;
 
         private bool _isSelectedPort;
 
@@ -57,7 +57,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             _port.onValueChanged.AddListener((set) => { Change(); });
             _mode1.onValueChanged.AddListener((set) => { Change(); });
             _mode2.onValueChanged.AddListener((set) => { Change(); });
-            _passwordField.onValueChanged.AddListener((set) => { Change(); });
+            //_passwordField.onValueChanged.AddListener((set) => { Change(); });
         }
 
         public void Change()
@@ -76,7 +76,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 _mode1.value = _mode1Value;
                 _mode2.value = _mode2Value;
                 _port.value = _portValue;
-                _passwordField.text = _passwordFieldValue;
+                //_passwordField.text = _passwordFieldValue;
                 foreach (var item in _buttonsGroup)
                 {
                     item.UnselectColor();
@@ -88,7 +88,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 _mode1.value = 1;
                 _mode2.value = 1;
                 _port.value = 5;
-                _passwordField.text = "";
+                //_passwordField.text = "";
 
                 foreach (var item in _buttonsGroup)
                 {
@@ -118,7 +118,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             _mode2Value = _mode2.value;
             _portValue = _port.value;
             Port = _port.options[_port.value].text;
-            _passwordFieldValue = _passwordField.text;
+            //_passwordFieldValue = _passwordField.text;
             int id = 0;
             foreach(var item in _buttonsGroup)
             {

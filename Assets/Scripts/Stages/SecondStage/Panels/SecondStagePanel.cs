@@ -316,6 +316,7 @@ namespace Assets.Scripts.Stages.SecondStage.Panels
             _endFourthStageButton.gameObject.SetActive(false);
             _startFifthStageButton.gameObject.SetActive(false);
             _openPyramidButton.gameObject.SetActive(true);
+            FindObjectOfType<FirstComputerPanel>().IsRightEnterIP = false;
         }
 
         public void EndThirdStageWithOutEnterFourthStage()
