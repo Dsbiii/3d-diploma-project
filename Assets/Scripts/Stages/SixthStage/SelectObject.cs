@@ -134,12 +134,12 @@ namespace Assets.Scripts.Stages.SixthStage
             if (_login.text != "")
             {
                 Report[0] = 1;
-                point = +1;
+                point++;
             }
             if (_abonentIndex > 5)
             {
                 Report[1] = 1;
-                point = +1;
+                point++;
             }
             return point;
         }

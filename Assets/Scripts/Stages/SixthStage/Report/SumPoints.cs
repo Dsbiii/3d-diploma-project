@@ -35,8 +35,17 @@ namespace Assets.Scripts.Stages.SixthStage.Report
 
         public void SumAllPoints()
         {
-            int Points = SumPoint1() + SumPoint2() + SumPoint3() + SumPoint4() + SumPoint5() + SumPoint6();
-            if (Points > 35)
+            int Point = SumPoint1() + SumPoint2() + SumPoint3() + SumPoint4() + SumPoint5() + SumPoint6();
+            bool Point4IsTrue = true;
+            for (int i = 0; i < 3 ; i++)
+            {
+                if (ReportPoint4[i] == "Неправильно")
+                {
+                    Point4IsTrue = false;
+                    break;
+                }
+            }
+            if(Point4IsTrue && _point2 == 12 && _point1 == 8 && _point6 == 6)
                 _checkNetworkHierarchy.ClickUpdate();
         }
         public int SumPoint1()
@@ -175,6 +184,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                     else
                         ReportPoint5.Add("Неправильно");
                 }
+                Debug.Log(string.Join(",", ReportPoint5));
                 return _point5;
             }
             catch
