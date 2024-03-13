@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Zenject;
 using Assets.Scripts.Stages.FourthStage;
+using System.ComponentModel;
 
 public class AktReport : MonoBehaviour
 {
@@ -104,9 +105,25 @@ public class AktReport : MonoBehaviour
 
     public bool CheckForRightFillAkt()
     {
-        Debug.Log("_inputFields.Where(item => item.text.Length > 0).ToArray().Length " + _inputFields.Where(item => item.text.Length > 0).ToArray().Length);
-        Debug.Log("_inputFields.Count " + _inputFields.Count);
-        if(_inputFields.Where(item => item.text.Length > 0).ToArray().Length >= _inputFields.Count - 80)
+        List<Text> texts = new List<Text>();
+        _inputFields.ForEach(item =>
+        {
+            if (!item.enabled)
+            {
+                if (item.TryGetComponent(out AktFieldFilled component))
+                {
+                    texts.Add(component.Text);
+                }
+            }
+            else
+            {
+                texts.Add(item.textComponent);
+            }
+        });
+
+        Debug.Log("_inputFields.Where(item => item.text.Length > 0).ToArray().Length " + texts.Where(item => item.text.Length > 0).ToArray().Length);
+        Debug.Log("_inputFields.Count " + texts.Count);
+        if(texts.Where(item => item.text.Length > 0).ToArray().Length >= texts.Count - 82)
         {
             return true;
         }
@@ -114,6 +131,7 @@ public class AktReport : MonoBehaviour
         {
             return false;
         }
+
 
         //if (_selectDrops.Where(item => item.IsRight).ToArray().Length == _selectDrops.Count &&
         //    _aktFieldFilleds.Where(item => item.IsFilled).ToArray().Length == _aktFieldFilleds.Count &&
