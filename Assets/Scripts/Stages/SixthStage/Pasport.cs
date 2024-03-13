@@ -65,7 +65,7 @@ namespace Assets.Scripts.Stages.SixthStage
                 Report[1] = 1;
                 Point++;
             }
-            if (_abonent.value > 2)
+            if (_valueabonent > 2)
             {
                 Report[0] = 1;
                 Point++;
