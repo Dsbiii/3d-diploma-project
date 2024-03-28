@@ -86,14 +86,14 @@ namespace Assets.Scripts.Stages.FifthStage
                 ExamSystem.Instance.AddExam(exam);
 
             _fourthStageExams.Clear();
-            ExamSystem.Instance.AddExam(new Exam("Этап 4. Создание личного кабинета физического лица"));
+            //ExamSystem.Instance.AddExam(new Exam("Этап 4. Создание личного кабинета физического лица"));
 
-            AddFourthStageExam("Проверка отображения показаний", "Неправильно", "Войти в личный кабинет абонента и проверить отображение показаний", 0, 0);
-            //AddFourthStageExam("Задание данных для входа физлица в личный кабинет «Пирамиды»", "Неправильно", "Выбрать абонента, указать тип профиля и аутентификации, задать пароль для пользователя", 0, 0);
             //AddFourthStageExam("Проверка отображения показаний", "Неправильно", "Войти в личный кабинет абонента и проверить отображение показаний", 0, 0);
+            ////AddFourthStageExam("Задание данных для входа физлица в личный кабинет «Пирамиды»", "Неправильно", "Выбрать абонента, указать тип профиля и аутентификации, задать пароль для пользователя", 0, 0);
+            ////AddFourthStageExam("Проверка отображения показаний", "Неправильно", "Войти в личный кабинет абонента и проверить отображение показаний", 0, 0);
 
-            foreach (var exam in _fourthStageExams)
-                ExamSystem.Instance.AddExam(exam);
+            //foreach (var exam in _fourthStageExams)
+            //    ExamSystem.Instance.AddExam(exam);
             _isReported = true;
         }
         private void SixStageExam()
@@ -167,11 +167,11 @@ namespace Assets.Scripts.Stages.FifthStage
             {
                 if(IsScrolledDataPanel)
                 {
-                    AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 5, 0);
+                    AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 7, 0);
                 }
                 else
                 {
-                    AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 4, 0);
+                    AddFourthStageExam("Добавление устройства в конфигуратор", "Правильно", "Указать пароль и порт, указать данные для измерения", 6, 0);
                 }
             }
             else
@@ -208,7 +208,7 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             if (_dateClockPanelFirst.IsRightDatedTime && _dateClockPanelSecond.IsRightDatedTime)
             {
-                AddFourthStageExam("Настройка даты и времени", "Правильно", "Получить данные о настройках даты и времени в конфигураторе SM", 1, 0);
+                AddFourthStageExam("Настройка даты и времени", "Правильно", "Получить данные о настройках даты и времени в конфигураторе SM", 2, 0);
             }
             else
             {

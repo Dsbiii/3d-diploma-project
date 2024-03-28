@@ -1854,8 +1854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -248.79999, y: -50}
-  m_SizeDelta: {x: 199.2, y: 355}
+  m_AnchoredPosition: {x: -200, y: -50}
+  m_SizeDelta: {x: 250, y: 355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134050312
 MonoBehaviour:
@@ -6661,7 +6661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.13, y: 0}
+  m_AnchoredPosition: {x: 125, y: 0}
   m_SizeDelta: {x: 1, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393673524
@@ -15885,8 +15885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 149.6, y: -50}
-  m_SizeDelta: {x: 199.2, y: 355}
+  m_AnchoredPosition: {x: 300, y: -50}
+  m_SizeDelta: {x: 250, y: 355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &876968088
 MonoBehaviour:
@@ -16918,7 +16918,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
+  m_AnchoredPosition: {x: -125, y: 0}
   m_SizeDelta: {x: 1, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952068674
@@ -19352,8 +19352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -49.6, y: -50}
-  m_SizeDelta: {x: 199.2, y: 355}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 250, y: 355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1090004032
 MonoBehaviour:
@@ -20229,7 +20229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1150432481
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20685,7 +20685,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 199.2, y: 355}
+  m_CellSize: {x: 250, y: 355}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 5
@@ -27137,7 +27137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1456452197
 RectTransform:
   m_ObjectHideFlags: 0
