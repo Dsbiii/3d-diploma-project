@@ -148,7 +148,7 @@ public class EnemyData
         PointsWithCriticalErros += exam.ScoreForExamWithCriticalError;
     }
 
-    public int PointsWithCriticalErros { get; set; }
+    public int PointsWithCriticalErros;
 
     public IReadOnlyList<Exam> Exams => _exams;
 

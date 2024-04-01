@@ -4,7 +4,8 @@
  using UnityEngine.UI;
 
  public class HiResScreenShots : MonoBehaviour
- {
+{
+    [SerializeField] private GameObject[] _aktsFromCopy;
     [SerializeField] private GameObject[] _akts;
     [SerializeField] private ScreenShootCanvas _screenShootCanvas;
     [SerializeField] private Camera _camera;
@@ -50,51 +51,52 @@
         gameObject.SetActive(true);
         foreach (var item in _akts)
             item.SetActive(false);
-        foreach (var item in _akts)
+
+        for(int i =  0; i < _aktsFromCopy.Length; i++)
         {
-            item.SetActive(true);
-            if (_screenShootCanvas.PrepareForScreenShoot())
+            if (_aktsFromCopy[i].activeSelf)
+                _akts[i].SetActive(true);
+        }
+
+        if (_screenShootCanvas.PrepareForScreenShoot())
+        {
+
+            for (int i = 0; i < _Obj.Length; i++)
             {
-
-                for (int i = 0; i < _Obj.Length; i++)
-                {
-                    _Obj[i].SetActive(false);
-                }
-                //_Scrollbars[0].value = 1;
-                //_Scrollbars[1].value = 1;
-                _Cameras[0].enabled = false;
-                _Cameras[1].enabled = true;
-
-                _Mask[0].enabled = false;
-                _Mask[1].enabled = false;
-
-                RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
-                _camera.targetTexture = rt;
-                Texture2D screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
-                _camera.Render();
-                RenderTexture.active = rt;
-                screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
-                _camera.targetTexture = null;
-                RenderTexture.active = null; // JC: added to avoid errors
-                Destroy(rt);
-                byte[] bytes = screenShot.EncodeToPNG();
-                string filename = ScreenShotName(resWidth, resHeight, _Ref);
-                System.IO.File.WriteAllBytes(filename, bytes);
-                Debug.Log(string.Format("Took screenshot to: {0}", filename));
-
-                _Mask[0].enabled = true;
-                _Mask[1].enabled = true;
-
-                _Cameras[0].enabled = true;
-                _Cameras[1].enabled = false;
-
-                for (int i = 0; i < _Obj.Length; i++)
-                {
-                    _Obj[i].SetActive(true);
-                }
+                _Obj[i].SetActive(false);
             }
-            item.SetActive(false);
+            //_Scrollbars[0].value = 1;
+            //_Scrollbars[1].value = 1;
+            _Cameras[0].enabled = false;
+            _Cameras[1].enabled = true;
 
+            _Mask[0].enabled = false;
+            _Mask[1].enabled = false;
+
+            RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
+            _camera.targetTexture = rt;
+            Texture2D screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
+            _camera.Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
+            _camera.targetTexture = null;
+            RenderTexture.active = null; // JC: added to avoid errors
+            Destroy(rt);
+            byte[] bytes = screenShot.EncodeToPNG();
+            string filename = ScreenShotName(resWidth, resHeight, _Ref);
+            System.IO.File.WriteAllBytes(filename, bytes);
+            Debug.Log(string.Format("Took screenshot to: {0}", filename));
+
+            _Mask[0].enabled = true;
+            _Mask[1].enabled = true;
+
+            _Cameras[0].enabled = true;
+            _Cameras[1].enabled = false;
+
+            for (int i = 0; i < _Obj.Length; i++)
+            {
+                _Obj[i].SetActive(true);
+            }
         }
         gameObject.SetActive(false);
     }

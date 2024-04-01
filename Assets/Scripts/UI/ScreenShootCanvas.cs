@@ -15,8 +15,9 @@ public class ScreenShootCanvas : MonoBehaviour
     [SerializeField] private List<SelectDrop> _selectDrops;
     [SerializeField] private List<AktFieldFilled> _aktFieldFilleds;
     [SerializeField] private List<RegisterActField> _registerActField;
-    [SerializeField] private List<TextFieldSum> _textFieldSums;
+    [SerializeField] private List<Text> _textFieldSums;
     [SerializeField] private List<InputField> _inputFields;
+    [SerializeField] private List<Text> _textSecond;
     [SerializeField] private TMP_Text _textError;
 
     //private void OnEnable()
@@ -42,13 +43,22 @@ public class ScreenShootCanvas : MonoBehaviour
 
         _textError.text = _aktReport.TextError;
 
-        for(int i = 0; i < _selectDrops.Count; i++)
+        for (int i = 0; i < _textSecond.Count; i++)
         {
-            if(_selectDrops[i].Dropdown != null && _aktReport.SelectDrops[i].Dropdown != null)
+            if (_textSecond[i] != null && _aktReport.TextSecond[i] != null)
+            {
+                _textSecond[i].text = _aktReport.TextSecond[i].text;
+            }
+        }
+
+
+        for (int i = 0; i < _selectDrops.Count; i++)
+        {
+
+            if (_selectDrops[i].Dropdown != null && _aktReport.SelectDrops[i].Dropdown != null)
             {
                 _selectDrops[i].Dropdown.captionText.text = _aktReport.SelectDrops[i].Dropdown.options[_aktReport.SelectDrops[i].Dropdown.value].text.ToString();
             }
-
         }
         for (int i = 0; i < _aktFieldFilleds.Count; i++)
         {
@@ -62,7 +72,7 @@ public class ScreenShootCanvas : MonoBehaviour
 
         for (int i = 0; i < _registerActField.Count; i++)
         {
-            if(_registerActField[i].Text != null && _aktReport.RegisterActField[i].Text != null)
+            if (_registerActField[i].Text != null && _aktReport.RegisterActField[i].Text != null)
             {
                 _registerActField[i].Text.text = _aktReport.RegisterActField[i].Text.text;
                 if (_registerActField[i].transform.childCount > 1)
@@ -72,16 +82,14 @@ public class ScreenShootCanvas : MonoBehaviour
 
         for (int i = 0; i < _textFieldSums.Count; i++)
         {
-            //Debug.Log(_textFieldSums[i].Dropdown.value + " " + _aktReport.TextFieldSums[i].Dropdown.value);
-            if(_textFieldSums[i].Dropdown != null && _aktReport.TextFieldSums[i].Dropdown != null)
+            if (_textFieldSums[i].text != null && _aktReport.TextFieldSums[i].Dropdown != null)
             {
-                _textFieldSums[i].Dropdown.captionText.text = _aktReport.TextFieldSums[i].Value.ToString();
+                _textFieldSums[i].text = _aktReport.TextFieldSums[i].Value.ToString();
             }
-
         }
         for (int i = 0; i < _selfFilledIFields.Count; i++)
         {
-            if(_selfFilledIFields[i].InputField != null && _aktReport.SelfFilledIFields[i].InputField != null)
+            if (_selfFilledIFields[i].InputField != null && _aktReport.SelfFilledIFields[i].InputField != null)
             {
                 _selfFilledIFields[i].InputField.text = _aktReport.SelfFilledIFields[i].InputField.text;
                 if (_selfFilledIFields[i].transform.childCount > 1)
@@ -90,14 +98,14 @@ public class ScreenShootCanvas : MonoBehaviour
         }
         for (int i = 0; i < _toggles.Count; i++)
         {
-            if(_toggles[i] != null && _toggles[i] != null)
+            if (_toggles[i] != null && _toggles[i] != null)
                 _toggles[i].isOn = _aktReport.Toggles[i].isOn;
         }
 
         for(int i = 0; i < _inputFields.Count; i++)
         {
             _inputFields[i].text = _aktReport.InputFields[i].text;
-            if(_inputFields[i].transform.childCount > 1)
+            if (_inputFields[i].transform.childCount > 1)
                 _inputFields[i].transform.GetChild(0).transform.gameObject.SetActive(false);
         }
         Debug.Log("is work");

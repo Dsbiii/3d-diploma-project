@@ -39,7 +39,6 @@ public class SelectDrop : MonoBehaviour
             {
                 if (_any)
                     return true;
-                return _dropDown.options[_dropDown.value].text.Length > 0;
                 return _rightValue == _dropDown.options[_dropDown.value].text;
             }
             catch

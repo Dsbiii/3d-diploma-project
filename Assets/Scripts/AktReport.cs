@@ -10,6 +10,7 @@ using System.ComponentModel;
 public class AktReport : MonoBehaviour
 {
     [SerializeField] private string _actName;
+    [SerializeField] private List<Text> _textSecond;
     [SerializeField] private GameObject[] _aktPage;
     [SerializeField] private List<SelfFilledIField> _selfFilledIFields;
     [SerializeField] private List<Toggle> _toggles; 
@@ -30,6 +31,7 @@ public class AktReport : MonoBehaviour
     public IReadOnlyList<RegisterActField> RegisterActField => _registerActField;
     public IReadOnlyList<TextFieldSum> TextFieldSums => _textFieldSums;
     public IReadOnlyList<InputField> InputFields => _inputFields;
+    public IReadOnlyList<Text> TextSecond => _textSecond;
 
     public bool IsOpened { get; private set; }
     public bool IsOpenedBeforeExitFromTP { get; private set; }
@@ -123,7 +125,11 @@ public class AktReport : MonoBehaviour
 
         Debug.Log("_inputFields.Where(item => item.text.Length > 0).ToArray().Length " + texts.Where(item => item.text.Length > 0).ToArray().Length);
         Debug.Log("_inputFields.Count " + texts.Count);
-        if(texts.Where(item => item.text.Length > 0).ToArray().Length >= texts.Count - 82)
+        Debug.Log("_selectDrops.Where(item => item.IsRight).ToArray().Length == _selectDrops.Count " + _selectDrops.Where(item => item.IsRight).ToArray().Length);
+        Debug.Log("_selectDrops.Count " + _selectDrops.Count);
+
+        if(texts.Where(item => item.text.Length > 0).ToArray().Length >= texts.Count - 29 &&
+            _selectDrops.Where(item => item.IsRight).ToArray().Length == _selectDrops.Count)
         {
             return true;
         }

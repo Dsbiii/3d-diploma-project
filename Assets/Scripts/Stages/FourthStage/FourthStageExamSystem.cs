@@ -116,7 +116,7 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
-                _haveCriticalError = true;
+                //_haveCriticalError = true;
                 AddFourthStageExam("Заполнение акта", "Неправильно", "Заполнить акт, указать сведения о пломбах и поставить подписи", 0, 0);
             }
         }
@@ -129,7 +129,6 @@ namespace Assets.Scripts.Stages.FourthStage
             }
             else
             {
-                _haveCriticalError = true;
                 AddFourthStageExam("Вывод ТП из ремонта", "Неправильно", "Вывести ТП из ремонта после всех требуемых действий", 0, 0);
             }
         }
@@ -142,11 +141,11 @@ namespace Assets.Scripts.Stages.FourthStage
             {
                 if (item.IsSetupedPlomb)
                     count++;
-                if(item.IsWrongSetuped)
-                    isError = true;
+                //if(item.IsWrongSetuped)
+                //    isError = true;
             }
-            if(isError)
-                count = 0;
+            //if(isError)
+            //    count = 0;
             if (count == 3)
             {
                 AddFourthStageExam("Опломбировка", "Правильно", "Установить пломбы на клеммную крышку счетчика, ИКК, трансформаторы тока", count, 0);

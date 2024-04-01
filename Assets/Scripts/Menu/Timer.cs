@@ -55,16 +55,19 @@ public class Timer : MonoBehaviour
     {
         if (_pyramidGameObject.activeSelf)
         {
+            _baseTimerText.gameObject.SetActive(false);
             _smTimerText.gameObject.SetActive(false);
             timerText = _pyramidTimerText;
         }
         if (_smGameObject.activeSelf && !_pyramidGameObject.activeSelf)
         {
+            _baseTimerText.gameObject.SetActive(false);
             timerText = _smTimerText;
             _smTimerText.gameObject.SetActive(true);
         }
         if(!_pyramidGameObject.activeSelf && !_smGameObject.activeSelf)
         {
+            _baseTimerText.gameObject.SetActive(true);
             _smTimerText.gameObject.SetActive(false);
             timerText = _baseTimerText;
         }
@@ -81,7 +84,7 @@ public class Timer : MonoBehaviour
 
             GetOutReminingTime(out float minutes, out float seconds);
             StopTimer();
-            _timeRemining.text = "¬–≈Ãﬂ Œ—“¿ÀŒ—‹: " + string.Format("{0:00} : {1:00}", Mathf.Abs(minutes), Mathf.Abs(seconds - 1));
+            _timeRemining.text = "¬–≈Ãﬂ Œ—“¿ÀŒ—‹: " + string.Format("{0:00} : {1:00}", 0, 0);
             _resultPanel.SetActive(true);
             _score.text = "¡¿ÀÀ€: " + ExamSystem.Instance.ScoreWithCrititalErrors;
         }

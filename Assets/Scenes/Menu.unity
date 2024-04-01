@@ -5109,8 +5109,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1431765728}
-        m_TargetAssemblyTypeName: ScreenReport, Assembly-CSharp
-        m_MethodName: Print
+        m_TargetAssemblyTypeName: Assets.Scripts.ActReportScreenShoot, Assembly-CSharp
+        m_MethodName: TakeScreenshot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14970,6 +14970,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827994228}
   m_CullTransparentMesh: 0
+--- !u!1 &830261559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830261561}
+  - component: {fileID: 830261560}
+  m_Layer: 0
+  m_Name: AktReportScreenShoot
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!20 &830261560
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830261559}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 153
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &830261561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830261559}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.909343, y: -348, z: 1187.4036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1267006188}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832949172
 GameObject:
   m_ObjectHideFlags: 0
@@ -22215,6 +22289,7 @@ Transform:
   m_Children:
   - {fileID: 1951394704}
   - {fileID: 575254480}
+  - {fileID: 830261561}
   - {fileID: 1618767314}
   - {fileID: 1823506397}
   m_Father: {fileID: 0}
@@ -26494,27 +26569,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431765726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7786b2d61d0224f9719c766b78504c, type: 3}
+  m_Script: {fileID: 11500000, guid: b870ee5c2170e43438b6dce1098afddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrolbarValueScroll: 0.02
-  _isOnce: 0
-  Camera: {fileID: 575254479}
-  _Obj:
-  - {fileID: 162890722}
+  _objects:
   - {fileID: 2018322650}
-  - {fileID: 1340738337}
-  - {fileID: 1163364677}
-  _Cameras:
-  - {fileID: 1951394702}
-  - {fileID: 575254479}
-  _Mask:
-  - {fileID: 534098882}
-  _Scrollbars:
-  - {fileID: 1592880786}
+  - {fileID: 162890722}
+  - {fileID: 1951394701}
+  - {fileID: 2030270595}
+  - {fileID: 1592880785}
+  _screenCamera: {fileID: 830261560}
+  _mask: {fileID: 534098882}
+  _scrollView: {fileID: 1897997974}
   resWidth: 2550
-  resHeight: 3300
-  _Ref: "\u0421\u0443\u0434\u044C\u0438"
+  resHeight: 12000
 --- !u!114 &1431765729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31371,7 +31439,7 @@ RectTransform:
   - {fileID: 237825514}
   - {fileID: 1254460403}
   m_Father: {fileID: 1267006188}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -33778,7 +33846,7 @@ Transform:
   - {fileID: 454185177}
   - {fileID: 2114935938}
   m_Father: {fileID: 1267006188}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831422015
 GameObject:

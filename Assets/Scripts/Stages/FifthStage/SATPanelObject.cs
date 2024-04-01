@@ -15,12 +15,15 @@ namespace Assets.Scripts.Stages.FifthStage
         [SerializeField] private FifthStageModel _fifthStageModel;
         [SerializeField] private GameObject[] _gameObjects;
 
+        public bool IsOpenedSatPanel { get; private set; }
+
         private void OnEnable()
         {
             if (_sATPanel != null)
             {
                 _sATPanel.CheckRight();
             }
+            IsOpenedSatPanel = true;
             //if (_fifthStageModel.IsRightConnectedComputer && _laptopCablePoint.IsIndicated &&
             //    _counterCablePoint.IsIndicated)
             //{

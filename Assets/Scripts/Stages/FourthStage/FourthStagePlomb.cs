@@ -22,10 +22,20 @@ namespace Assets.Scripts.Stages.FourthStage
                 _system.SetRightExitFromTP(false);
             }
 
-            if(!FindObjectOfType<PlakatService>().IsSetupedPlakat)
-                IsWrongSetuped = true;
+            //if(!FindObjectOfType<PlakatService>().IsSetupedPlakat)
+            //    IsWrongSetuped = true;
 
-            IsSetupedPlomb = true;
+            if (_model.IsExitedFromTP && FindObjectOfType<PlakatService>().IsSetupedPlakat)
+            {
+                Debug.Log("IsSetupedPlomb");
+                IsSetupedPlomb = true;
+            }
+            else if (!_model.IsExitedFromTP)
+            {
+                Debug.Log("IsSetupedPlomb");
+                IsSetupedPlomb = true;
+            }
+
             foreach (var gameObject in _lidGameObjects)
             {
                 gameObject.SetActive(true);

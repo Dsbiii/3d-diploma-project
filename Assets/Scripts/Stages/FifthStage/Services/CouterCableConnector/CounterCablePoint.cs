@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Stages.FourthStage;
+﻿using Assets.Scripts.Stages.FifthStage.Panels;
+using Assets.Scripts.Stages.FourthStage;
 using System.Collections;
 using UnityEngine;
 using Zenject;
@@ -7,8 +8,9 @@ namespace Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector
 {
     public class CounterCablePoint : MonoBehaviour
     {
+        [SerializeField] private SATPanelObject _sATPanelObject;
         [SerializeField] private GameObject _objectPoint;
-        [SerializeField] private FirstComputerPanel _firstComputerPanel;
+        [SerializeField] private SMPanel _smPanel;
 
         [Inject] private FifthStageExam _fifthStageExam;
 
@@ -17,7 +19,10 @@ namespace Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector
 
         public void SetupPoint()
         {
-            if(!_firstComputerPanel.IsEnteredInCoumputer)
+            //if(!_smPanel.IsOpened && !_sATPanelObject.IsOpenedSatPanel)
+            //    _fifthStageExam.ConnectedCounterToPC = true;
+
+            if (!_sATPanelObject.IsOpenedSatPanel)
                 _fifthStageExam.ConnectedCounterToPC = true;
 
             IsIndicated = true;

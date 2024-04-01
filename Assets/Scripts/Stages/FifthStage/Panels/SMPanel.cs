@@ -19,6 +19,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public bool IsReaded {  get; private set; }
         public bool IsWrited { get; private set; }
+        public bool IsOpened { get; private set; }
 
         public void StartWrite()
         {
@@ -36,6 +37,11 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 _readerPanel.SetActive(true);
                 Invoke(nameof(CloseReaderPanel), 5);
             }
+        }
+
+        private void OnEnable()
+        {
+            IsOpened = true;
         }
 
         public void OpenOffPanels()

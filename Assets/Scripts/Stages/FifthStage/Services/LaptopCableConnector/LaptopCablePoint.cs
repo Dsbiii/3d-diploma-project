@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Stages.FourthStage;
+﻿using Assets.Scripts.Stages.FifthStage.Panels;
+using Assets.Scripts.Stages.FourthStage;
 using System.Collections;
 using UnityEngine;
 using Zenject;
@@ -7,15 +8,19 @@ namespace Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector
 {
     public class LaptopCablePoint : MonoBehaviour
     {
+        [SerializeField] private SATPanelObject _sATPanelObject;
         [SerializeField] private GameObject _objectPoint;
-        [SerializeField] private FirstComputerPanel _firstComputerPanel;
+        [SerializeField] private SMPanel _smPanel;
         [Inject] private FifthStageExam _fifthStageExam;
 
         public bool IsIndicated { get; private set; }
 
         public void SetupPoint()
         {
-            if (!_firstComputerPanel.IsEnteredInCoumputer)
+            //if (!_smPanel.IsOpened && !_sATPanelObject.IsOpenedSatPanel)
+            //    _fifthStageExam.ConnectedUspdToPC = true;
+
+            if (!_sATPanelObject.IsOpenedSatPanel)
                 _fifthStageExam.ConnectedUspdToPC = true;
 
             IsIndicated = true;
