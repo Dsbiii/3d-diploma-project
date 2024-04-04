@@ -2,12 +2,14 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts
 {
     public class Inventory : MonoBehaviour
     {
         [SerializeField] private InventoryItem _inventoryItemPrefab;
+        [Inject] private GameMode _gameMode;
 
         private List<InventoryItem> _inventoryItems = new List<InventoryItem>();
         private IInventoryItemView _inventoryView;
@@ -82,12 +84,27 @@ namespace Assets.Scripts
 
         public void AddItem(Item item)
         {
-            item.TakeInInventory();
-            item.gameObject.SetActive(false);
-            var inventoryItem = Instantiate(_inventoryItemPrefab);
-            inventoryItem.SetItem(item);
-            _inventoryItems.Add(inventoryItem);
-            _inventoryView.DisplayInventoryItem(inventoryItem);
+            if (_gameMode.IsDemo)
+            {
+                if (item.isDemo)
+                {
+                    item.TakeInInventory();
+                    item.gameObject.SetActive(false);
+                    var inventoryItem = Instantiate(_inventoryItemPrefab);
+                    inventoryItem.SetItem(item);
+                    _inventoryItems.Add(inventoryItem);
+                    _inventoryView.DisplayInventoryItem(inventoryItem);
+                }
+            }
+            else
+            {
+                item.TakeInInventory();
+                item.gameObject.SetActive(false);
+                var inventoryItem = Instantiate(_inventoryItemPrefab);
+                inventoryItem.SetItem(item);
+                _inventoryItems.Add(inventoryItem);
+                _inventoryView.DisplayInventoryItem(inventoryItem);
+            }
         }
 
         public void RemoveItem(Item item)

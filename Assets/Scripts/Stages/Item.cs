@@ -20,6 +20,7 @@ namespace Assets.Scripts.Stages
         [SerializeField] private Sprite _icon;
         [SerializeField] private ItemTypes _itemType;
         [SerializeField] private ParticleSystem _particleSystem;
+        [SerializeField] public bool isDemo = false;
 
         public string Action { get; private set; }
         private DatedItemService _datedItemService;

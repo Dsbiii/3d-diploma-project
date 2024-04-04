@@ -7,6 +7,8 @@ using System.Text;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Zenject;
+using Assets.Scripts;
 
 [System.Serializable]
 public class GuardDataDTO
@@ -27,6 +29,7 @@ public class GuardDataDTO
     public int LastLaunchSecond;
     public int DaysLeft;
     public string ActivationKey;
+    public bool IsDemoVersion;
 
     public GuardDataDTO(string cofficient, int activationDay, int activationMonth, int activationYear, int termsOfUssage,
         DateTime lastLaunch, string activationKey, int daysLeft, bool isWorng)
@@ -57,6 +60,7 @@ public class GuardSecurity : MonoBehaviour
     [SerializeField] private TMP_Text _dayToDeativeField;
     [SerializeField] private GameObject _activitionPanel;
     [SerializeField] private GameObject _lauchPanel;
+    [Inject] private GameMode _gameMode;
 
 
     private string _keyGenerated;
@@ -208,7 +212,15 @@ public class GuardSecurity : MonoBehaviour
             {
                 Save(guardDTO.Cofficient, guardDTO.ActivationDay, guardDTO.ActivationMonth, guardDTO.ActivationYear, guardDTO.TermsOfUssage,
                     DateTime.Now, guardDTO.ActivationKey, days, false);
-
+                Debug.Log("guardDTO.TermsOfUssage " + guardDTO.TermsOfUssage);
+                if (guardDTO.TermsOfUssage == 5 || guardDTO.TermsOfUssage == 15)
+                {
+                    _gameMode.SetupDemo(true);
+                }
+                else
+                {
+                    _gameMode.SetupDemo(false);
+                }
                 if (guardDTO.TermsOfUssage != 999)
                 {
                     _dayToDeativeField.text = ((dateTime.AddDays(guardDTO.TermsOfUssage) - DateTime.Now).Days + 1).ToString();
@@ -263,6 +275,7 @@ public class GuardSecurity : MonoBehaviour
             int year;
             int mounth;
             int day;
+            bool isDemoVersion;
 
             if (requestChar.Length == 20)
             {
@@ -348,6 +361,16 @@ public class GuardSecurity : MonoBehaviour
             {
                 _keyField.text = "Ключ активации просрочен";
                 return;
+            }
+            Debug.Log("guardDTO.TermsOfUssage " + termsOfUssage);
+            int ussage = int.Parse(termsOfUssage);
+            if (ussage == 5 || ussage == 15)
+            {
+                _gameMode.SetupDemo(true);
+            }
+            else
+            {
+                _gameMode.SetupDemo(false);
             }
 
             Save(cofficient, day, mounth, year, int.Parse(termsOfUssage), DateTime.Now, _keyField.text, int.Parse(termsOfUssage), false);

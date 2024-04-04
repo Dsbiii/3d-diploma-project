@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts.Stages.SixthStage
 {
