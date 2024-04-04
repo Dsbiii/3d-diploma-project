@@ -20,7 +20,7 @@ namespace Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector
             //if (!_smPanel.IsOpened && !_sATPanelObject.IsOpenedSatPanel)
             //    _fifthStageExam.ConnectedUspdToPC = true;
 
-            if (!_sATPanelObject.IsOpenedSatPanel)
+            if (!_smPanel.IsOpened)
                 _fifthStageExam.ConnectedUspdToPC = true;
 
             IsIndicated = true;
