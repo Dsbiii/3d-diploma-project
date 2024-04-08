@@ -96,6 +96,9 @@ public class AllUsersTableReport : MonoBehaviour
                     if (k > userItems.Count)
                         break;
 
+                    if (userItems.Count == 0)
+                        break;
+
                     userItems[k].gameObject.SetActive(false);
                     userItems.RemoveAt(k);
                 }
