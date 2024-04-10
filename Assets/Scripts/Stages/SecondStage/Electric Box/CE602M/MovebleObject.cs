@@ -11,6 +11,7 @@ namespace Assets.Scripts.Stages.SecondStage.Electric_Box.CE602M
         private MagnitePoint _magnitePoint;
         [SerializeField] private MagnitePointsTypes _magnitePointsTypes;
         [SerializeField] private CE602M _cE602M;
+        [SerializeField] private bool _isDemo;
 
         public MagnitePointsTypes MagnitePointsTypes => _magnitePointsTypes;
 

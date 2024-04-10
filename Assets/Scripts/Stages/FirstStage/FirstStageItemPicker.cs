@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace Assets.Scripts.Stages.FirstStage
 {
@@ -9,6 +10,7 @@ namespace Assets.Scripts.Stages.FirstStage
     {
         [SerializeField] private LayerMask _screwdriverLayerMask;
         [SerializeField] private LayerMask _itemLayerMask;
+        [Inject] private GameMode _gameMode;
 
         private ItemPreview _firstStageItemPreview;
 
@@ -52,10 +54,24 @@ namespace Assets.Scripts.Stages.FirstStage
             EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
             foreach (var item in results)
             {
-                if (item.gameObject.TryGetComponent(out inventoryItem))
+                if (_gameMode.IsDemo)
                 {
-                    return true;
+                    if (item.gameObject.TryGetComponent(out inventoryItem))
+                    {
+                        if (inventoryItem.Item.isDemo)
+                        {
+                            return true;
+                        }
+                    }
                 }
+                else
+                {
+                    if (item.gameObject.TryGetComponent(out inventoryItem))
+                    {
+                        return true;
+                    }
+                }
+                
             }
             inventoryItem = null;
             return false;

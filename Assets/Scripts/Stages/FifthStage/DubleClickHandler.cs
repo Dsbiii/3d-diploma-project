@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace Assets.Scripts.Stages.FifthStage
 {
@@ -10,12 +11,17 @@ namespace Assets.Scripts.Stages.FifthStage
         [SerializeField] private SATPanel _sATPanel;
         [SerializeField] private GameObject _appPanel;
         [SerializeField] private GameObject _downIcon;
+        [SerializeField] private bool _isDemo;
+        [Inject] private GameMode _gameMode;
         private float doubleClickTimeThreshold = 0.3f;
         private float lastClickTime;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-
+            if (_gameMode.IsDemo && _isDemo) 
+            {
+                return;
+            }
             if (Time.time - lastClickTime < doubleClickTimeThreshold)
             {
                 lastClickTime = 0f;

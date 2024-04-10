@@ -21,6 +21,7 @@ namespace Assets.Scripts.Stages
         [SerializeField] private ItemTypes _itemType;
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] public bool isDemo = false;
+        [SerializeField] public bool isInactiveOnInventory = false;
 
         public string Action { get; private set; }
         private DatedItemService _datedItemService;

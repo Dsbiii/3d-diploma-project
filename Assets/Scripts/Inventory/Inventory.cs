@@ -33,7 +33,7 @@ namespace Assets.Scripts
         public void DressItem(Item item)
         {
             item.DressItem();
-            if(item.ItemType == ItemTypes.Dielectric_Gloves)
+            if (item.ItemType == ItemTypes.Dielectric_Gloves)
             {
                 _dresUpItemsSorted.Add(item);
             }
@@ -43,7 +43,7 @@ namespace Assets.Scripts
 
         public void AddObligatoryItems()
         {
-            foreach(var item in _selectedInventoryItemsObject.ItemsObligatory)
+            foreach (var item in _selectedInventoryItemsObject.ItemsObligatory)
             {
                 if (!_inventoryItems.Select(x => x.Item).Contains(item))
                 {
@@ -73,7 +73,7 @@ namespace Assets.Scripts
         {
             foreach (var item in _dressUpItems)
             {
-                if(item.ItemType == ItemTypes.Dielectric_Gloves)
+                if (item.ItemType == ItemTypes.Dielectric_Gloves)
                 {
                     Debug.Log(item.ItemType);
                     AddItem(item);
@@ -84,33 +84,22 @@ namespace Assets.Scripts
 
         public void AddItem(Item item)
         {
-            if (_gameMode.IsDemo)
+            if(_gameMode.IsDemo && item.isInactiveOnInventory)
             {
-                if (item.isDemo)
-                {
-                    item.TakeInInventory();
-                    item.gameObject.SetActive(false);
-                    var inventoryItem = Instantiate(_inventoryItemPrefab);
-                    inventoryItem.SetItem(item);
-                    _inventoryItems.Add(inventoryItem);
-                    _inventoryView.DisplayInventoryItem(inventoryItem);
-                }
+                return;
             }
-            else
-            {
-                item.TakeInInventory();
-                item.gameObject.SetActive(false);
-                var inventoryItem = Instantiate(_inventoryItemPrefab);
-                inventoryItem.SetItem(item);
-                _inventoryItems.Add(inventoryItem);
-                _inventoryView.DisplayInventoryItem(inventoryItem);
-            }
+            item.TakeInInventory();
+            item.gameObject.SetActive(false);
+            var inventoryItem = Instantiate(_inventoryItemPrefab);
+            inventoryItem.SetItem(item);
+            _inventoryItems.Add(inventoryItem);
+            _inventoryView.DisplayInventoryItem(inventoryItem);
         }
 
         public void RemoveItem(Item item)
         {
             var inventoryItem = _inventoryItems.FirstOrDefault(x => x.Item == item);
-            if(inventoryItem  != null)
+            if (inventoryItem != null)
             {
                 item.ResetAction();
                 _inventoryItems.Remove(inventoryItem);

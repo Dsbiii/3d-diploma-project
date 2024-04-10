@@ -6,6 +6,7 @@ using TMPro;
 using Zenject;
 using Assets.Scripts.Stages.FourthStage;
 using System.ComponentModel;
+using Assets.Scripts;
 
 public class AktReport : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class AktReport : MonoBehaviour
     [SerializeField] private TMP_Text _textError;
     [Inject] private FourthStageExamSystem _fourthStageExamSystem;
     [Inject] private FourthStageModel _fourthStageModel;
+    [Inject] private GameMode _gameMode;
     public string TextError => _textError.text;
     public IReadOnlyList<GameObject> AktPage => _aktPage;
     public IReadOnlyList<SelfFilledIField> SelfFilledIFields => _selfFilledIFields;
@@ -42,6 +44,10 @@ public class AktReport : MonoBehaviour
         if(_fourthStageModel.IsExitedFromTP)
         {
             IsOpenedBeforeExitFromTP = true;
+        }
+        if (_gameMode.IsDemo)
+        {
+            RightField();
         }
         //if (!FindObjectOfType<PlakatService>().IsSetupedPlakat)
         //{
@@ -104,7 +110,7 @@ public class AktReport : MonoBehaviour
             item.Fill(); 
         }
     }
-
+    
     public bool CheckForRightFillAkt()
     {
         List<Text> texts = new List<Text>();
