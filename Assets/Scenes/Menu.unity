@@ -20524,11 +20524,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4adaa3a6a3b6a84eb5664feed81d676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scrollRect: {fileID: 2134018430}
   _scrolbarValueScroll: 0
   _content: {fileID: 799007685}
   Camera: {fileID: 575254479}
   _Obj:
   - {fileID: 1107513058}
+  - {fileID: 1565429099}
+  - {fileID: 1565429099}
   - {fileID: 1565429099}
   _Cameras:
   - {fileID: 1951394702}
@@ -29987,6 +29990,7 @@ MonoBehaviour:
   CurrentEnemyData:
     id: 0
     _exams: []
+    PointsWithCriticalErros: 0
     lastFirstname: 
     login: 
     password: 

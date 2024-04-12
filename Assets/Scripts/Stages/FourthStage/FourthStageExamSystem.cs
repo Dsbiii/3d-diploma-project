@@ -84,6 +84,10 @@ namespace Assets.Scripts.Stages.FourthStage
             ExitFromTP();
             ReportPlakats();
             ReportAKT();
+
+            if (!_aktReport.IsOpened)
+                _haveCriticalError = true;
+
             if (_haveCriticalError)
             {
                 examNameSlot.ExamHaveCriticalError = true;

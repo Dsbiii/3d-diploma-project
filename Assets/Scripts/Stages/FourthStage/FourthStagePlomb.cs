@@ -20,6 +20,7 @@ namespace Assets.Scripts.Stages.FourthStage
             if (_model.IsExitedFromTP)
             {
                 _system.SetRightExitFromTP(false);
+                FindObjectOfType<PlakatService>().IsSetupedPlombsBeforeExitFromTP = true;
             }
 
             //if(!FindObjectOfType<PlakatService>().IsSetupedPlakat)
@@ -27,12 +28,10 @@ namespace Assets.Scripts.Stages.FourthStage
 
             if (_model.IsExitedFromTP && FindObjectOfType<PlakatService>().IsSetupedPlakat)
             {
-                Debug.Log("IsSetupedPlomb");
                 IsSetupedPlomb = true;
             }
             else if (!_model.IsExitedFromTP)
             {
-                Debug.Log("IsSetupedPlomb");
                 IsSetupedPlomb = true;
             }
 

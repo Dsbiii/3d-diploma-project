@@ -153,6 +153,10 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             _netAdress.text = "29";
             _ktn.text = "1";
             _ktt.text = "1";
+
+            if (CurrentDevice == null)
+                return;
+
             CurrentDevice.KTTValue = "1";
             CurrentDevice.KTNValue = "1";
             CurrentDevice.NetAdressValue = "29";

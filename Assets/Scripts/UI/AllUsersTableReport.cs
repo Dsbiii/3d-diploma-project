@@ -1,12 +1,15 @@
 using Assets.Scripts.AdminPanel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class AllUsersTableReport : MonoBehaviour
 {
+    [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private float _scrolbarValueScroll;
     [SerializeField] private Transform _content;
     public Camera Camera;
@@ -34,15 +37,14 @@ public class AllUsersTableReport : MonoBehaviour
         System.IO.Directory.CreateDirectory(Application.dataPath + "/Пользователи");
 
     }
-
-    public static string ScreenShotName(int width, int height, string Path)
+    public static string ScreenShotName(string name, string Path)
     {
 
 
-        return string.Format("{0}/{1}/Act_{2}x{3}_{4}.png",
+        return string.Format("{0}/{1}/Act_{2}_{3}.png",
                              Application.dataPath,
                              Path,
-                             width, height,
+                             name,
                              System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
 
     }
@@ -52,14 +54,20 @@ public class AllUsersTableReport : MonoBehaviour
         takeHiResShot = true;
     }
 
-
     public void Print()
     {
-        _Scrollbars[0].value = 1f;
+        StartCoroutine(PrintCoroutine());
+    }
 
-        for (int i = 0; i < _Obj.Length; i++)
+    public IEnumerator PrintCoroutine()
+    {
+        float rectNormalizedY = _scrollRect.verticalNormalizedPosition;
+        _scrollRect.verticalNormalizedPosition = 1;
+        yield return new WaitForEndOfFrame();
+
+        foreach (var obj in _Obj)
         {
-            _Obj[i].SetActive(false);
+            obj.SetActive(false);
         }
 
         _Cameras[0].enabled = false;
@@ -70,7 +78,7 @@ public class AllUsersTableReport : MonoBehaviour
         List<UserItem> userItems = _content.GetComponentsInChildren<UserItem>().ToList();
         List<UserItem> userItems2 = _content.GetComponentsInChildren<UserItem>().ToList();
 
-        int tryCount = 0;
+        Debug.Log("userItems.Count " + userItems.Count);
         while (userItems.Count > 0)
         {
             RenderTexture rt1 = new RenderTexture(Screen.width, Screen.height, 24);
@@ -80,54 +88,43 @@ public class AllUsersTableReport : MonoBehaviour
             RenderTexture.active = rt1;
             screenShot1.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
             Camera.targetTexture = null;
-            RenderTexture.active = null; // JC: added to avoid errors
+            RenderTexture.active = null;
             Destroy(rt1);
             byte[] bytes1 = screenShot1.EncodeToPNG();
-            string filename1 = ScreenShotName(resWidth, resHeight, _Ref);
+            string filename1 = ScreenShotName(userItems.Count.ToString(), _Ref);
             System.IO.File.WriteAllBytes(filename1, bytes1);
 
+            Debug.Log($"Took screenshot to: {filename1}");
 
-            Debug.Log(string.Format("Took screenshot to: {0}", filename1));
-
-            try
+            for (int i = 0; i < Mathf.Min(7, userItems.Count); i++)
             {
-                for (int k = 0; k < 7; k++)
+                if (userItems[i] != null)
                 {
-                    if (k > userItems.Count)
-                        break;
-
-                    if (userItems.Count == 0)
-                        break;
-
-                    userItems[k].gameObject.SetActive(false);
-                    userItems.RemoveAt(k);
+                    userItems[i].gameObject.SetActive(false);
                 }
             }
-            catch
-            {
-                break;
-            }
-            tryCount++;
-            if (tryCount >= 100)
-            {
-                break;
-            }
+            userItems = userItems.Skip(Mathf.Min(7, userItems.Count)).ToList();
+
+            // Даем время на обновление кадра после деактивации объектов
+            yield return null;
         }
-        foreach (var item in userItems2)
+
+        foreach (var item in _content.GetComponentsInChildren<UserItem>())
             item.gameObject.SetActive(true);
 
-
         _Mask[0].enabled = true;
-
 
         _Cameras[0].enabled = true;
         _Cameras[1].enabled = false;
 
-        for (int i = 0; i < _Obj.Length; i++)
+        foreach (var obj in _Obj)
         {
-            _Obj[i].SetActive(true);
+            obj.SetActive(true);
         }
 
+        foreach (var item in userItems2)
+            item.gameObject.SetActive(true);
 
+        _scrollRect.verticalNormalizedPosition = rectNormalizedY;
     }
 }

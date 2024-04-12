@@ -96,6 +96,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void Open()
         {
+            Debug.Log($"Open  {_counterCablePoint.IsIndicated}  {_laptopCablePoint.IsIndicated}  {_fifthStageModel.IsRightConnectedComputer}");
             if ((_counterCablePoint.IsIndicated && _laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer) ||
                 (_laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer))
             {

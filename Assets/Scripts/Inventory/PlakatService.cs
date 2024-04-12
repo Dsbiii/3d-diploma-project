@@ -24,6 +24,7 @@ public class PlakatService : MonoBehaviour
     private bool _isSetupPlakatsBeforeUseInstruments = true;
 
     private bool _isOpen;
+    public bool IsSetupedPlombsBeforeExitFromTP = false;
     public bool IsSetupedPlakat { get; private set; }   
     private bool _isRightSetupedPlakat;
 
@@ -96,7 +97,7 @@ public class PlakatService : MonoBehaviour
     public void SetupedPlakat()
     {
         IsSetupedPlakat = true;
-        if (_fourthStageModel.IsExitedFromTP && _fourthStagePlombs.Where(x => x.IsSetupedPlomb).ToList().Count == 0
+        if (_fourthStageModel.IsExitedFromTP && !IsSetupedPlombsBeforeExitFromTP
             && !_aktReport.IsOpenedBeforeExitFromTP)
         {
             _isRightSetupedPlakat = true;

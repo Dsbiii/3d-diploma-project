@@ -24,7 +24,7 @@ namespace Assets.Scripts.Stages.FifthStage
 
         public void OpenDevices()
         {
-            if(_deviceDataPanel.CurrentDevice != null && _deviceDataPanel.CurrentDevice.BaseDevice)
+            if(_deviceDataPanel.CurrentDevice == null || _deviceDataPanel.CurrentDevice.BaseDevice)
             {
                 foreach (var device in _devicePanel)
                 {

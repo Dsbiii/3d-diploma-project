@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector;
 using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
+using Assets.Scripts.Stages.SecondStage;
 using System.Collections;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             if (_counterCablePoint.IsIndicated && _laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer)
             {
                 _writerPanel.SetActive(true);
-                Invoke(nameof(CloseWritePanel), 5);
+                StartCoroutine(InvokeAction(CloseWritePanel, 5));
             }
         }
 
@@ -35,13 +36,19 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             if (_counterCablePoint.IsIndicated && _laptopCablePoint.IsIndicated && _fifthStageModel.IsRightConnectedComputer)
             {
                 _readerPanel.SetActive(true);
-                Invoke(nameof(CloseReaderPanel), 5);
+                StartCoroutine(InvokeAction(CloseReaderPanel, 5));
             }
         }
 
         private void OnEnable()
         {
             IsOpened = true;
+        }
+
+        private IEnumerator InvokeAction(System.Action action , float time)
+        {
+            yield return new WaitForSeconds(time);
+            action?.Invoke();
         }
 
         public void OpenOffPanels()
