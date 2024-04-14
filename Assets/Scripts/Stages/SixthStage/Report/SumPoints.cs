@@ -53,8 +53,8 @@ namespace Assets.Scripts.Stages.SixthStage.Report
             try
             {
                 ReportPoint1.Clear();
-                _point1 = _point_1.GetPoints();
-                if (_point1 == 0)
+                int point1 = _point_1.GetPoints();
+                if (point1 == 0)
                     CriticalError = true;
                 Debug.Log("_point_1.ReportInfo.Length" + _point_1.ReportInfo.Length);
                 for(int i = 0; i < _point_1.ReportInfo.Length; i++)
@@ -69,7 +69,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                     }
 
                 }
-                return _point1;
+                return point1;
             }
             catch
             {
@@ -83,8 +83,8 @@ namespace Assets.Scripts.Stages.SixthStage.Report
             try
             {
                 ReportPoint2.Clear();
-                _point2 = _point2_1.GetPoints() + _point2_2.GetPoints() + _point2_3.GetPoints2();
-                Debug.Log("Point2 " + _point2 + " = " + _point2_1.GetPoints() + " " + _point2_2.GetPoints() + " " + _point2_3.GetPoints2());
+                int point2 = _point2_1.GetPoints() + _point2_2.GetPoints() + _point2_3.GetPoints2();
+                Debug.Log("Point2 " + point2 + " = " + _point2_1.GetPoints() + " " + _point2_2.GetPoints() + " " + _point2_3.GetPoints2());
                 for (int i = 0; i < _point2_1.Report.Length; i++)
                 {
                     if (_point2_1.Report[i] == 1)
@@ -109,7 +109,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                     Debug.Log(ReportPoint2[i + 10] + " " + _point2_3.Report[i]);
                 }
                 Debug.Log(string.Join(", ", ReportPoint2));
-                return _point2;
+                return point2;
             }
             catch
             {
@@ -121,8 +121,8 @@ namespace Assets.Scripts.Stages.SixthStage.Report
             try
             {
                 ReportPoint3.Clear();
-                _point3 = _point3_1.GetPoints() + _point3_2.GetPoints3();
-                Debug.Log("Point3 " + _point3 + " = " + _point3_1.GetPoints() + " " + _point3_2.GetPoints3());
+                int point3 = _point3_1.GetPoints() + _point3_2.GetPoints3();
+                Debug.Log("Point3 " + point3 + " = " + _point3_1.GetPoints() + " " + _point3_2.GetPoints3());
                 for (int i = 0; i < _point3_1.Report.Length; i++)
                 {
                     if (_point3_1.Report[i] == 1)
@@ -138,7 +138,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                         ReportPoint3.Add("Неправильно");
                 }
                 Debug.Log(string.Join(",", ReportPoint3));
-                return _point3;
+                return point3;
             }
             catch
             {
@@ -150,8 +150,8 @@ namespace Assets.Scripts.Stages.SixthStage.Report
             try
             {
                 ReportPoint4.Clear();
-                _point4 = _point4_1.GetPoints() + _point4_2.Points();
-                Debug.Log("Point4 " + _point4 + " = " + _point4_1.GetPoints() + " " + _point4_2.Points());
+                int point4 = _point4_1.GetPoints() + _point4_2.Points();
+                Debug.Log("Point4 " + point4 + " = " + _point4_1.GetPoints() + " " + _point4_2.Points());
                 for (int i = 0; i < _point4_1.Report.Length; i++)
                 {
                     if (_point4_1.Report[i] == 1)
@@ -175,7 +175,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                     }
                 }
                 Debug.Log(string.Join(",", ReportPoint4));
-                return _point4;
+                return point4;
             }
             catch
             {
@@ -187,8 +187,8 @@ namespace Assets.Scripts.Stages.SixthStage.Report
             try
             {
                 ReportPoint5.Clear();
-                _point5 = _point5_1.GetPoints();
-                Debug.Log("Point5 " + _point5);
+                int point5 = _point5_1.GetPoints();
+                Debug.Log("Point5 " + point5);
                 for(int i = 0; i < _point5_1.Report.Length; i++)
                 {
                     if (_point5_1.Report[i] == 1)
@@ -197,7 +197,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                         ReportPoint5.Add("Неправильно");
                 }
                 Debug.Log(string.Join(",", ReportPoint5));
-                return _point5;
+                return point5;
             }
             catch
             {
@@ -209,8 +209,8 @@ namespace Assets.Scripts.Stages.SixthStage.Report
             try
             {
                 ReportPoint6.Clear();
-                _point6 = _point_6.Points();
-                Debug.Log("Point6 " + _point6);
+                int point6 = _point_6.Points();
+                Debug.Log("Point6 " + point6);
                 for (int i = 0; i < _point_6.Report.Length; i++)
                 {
                     if (_point_6.Report[i] == 1)
@@ -218,7 +218,7 @@ namespace Assets.Scripts.Stages.SixthStage.Report
                     else
                         ReportPoint6.Add("Неправильно");
                 }
-                return _point6;
+                return point6;
             }
             catch
             {
