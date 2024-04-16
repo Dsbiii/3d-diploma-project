@@ -7,9 +7,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.Stages
 {
-    [ExecuteInEditMode]
     public class DatedItemService : MonoBehaviour
     {
+        [SerializeField] private Setting _setting;
         [Header("Максимальный и минимальный разборс в днях")]
         [SerializeField] private DateRange _right;
         [SerializeField] private DateRange _wrong;
@@ -40,8 +40,25 @@ namespace Assets.Scripts.Stages
         public void DisplayDate()
         {
             int Ran = UnityEngine.Random.Range(0, 99);
-            if (Ran > 60)
+
+            if(_setting == null)
             {
+                Debug.Log("Siz error " + gameObject);
+                if (Ran > 60)
+                {
+                    Debug.Log("DisplayWrongDate");
+                    DisplayWrongDate();
+                }
+                else
+                {
+                    DiplayRightDate();
+                }
+                return;
+            }
+
+            if (Ran > 60 && _setting._SIZError)
+            {
+                Debug.Log("DisplayWrongDate");
                 DisplayWrongDate();
             }
             else

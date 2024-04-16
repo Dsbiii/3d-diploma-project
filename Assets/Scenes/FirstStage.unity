@@ -13221,6 +13221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eeada91c19a6354ea3501d99853b3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _setting: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
   _right:
     _daysMinRange: 20
     _daysMaxRange: 64
@@ -13274,6 +13275,7 @@ MonoBehaviour:
   _itemType: 13
   _particleSystem: {fileID: 0}
   isDemo: 0
+  isInactiveOnInventory: 0
 --- !u!1 &446833069
 GameObject:
   m_ObjectHideFlags: 0
@@ -13396,6 +13398,7 @@ MonoBehaviour:
   _itemType: 1
   _particleSystem: {fileID: 1288429659}
   isDemo: 0
+  isInactiveOnInventory: 0
   _animator: {fileID: 449613431}
 --- !u!95 &449613431 stripped
 Animator:
@@ -22854,6 +22857,7 @@ MonoBehaviour:
   _itemType: 1
   _particleSystem: {fileID: 276224227}
   isDemo: 0
+  isInactiveOnInventory: 0
   _animator: {fileID: 895308864}
 --- !u!65 &895308863
 BoxCollider:
@@ -22899,6 +22903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda774c99a2ca4a4cb0a9395d038aa88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _setting: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
   _isCanPierced: 1
   _deffects: []
   _dirtyTextures: {fileID: 2800000, guid: cf4b68a7ef537934b89aeec23db0c6b5, type: 3}
@@ -22918,6 +22923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eeada91c19a6354ea3501d99853b3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _setting: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
   _right:
     _daysMinRange: 20
     _daysMaxRange: 64
@@ -30393,6 +30399,7 @@ MonoBehaviour:
   _itemType: 0
   _particleSystem: {fileID: 0}
   isDemo: 0
+  isInactiveOnInventory: 0
 --- !u!65 &1270404608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46300,6 +46307,7 @@ MonoBehaviour:
   _itemType: 0
   _particleSystem: {fileID: 0}
   isDemo: 0
+  isInactiveOnInventory: 0
 --- !u!1 &1608296432
 GameObject:
   m_ObjectHideFlags: 0
@@ -49294,6 +49302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eeada91c19a6354ea3501d99853b3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _setting: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
   _right:
     _daysMinRange: 20
     _daysMaxRange: 64
@@ -57830,9 +57839,17 @@ PrefabInstance:
         \u0432 \u0441\u0443\u043C\u043A\u0443"
       objectReference: {fileID: 0}
     - target: {fileID: 384227010715545509, guid: 4ce9edcc09cbbaf41928d3c12b82c88b, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
+    - target: {fileID: 384227010715545509, guid: 4ce9edcc09cbbaf41928d3c12b82c88b, type: 3}
       propertyPath: _deffects.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 384227010715545510, guid: 4ce9edcc09cbbaf41928d3c12b82c88b, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 384227011479680679, guid: 4ce9edcc09cbbaf41928d3c12b82c88b, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0009
@@ -58302,6 +58319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eeada91c19a6354ea3501d99853b3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _setting: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
   _right:
     _daysMinRange: 20
     _daysMaxRange: 64
@@ -58433,6 +58451,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1861943648845957134, guid: 39e6129f2316c7d47a25b041de160233, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
+    - target: {fileID: 1861943648845957134, guid: 39e6129f2316c7d47a25b041de160233, type: 3}
       propertyPath: _isCanPierced
       value: 1
       objectReference: {fileID: 0}
@@ -58452,6 +58474,10 @@ PrefabInstance:
       propertyPath: _tables.Array.data[1]
       value: 
       objectReference: {fileID: 2092453971}
+    - target: {fileID: 1861943648845957135, guid: 39e6129f2316c7d47a25b041de160233, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 1861943649140643892, guid: 39e6129f2316c7d47a25b041de160233, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -58526,6 +58552,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2109665431670609713, guid: 09a1331725870fc4aa793a773736eee4, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 2109665431670609715, guid: 09a1331725870fc4aa793a773736eee4, type: 3}
       propertyPath: _icon
       value: 
@@ -58718,6 +58748,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1315517695349506062, guid: 80be8e797ad378a458deba56d36051e9, type: 2}
     - target: {fileID: 2892680195459354961, guid: 2f8a9613facd52e4a948b17dcb0835ef, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
+    - target: {fileID: 2892680195459354961, guid: 2f8a9613facd52e4a948b17dcb0835ef, type: 3}
       propertyPath: _wrong._daysMaxRange
       value: -64
       objectReference: {fileID: 0}
@@ -58895,6 +58929,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3066066327084597741, guid: 75a4b53e0e928d94386fa8bb60682816, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
+    - target: {fileID: 3066066327084597742, guid: 75a4b53e0e928d94386fa8bb60682816, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a4b53e0e928d94386fa8bb60682816, type: 3}
 --- !u!1001 &3207413887862024403
@@ -59306,6 +59348,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3963767171642666604, guid: aa5182ad3cbc2bb45924f4ffcc76309f, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 3963767171642666608, guid: aa5182ad3cbc2bb45924f4ffcc76309f, type: 3}
       propertyPath: _act
       value: 
@@ -59463,6 +59509,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4335922697940155230, guid: 6722e135fe8c76d418b99440c9d5b1b5, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
+    - target: {fileID: 4335922697940155231, guid: 6722e135fe8c76d418b99440c9d5b1b5, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 4335922697940155231, guid: 6722e135fe8c76d418b99440c9d5b1b5, type: 3}
       propertyPath: _right._daysMaxRange
       value: -30
@@ -59548,6 +59602,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 1315517695349506062, guid: 80be8e797ad378a458deba56d36051e9, type: 2}
+    - target: {fileID: 4417414590844575488, guid: 4c413d1b414d1f5448a26d223b1842d2, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 4417414590844575490, guid: 4c413d1b414d1f5448a26d223b1842d2, type: 3}
       propertyPath: m_CastShadows
       value: 1
@@ -59778,6 +59836,10 @@ PrefabInstance:
         \u0432 \u0441\u0443\u043C\u043A\u0443"
       objectReference: {fileID: 0}
     - target: {fileID: 5301357433962893255, guid: f777fca4b3645be41a790780a7ca7e71, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
+    - target: {fileID: 5301357433962893255, guid: f777fca4b3645be41a790780a7ca7e71, type: 3}
       propertyPath: _dateText
       value: "\u0421\u0440\u043E\u043A \u0433\u043E\u0434\u043D\u043E\u0441\u0442\u0438:\\n"
       objectReference: {fileID: 0}
@@ -59874,6 +59936,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5512496433952495872, guid: 4ec142bfe127e3e468b4abe4d3c30b4b, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 5512496433952495873, guid: 4ec142bfe127e3e468b4abe4d3c30b4b, type: 3}
       propertyPath: _right._daysMaxRange
       value: 64
@@ -60160,6 +60226,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465423499364799201, guid: 6ce0e5a1471a2bf48b5e2c099d035cbc, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 6465423499364799203, guid: 6ce0e5a1471a2bf48b5e2c099d035cbc, type: 3}
       propertyPath: _name
       value: "\u0413\u0430\u0437\u043E\u0432\u044B\u0439 \u0431\u0430\u043B\u043B\u043E\u043D\u0447\u0438\u043A"
@@ -60295,6 +60365,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 1315517695349506062, guid: 80be8e797ad378a458deba56d36051e9, type: 2}
+    - target: {fileID: 6995683777187551500, guid: cafd864fe9b42224482dccfda29f3baa, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 6995683777187551536, guid: cafd864fe9b42224482dccfda29f3baa, type: 3}
       propertyPath: m_Name
       value: safety_tools
@@ -60702,6 +60776,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7399336741366257074, guid: ada8011418db35a4299a39769d7d5ca3, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
+    - target: {fileID: 7399336741366257077, guid: ada8011418db35a4299a39769d7d5ca3, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 7399336741366257078, guid: ada8011418db35a4299a39769d7d5ca3, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -60774,6 +60856,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1592585169}
     m_Modifications:
+    - target: {fileID: 7500015754758196048, guid: d848d3bfec29f64499b9262ef433fc98, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 7500015754758196053, guid: d848d3bfec29f64499b9262ef433fc98, type: 3}
       propertyPath: _name
       value: "\u043A\u0430\u0441\u043A\u0430"
@@ -60844,6 +60930,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7500015754758196063, guid: d848d3bfec29f64499b9262ef433fc98, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 7500015754758196063, guid: d848d3bfec29f64499b9262ef433fc98, type: 3}
       propertyPath: _right._daysMaxRange
       value: -30
@@ -60929,6 +61019,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7553030558957700784, guid: f3c90e072e5fb5a4eb080de1890f35a6, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 7553030558957700784, guid: f3c90e072e5fb5a4eb080de1890f35a6, type: 3}
       propertyPath: _dateText
       value: "\u0413\u043E\u0434\u0435\u043D \u0434\u043E 1 \u043A\u0412\\n\u0414\u0430\u0442\u0430
@@ -61370,6 +61464,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098712739568746756, guid: 2cb51569fba357c43a8764d05a30a3cb, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
+    - target: {fileID: 8098712739568746756, guid: 2cb51569fba357c43a8764d05a30a3cb, type: 3}
       propertyPath: _right._daysMaxRange
       value: 64
       objectReference: {fileID: 0}
@@ -61654,6 +61752,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8677895875780232392, guid: be73387735de83e46bbfdf2acbc2320d, type: 3}
+      propertyPath: _setting
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3cbff24bc0d24596eec9052b93633, type: 2}
     - target: {fileID: 8677895875780232392, guid: be73387735de83e46bbfdf2acbc2320d, type: 3}
       propertyPath: _wrong._daysMaxRange
       value: -64

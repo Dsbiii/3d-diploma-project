@@ -5,6 +5,7 @@ namespace Assets.Scripts.Stages
 {
     public class DeffectedItemService : MonoBehaviour
     {
+        [SerializeField] private Setting _setting;
         [SerializeField] private bool _isCanPierced;
         [SerializeField] private GameObject[] _deffects;
         [SerializeField] private Texture _dirtyTextures;
@@ -88,9 +89,9 @@ namespace Assets.Scripts.Stages
 
             int randomValue = Random.Range(0, 99);
 
-            if(randomValue > 60)
+            if(randomValue > 60 && _setting._SIZError)
             {
-
+                Debug.Log("DisplayDeffectsWithRandomValue");
                 if (_isCanPierced)
                 {
                     int randomValue1 = Random.Range(0, 99);

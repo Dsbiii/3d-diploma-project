@@ -14,9 +14,11 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         [SerializeField] private GameObject _reloadPanel;
         [SerializeField] private TMP_Text _timerText;
         [SerializeField] private DeviceDataPanel _deviceDataPanel;
-        private float _totalTime = 300.0f; // Время в секундах (5 минут)
+        private float _totalTime = 10.0f; // Время в секундах (5 минут)
         private Coroutine _coroutine;
         [Inject] private FifthStageExam _fifthStageExam;
+
+        public bool IsHotReloaded { get; private set; }
 
         private IEnumerator StartTimer()
         {
@@ -38,13 +40,13 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void End()
         {
-            _fifthStageExam.HotReloaded = true;
-
             if (_totalTime <= 0)
             {
+                IsHotReloaded = true;
                 _reloadPanel.SetActive(false);
                 if((_passwordDevice.text == "0000" || _passwordDevice.text == "000000"))
                 {
+                    _fifthStageExam.HotReloaded = true;
                     _deviceDataPanel.SetDevicesStatus();
                 }
             }

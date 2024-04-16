@@ -125,6 +125,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 Destroy(_tempPorts[i].gameObject);
             }
             _tempPorts.Clear();
+            if(_selectedPort != null)
+                _selectedPort.UnSelect();
             _portList.SetActive(false);
         }
     }

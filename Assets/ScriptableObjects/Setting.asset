@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Setting
   m_EditorClassIdentifier: 
   _TimeRun: 20
-  _SIZError: 0
+  _SIZError: 1
   _TreshchinaKorpuseSchetchika: 0
   _PereobzhataPlomba: 0
   _PovrezhdenieVtorichnyhIzmeritel: 0

@@ -9,6 +9,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 {
     public class SATPanel : MonoBehaviour
     {
+        [SerializeField] private HotReloadPanel _hotReloadPanel;
         [SerializeField] private DeviceDataPanel _deviceDataPanel;
         [SerializeField] private GameObject _saveButton;
         [SerializeField] private LaptopCablePoint _laptopCablePoint;
@@ -29,6 +30,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         private string _passwordFieldValue;
         private bool _isSave;
         private int _selectedButton;
+
+        private bool _isRight = true;
 
         public string Port {get;private set;}
 
@@ -132,6 +135,10 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             {
                 item.SetPortName(Port);
             }
+            if(_hotReloadPanel.IsHotReloaded)
+            {
+                _isRight = false;
+            }
            // _deviceDataPanel.EditPort(Port);
         }
 
@@ -154,7 +161,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
             if (_mode1.options[_mode1Value].text == "Нечет" &&
                 _mode2.options[_mode2Value].text == "Нечет" &&
-                _isSelectedPort)
+                _isSelectedPort &&
+                _isRight)
             {
                 return true;
             }

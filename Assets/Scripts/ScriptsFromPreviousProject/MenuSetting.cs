@@ -79,7 +79,7 @@ using UnityEngine.UI;
         _TransformatoryToka.isOn = _Setting._TransformatoryToka;
         _Indicator.isOn = _Setting._Indicator;
         _Pemichka.isOn = _Setting._Pemichka;
-
+        _SIZerror.isOn = _Setting._SIZError;
         Nesootvetstvie_Toka.isOn = _Setting.Nesootvetstvie_Toka;
         Vstrechnoe_Vklyuchenie_Transformatorov_Toka.isOn = _Setting.Vstrechnoe_Vklyuchenie_Transformatorov_Toka;
         Kontakty_Transformatorov.isOn = _Setting.Kontakty_Transformatorov;
@@ -100,7 +100,7 @@ using UnityEngine.UI;
         
         _Setting._TimeRun = int.Parse(_Time.text);
         //_Setting.SaveTime();
-        //_Setting._SIZError = _SIZerror.isOn;
+        _Setting._SIZError = _SIZerror.isOn;
         //_Setting._TreshchinaKorpuseSchetchika =  _TreshchinaKorpuseSchetchika.isOn;
         // _Setting._PereobzhataPlomba = _PereobzhataPlomba.isOn;
         // _Setting._PovrezhdenieVtorichnyhIzmeritel = _PovrezhdenieVtorichnyhIzmeritel.isOn;
