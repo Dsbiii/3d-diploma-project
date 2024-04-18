@@ -52,6 +52,8 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
             if (_directoriesPanel.CurrentSelectedObject != null)
             {
                 _directoriesPanel.CurrentSelectedObject.Init(_name.text, _name.text, _serialNumber.text, _placePoint.options[_placePoint.value].text, _user.text, _password.text, _timeZone.text, _timePoint.options[_timePoint.value].text, _placePoint.value, _timePoint.value);
+
+                Debug.Log("pass" + _password.text);
             }
         }
         public void CreateForSecond()

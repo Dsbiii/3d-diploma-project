@@ -86,7 +86,8 @@ namespace Assets.Scripts.Stages.SixthStage
             return text;
         }
         public int GetPoints()
-        {if (_panels.Count == 0)
+        {
+            if (_panels.Count == 0)
                 return 0;
             return _panels.OrderByDescending(obj => obj.Points()).First().Points();
         }

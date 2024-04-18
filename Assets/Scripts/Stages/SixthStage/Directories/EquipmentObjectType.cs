@@ -19,8 +19,8 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         [SerializeField] private Color _selectColor;
         [SerializeField] private Image _image;
         [SerializeField] private Toggle _toggle;
-        private string _user;
-        private string _password;
+        [SerializeField] private string _user;
+        [SerializeField] private string _password;
         private string _timeZone;
         private string _timePoint;
         private int _valuePlacePoint;
@@ -100,6 +100,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
             Report[0] = 1;
             if (_name.text == "SM160")
             {
+                Debug.Log(" dsa");
                 if (CheckSerialNumber())
                 {
                     Report[1] = 1;
@@ -124,6 +125,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
                 {
                     Point = 0;
                 }
+                Debug.Log(string.Join(" ", Report) + "pass"); 
             }
             else
             {
@@ -140,6 +142,7 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         }
         private bool CheckUser()
         {
+            Debug.Log("password " + _password + " " + _user);
             if (_user == "admin" && _password == "12345")
                 return true;
             return false;

@@ -25,7 +25,7 @@ namespace Assets.Scripts.Stages.SixthStage
         public void Spawn()
         {
             RouteEquipment equip = Instantiate(_prefab, _parent);
-            equip.Init(_connectionType.GetType(), _connectionType.Priority, _edit, _delete, this, _directoriesPanel.CurrentSelectedObject);
+            equip.Init(_connectionType.GetType(), _connectionType.Priority, _edit, _delete, this, _directoriesPanel.CurrentSelectedObject, _directoriesPanel);
             _equipments.Add(equip);
         }
         public void Selected(RouteEquipment routeEquipment)

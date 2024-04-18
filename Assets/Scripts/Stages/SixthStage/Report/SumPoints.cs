@@ -66,14 +66,14 @@ namespace Assets.Scripts.Stages.SixthStage.Report
             {
                 ReportPoint1Current.Clear();
                 int point1 = _point_1.GetPoints();
-                Debug.Log(point1 + " point1");
+                Debug.Log(point1 + " point1" + string.Join(" ", _point_1.ReportInfo));
+                
                 if (point1 == 0)
                     CriticalError = true;
                 Debug.Log("_point_1.ReportInfo.Length" + _point_1.ReportInfo.Length);
                 Debug.Log("ReportPoint1" + ReportPoint1.Count);
                 if(ReportPoint1.Count < 1)
                 {
-                    Debug.Log("CheckBlyat");
                     Point1 = point1;
                     for (int i = 0; i < _point_1.ReportInfo.Length; i++)
                     {

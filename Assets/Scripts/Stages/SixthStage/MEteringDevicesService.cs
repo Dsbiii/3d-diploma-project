@@ -114,7 +114,7 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int GetPoints()
         {
-            if(_routes.Count == 0)
+            if (_routes.Count == 0)
                 return 0;
             return _routes.OrderByDescending(obj => obj.SumPoints()).First().SumPoints();
         }

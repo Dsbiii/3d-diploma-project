@@ -21,19 +21,21 @@ namespace Assets.Scripts.Stages.SixthStage
         private RouteEquimentPanel _panel;
         private Button _edit;
         private Button _delete;
+        private DirectoriesPanel directoriesPanel;
 
         public bool IsSelected { get; private set; } = false;
         private void Awake()
         {
             _toggle.onValueChanged.AddListener(CheckToggle);
         }
-        public void Init(string type, string priority, Button edit, Button delete, RouteEquimentPanel panel, EquipmentObjectType equipment)
+        public void Init(string type, string priority, Button edit, Button delete, RouteEquimentPanel panel, EquipmentObjectType equipment, DirectoriesPanel directoriePanel)
         {
             _type.text = type;
             _priority.text = priority;
             _edit = edit;
             _delete = delete;
             _panel = panel;
+            directoriesPanel = directoriePanel;
             _equipment = equipment;
             _edit.onClick.AddListener(Edit);
             _delete.onClick.AddListener(Delete);
@@ -102,7 +104,8 @@ namespace Assets.Scripts.Stages.SixthStage
                 Point = 0;
             else
             {
-                Point = _equipment.GetPoints();
+                Debug.Log(" dsa1");
+                Point = directoriesPanel.Getpoints();
                 for(int i = 0; i < _equipment.Report.Length; i++)
                 {
                     _panel.ReportInfo[i] = _equipment.Report[i];

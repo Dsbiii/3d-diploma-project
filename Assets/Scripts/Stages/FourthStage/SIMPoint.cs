@@ -9,6 +9,7 @@ namespace Assets.Scripts.Stages.FourthStage
     {
         [SerializeField] private GameObject _indicator;
         [SerializeField] private GameObject _objectAntena;
+        [SerializeField] private bool _isDemo;
         [Inject] private FourthStageModel _model;
         [Inject] private FourthStageExamSystem _system;
         [Inject] private GameMode _gameMode;
@@ -22,7 +23,7 @@ namespace Assets.Scripts.Stages.FourthStage
         }
         public void OnEnable()
         {
-            if (_gameMode.IsDemo)
+            if (_gameMode.IsDemo && _isDemo)
             {
                 SetupPoint();
             } 
