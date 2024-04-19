@@ -55,7 +55,7 @@ namespace Assets.Scripts.Stages.FifthStage
 
         public void OpenData()
         {
-            if (_deviceDataPanel.CurrentDevice != null && _deviceDataPanel.CurrentDevice.BaseDevice)
+            if (_deviceDataPanel.CurrentDevice == null || _deviceDataPanel.CurrentDevice.BaseDevice)
             {
                 _dataInfoPanel.SetActive(false);
             }

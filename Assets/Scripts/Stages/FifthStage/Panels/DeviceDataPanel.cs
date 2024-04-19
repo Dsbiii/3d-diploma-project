@@ -50,6 +50,8 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         private bool _isWrited;
 
+        public bool IsWrongCreatedDevice { get; private set; }
+
         private void Start()
         {
             _serialNumber.onSubmit.AddListener(Sumbit);
@@ -115,11 +117,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 item.Write();
             }
             _isWrited = true;
-            //if(CurrentDevice != null )
-            //{
-            //    CurrentDevice.SetDeviceValue(_netAdress.text, _ktt.text, _ktn.text,
-            //                    _port.text, "55629");
-            //}
+
         }
 
         public void EditPort(string value)
@@ -175,25 +173,6 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                     _netAdress.text = "29";
                     _ktn.text = "1";
                     _ktt.text = "1";
-                    //string portName = "Последовательный порт";
-                    //if (_portListPanel.PortName != "")
-                    //    portName = _portListPanel.PortName;
-
-                    //_port.text = portName;
-                    //_portDropDown.value = 2;
-                    Debug.Log("Changed port " + _portDropDown.value);
-                    //if(CurrentDevice != null)
-                    //{
-                    //    CurrentDevice.KTTValue = "1";
-                    //    CurrentDevice.KTNValue = "1";
-                    //    CurrentDevice.NetAdressValue = "29";
-                    //    CurrentDevice.PortValue = "Последовательный порт";
-                    //    CurrentDevice.SerialNumberValue = "0112055629";
-                    //}
-                    //if (CurrentDevice != null)
-                    //{
-                    //    CurrentDevice.SetDeviceValue(_netAdress.text, _ktt.text, _ktn.text, _port.text, _serialNumber.text, _password.text, _portDropDown.value);
-                    //}
                 }
             }
         }
@@ -202,16 +181,6 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
         {
             device.SetDeviceValue("29", "1", "1",
                           "", text, _password.text, device.PortDropdown.value);
-            //if (int.TryParse(text, out int result))
-            //{
-            //    if (result == 55629 || result == 0112055629)
-            //    {
-            //        //_serialNumber.text = text;
-            //        string port = _portDropDown.options[_portDropDown.value].text;
-            //        device.SetDeviceValue("29", "1", "1",
-            //              port, _serialNumber.text, _password.text, _portDropDown.value);
-            //    }
-            //}
         }
 
         public void UpdateDevices()
@@ -223,13 +192,6 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
                 {
                     SumbitValueEnter(_serialNumber.text);
                     _serialNumber.text = item.SerialNumber;
-                    //_portDropDown.value = item.PortDropDownValue;
-                    //string port = _portDropDown.options[_portDropDown.value].text;
-                    //Debug.Log(port);
-
-                    //CurrentDevice.SetDeviceValue("29", "1", "1",
-                    //    port, _serialNumber.text, _password.text, _portDropDown.value);
-                    //CurrentDevice.UpdateDevice();
                 }
             }
 
@@ -251,15 +213,15 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
             foreach (var item in _devices)
             {
-                if (item.NetAdress == "29" &&
+                if (!(item.NetAdress == "29" &&
                     item.KTN == "1" &&
                     item.KTT == "1" &&
                     (item.SerialNumber == "0112055629" ||
                     item.SerialNumber == "55629") &&
                     (_password.text == "0000"
-                    || _password.text == "000000"))
+                    || _password.text == "000000")))
                 {
-                    _fifthStageExam.ConfiguredDevice = true;
+                    IsWrongCreatedDevice = true;
                 }
                 //if (item.NetAdress == "29" &&
                 //    item.KTN == "1" &&
@@ -312,21 +274,20 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void SetDevicesStatus()
         {
+            if (!IsWrongCreatedDevice)
+            {
+                _fifthStageExam.ConfiguredDevice = true;
+            }
             if (!_portListPanel.IsRightCreatedPort)
                 return;
-
             if (!_counterCablePoint.IsIndicated)
                 return;
-
             if (!_laptopCablePoint.IsIndicated)
                 return;
-
             if (!_fifthStageModel.IsRightConnectedComputer)
                 return;
-
-            if (!_satPanel.IsRight())
+            if (!_satPanel.IsRightForHotReloaded())
                 return;
-
             foreach (var item in _devices)
             {
                 item.SetStatusText();
@@ -355,7 +316,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             }
             if(CurrentDevice != null)
                 CurrentDevice.Unselect();
-
+            CurrentDevice = null;
             if (!_isWrited)
             {
                 _password.text = "";

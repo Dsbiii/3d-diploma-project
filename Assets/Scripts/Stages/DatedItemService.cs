@@ -55,15 +55,24 @@ namespace Assets.Scripts.Stages
                 }
                 return;
             }
-
-            if (Ran > 60 && _setting._SIZError)
+            if (_setting._SIZError)
             {
-                Debug.Log("DisplayWrongDate");
-                DisplayWrongDate();
+                if (Ran > 60)
+                {
+                    Debug.Log("DisplayWrongDate");
+                    DisplayWrongDate();
+                }
+                else
+                {
+                    DiplayRightDate();
+                }
             }
             else
             {
-                DiplayRightDate();
+                for (int i = 0; i < _dateTextes.Length; i++)
+                {
+                    _dateTextes[i].text = "";
+                }
             }
 
         }

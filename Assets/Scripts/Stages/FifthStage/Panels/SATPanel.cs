@@ -168,5 +168,21 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
             }
             return false;
         }
+
+        public bool IsRightForHotReloaded()
+        {
+            Debug.Log($"mode1 {_mode1.options[_mode1Value].text}");
+            Debug.Log($"mode1 {_mode2.options[_mode2Value].text}");
+            Debug.Log($"_isSelectedPort {_isSelectedPort}");
+            Debug.Log($"_passwordFieldValue {_passwordFieldValue}");
+
+            if (_mode1.options[_mode1Value].text == "Нечет" &&
+                _mode2.options[_mode2Value].text == "Нечет" &&
+                _isSelectedPort)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
