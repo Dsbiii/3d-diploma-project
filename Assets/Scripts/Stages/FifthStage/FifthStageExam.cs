@@ -73,7 +73,9 @@ namespace Assets.Scripts.Stages.FifthStage
 
             _fourthStageExams.Clear();
             ExamSystem.Instance.AddExam(new Exam("Этап 3. Настройка «Пирамиды»"));
-            
+
+            _sumPoints.SumAllPoints();
+
             CreateUSPDPoint();
             SettingPointAbonent();
             SettingDataCollection();
@@ -240,7 +242,13 @@ namespace Assets.Scripts.Stages.FifthStage
                 "Указать порт"};
 
             if (_sumPoints.ReportPoint1.Count == 0)
+            {
+                for (int i = 0; i < Action.Length; i++)
+                {
+                    AddFourthStageExamAddition(Action[i], "Неправильно", "", 0, 0);
+                }
                 return;
+            }
 
             for (int i = 0; i < Action.Length; i++)
             {
@@ -265,8 +273,7 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             try
             {
-                if (_sumPoints.ReportPoint2.Count == 0)
-                    return;
+                
                 string[] Action = new string[12] { "Добавить счетчик",
                 "Указать модель счетчика",
                 "Указать серийный номер", "Выставить дату выпуска",
@@ -276,9 +283,17 @@ namespace Assets.Scripts.Stages.FifthStage
                 "Настроить каналообразующее оборудование",
                 "Выбрать каналообразующее оборудование",
                 "Указать счетчик в истории замен", "Выбрать дату установки в истории замен"};
+                if (_sumPoints.ReportPoint2.Count == 0)
+                {
+                    for (int i = 0; i < Action.Length; i++)
+                    {
+                        AddFourthStageExamAddition(Action[i], _sumPoints.ReportPoint2[i], "", 0, 0);
+                    }
+                    return;
+                }
                 for (int i = 0; i < Action.Length; i++)
                 {
-                    AddFourthStageExamAddition(Action[i], _sumPoints.ReportPoint2[i], "", 0, 0);
+                    AddFourthStageExamAddition(Action[i], "Неправильно", "", 0, 0);
                 }
             }
             catch
@@ -304,8 +319,7 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             try
             {
-                if (_sumPoints.ReportPoint3.Count == 0)
-                    return;
+                
                 string[] Action = new string[9] {
                 "Указать название сценария сбора данных",
                 "Указать глубину сбора",
@@ -316,6 +330,14 @@ namespace Assets.Scripts.Stages.FifthStage
                 "Указать тип расписания",
                 "Указать периодичность выполнения расписания",
                 "Указать дату начала работы расписания",};
+                if (_sumPoints.ReportPoint3.Count == 0)
+                {
+                    for (int i = 0; i < Action.Length; i++)
+                    {
+                        AddFourthStageExamAddition(Action[i], "Неправильно", "", 0, 0);
+                    }
+                    return;
+                }
                 for (int i = 0; i < Action.Length; i++)
                 {
                     AddFourthStageExamAddition(Action[i], _sumPoints.ReportPoint3[i], "", 0, 0);
@@ -342,8 +364,7 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             try
             {
-                if (_sumPoints.ReportPoint4.Count == 0)
-                    return;
+                
                 string[] Action = new string[6] {
                 "Создать абонента",
                 "Указать номер лицевого счета",
@@ -351,6 +372,14 @@ namespace Assets.Scripts.Stages.FifthStage
                 "Указать тип абонента",
                 "Во вкладке «Паспорт» выбрать созданного ранее абонента",
                 "Указать тип абонента во вкладке «Паспорт»"};
+                if (_sumPoints.ReportPoint4.Count == 0)
+                {
+                    for (int i = 0; i < Action.Length; i++)
+                    {
+                        AddFourthStageExamAddition(Action[i], "Неправильно", "", 0, 0);
+                    }
+                    return;
+                }
                 for (int i = 0; i < Action.Length; i++)
                 {
                     AddFourthStageExamAddition(Action[i], _sumPoints.ReportPoint4[i], "", 0, 0);
@@ -379,12 +408,19 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             try
             {
-                if (_sumPoints.ReportPoint5.Count == 0)
-                    return;
+                
                 string[] Action = new string[3] {
                 "Создать абонента и указать его логин",
                 "Выбрать из списка созданного ранее абонента, указать профиль абонента и тип аутентификации",
                 "Установить пароль"};
+                if (_sumPoints.ReportPoint5.Count == 0)
+                {
+                    for (int i = 0; i < Action.Length; i++)
+                    {
+                        AddFourthStageExamAddition(Action[i], "Неправильно", "", 0, 0);
+                    }
+                    return;
+                }
                 for (int i = 0; i < Action.Length; i++)
                 {
                     AddFourthStageExamAddition(Action[i], _sumPoints.ReportPoint5[i], "", 0, 0);
@@ -417,12 +453,19 @@ namespace Assets.Scripts.Stages.FifthStage
         {
             try
             {
-                if (_sumPoints.ReportPoint6.Count == 0)
-                    return;
+                
                 string[] Action = new string[3] {
                 "Выбрать счетчик из списка",
                 "Указать интервал показаний",
                 "Указать собираемые показания"};
+                if (_sumPoints.ReportPoint6.Count == 0)
+                {
+                    for (int i = 0; i < Action.Length; i++)
+                    {
+                        AddFourthStageExamAddition(Action[i], "Неправильно", "", 0, 0);
+                    }
+                    return;
+                }
                 for (int i = 0; i < Action.Length; i++)
                 {
                     AddFourthStageExamAddition(Action[i], _sumPoints.ReportPoint6[i], "", 0, 0);

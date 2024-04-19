@@ -97,18 +97,19 @@ namespace Assets.Scripts.Stages.SixthStage
         }
         public int SumPoint()
         {
-            if (_equipment.DontSM || _equipment.CriticalError)
+            EquipmentObjectType equipment = directoriesPanel.GetEquipment();
+            if (equipment.DontSM || equipment.CriticalError)
                 return 0;
             int Point = 0;
-            if (_equipment == null)
+            if (equipment == null)
                 Point = 0;
             else
             {
                 Debug.Log(" dsa1");
                 Point = directoriesPanel.Getpoints();
-                for(int i = 0; i < _equipment.Report.Length; i++)
+                for(int i = 0; i < equipment.Report.Length; i++)
                 {
-                    _panel.ReportInfo[i] = _equipment.Report[i];
+                    _panel.ReportInfo[i] = equipment.Report[i];
                 }
             }
             if (CheckType())

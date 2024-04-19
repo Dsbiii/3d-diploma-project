@@ -98,6 +98,10 @@ namespace Assets.Scripts.Stages.SixthStage.Directories
         {
             _addRoute.interactable = state;
         }
+        public EquipmentObjectType GetEquipment()
+        {
+            return _equipmentObjectTypes.OrderByDescending(obj => obj.GetPoints()).First();
+        }
         public int Getpoints()
         {
             return _equipmentObjectTypes.OrderByDescending(obj => obj.GetPoints()).First().GetPoints();
