@@ -20529,7 +20529,6 @@ MonoBehaviour:
   _content: {fileID: 799007685}
   Camera: {fileID: 575254479}
   _Obj:
-  - {fileID: 1107513058}
   - {fileID: 1565429099}
   - {fileID: 1565429099}
   - {fileID: 1565429099}

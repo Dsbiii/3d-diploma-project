@@ -23,7 +23,34 @@ namespace Assets.Scripts.Stages.FourthStage.SelectingCablesPanel
         public GameObject Panel => _panel;
         public bool IsLastPanel => _isLastPanel;
         public IReadOnlyCollection<FourthStageCableOption> CableOptions => _cableOptions;
-        public bool IsRight => _cableOptions.Where(item => item.IsRight && item.IsSelect).ToArray().Length == 1;
+        //public bool IsRight => _cableOptions.Where(item => item.IsRight && item.IsSelect).ToArray().Length == 1;
+
+        public bool IsRight { 
+            get 
+            {
+                bool isRight = false;
+                bool isError = false;
+
+                foreach (var item in _cableOptions)
+                {
+                    if (item.IsRight && item.IsSelect)
+                    {
+                        isRight = true;
+                    }
+                    if(!item.IsRight && item.IsSelect)
+                    {
+                        Debug.Log("Is error");
+                        isError = true;
+                    }
+                }
+
+                if (isError)
+                    isRight = false;
+
+                return isRight;
+            } 
+        }
+
 
     }
 

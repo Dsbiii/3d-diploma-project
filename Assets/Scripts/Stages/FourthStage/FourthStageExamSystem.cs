@@ -69,6 +69,11 @@ namespace Assets.Scripts.Stages.FourthStage
             _haveCriticalError = true;
         }
 
+        private void OnApplicationQuit()
+        {
+            RegisterExamSystem();
+        }
+
         public void RegisterExamSystem()
         {
             if (_isReported)

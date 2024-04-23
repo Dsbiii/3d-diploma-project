@@ -53,6 +53,11 @@ namespace Assets.Scripts.Stages.FifthStage
             _fourthStageExams.Add(new Exam(wrong, right, idealAction, action, name , true));
         }
 
+        private void OnApplicationQuit()
+        {
+            RegisterFifthStageExam();
+        }
+
         public void RegisterFifthStageExam()
         {
             if (_isReported)
