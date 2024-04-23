@@ -19,6 +19,7 @@ namespace Assets.Scripts.Stages.FourthStage
 
         [Inject] private FourthStageCableConnector _fourthStageCableConnector;
         [Inject] private FourthStageCablesSelectingPanel _fourthStageCablesSelectingPanel;
+        [Inject] private GameMode _gameMode;
 
 
         private List<Exam> _fourthStageExams = new List<Exam>();
@@ -88,7 +89,7 @@ namespace Assets.Scripts.Stages.FourthStage
             if (!_aktReport.IsOpened)
                 _haveCriticalError = true;
 
-            if (_haveCriticalError)
+            if (_haveCriticalError && !_gameMode.IsDemo)
             {
                 examNameSlot.ExamHaveCriticalError = true;
                 foreach (var exam in _fourthStageExams)
@@ -163,7 +164,7 @@ namespace Assets.Scripts.Stages.FourthStage
 
         private void CheckAntenaPoint()
         {
-            if (_antenaPoint.IsSetupedAntena)
+            if (_antenaPoint.IsSetupedAntena && !_gameMode.IsDemo)
             {
                 AddFourthStageExam("Подключение антенны к УСПД", "Правильно", "Подключить антенну к УСПД", 1, 0);
             }
@@ -183,7 +184,7 @@ namespace Assets.Scripts.Stages.FourthStage
                 if(item.IsIndicated)
                     isConnected = true;
             }
-            if (isConnected)
+            if (isConnected && !_gameMode.IsDemo)
             {
                 AddFourthStageExam("Установка SIM-карты", "Правильно", "Вставить SIM-карту в слот SIM1 или SIM2", 1, 0);
             }

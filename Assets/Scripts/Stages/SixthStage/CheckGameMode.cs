@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Stages.FourthStage;
+﻿using Assets.Scripts.Stages.FifthStage.Services.CouterCableConnector;
+using Assets.Scripts.Stages.FifthStage.Services.LaptopCableConnector;
+using Assets.Scripts.Stages.FourthStage;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +15,8 @@ namespace Assets.Scripts.Stages.SixthStage
         [SerializeField] private MovableObject _USPD;
         [SerializeField] private MovableObject _controller;
         [SerializeField] private AntenaPoint _antena;
+        [SerializeField] private LaptopCablePoint _laptopCablePoint;
+        [SerializeField] private CounterCablePoint _counterCablePoint;
         private void OnEnable()
         {
             if (_gameMode.IsDemo)
@@ -21,11 +25,12 @@ namespace Assets.Scripts.Stages.SixthStage
                 {
                     button.interactable = false;
                 }
-                Debug.Log("Stisn ba Zaebal");
                 _USPD.gameObject.SetActive(true);
                 _controller.gameObject.SetActive(true);
                 _USPD.PlantWithoutFlag();
                 _controller.PlantWithoutFlag();
+                //_laptopCablePoint.SetupPoint();
+                //_counterCablePoint.SetupPoint();
                 _antena.SetupAntena();
             }
         }

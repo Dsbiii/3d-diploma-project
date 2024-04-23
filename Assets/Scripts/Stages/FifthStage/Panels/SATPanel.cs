@@ -65,7 +65,7 @@ namespace Assets.Scripts.Stages.FifthStage.Panels
 
         public void Change()
         {
-            if (_fifthStageModel.IsRightConnectedComputer && _laptopCablePoint.IsIndicated &&
+            if (_laptopCablePoint.IsIndicated &&
                 _counterCablePoint.IsIndicated)
             {
                 _saveButton.SetActive(true);
