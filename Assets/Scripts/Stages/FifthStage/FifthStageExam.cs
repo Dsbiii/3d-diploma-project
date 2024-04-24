@@ -292,13 +292,13 @@ namespace Assets.Scripts.Stages.FifthStage
                 {
                     for (int i = 0; i < Action.Length; i++)
                     {
-                        AddFourthStageExamAddition(Action[i], _sumPoints.ReportPoint2[i], "", 0, 0);
+                        AddFourthStageExamAddition(Action[i], "Неправильно", "", 0, 0);
                     }
                     return;
                 }
                 for (int i = 0; i < Action.Length; i++)
                 {
-                    AddFourthStageExamAddition(Action[i], "Неправильно", "", 0, 0);
+                    AddFourthStageExamAddition(Action[i], _sumPoints.ReportPoint2[i], "", 0, 0);
                 }
             }
             catch
